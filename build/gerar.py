@@ -210,9 +210,6 @@ def rodape(prefixo=""):
       </ul>
     </div>
   </div>
-  <div class="rodape-base">
-    Dados de protocolo compilados e traduzidos a partir de <a href="{FONTE}" rel="nofollow noopener" target="_blank">peptidedosingprotocols.com</a>, acesso em {HOJE}. Os textos em português são autorais; os valores numéricos foram preservados da fonte. Site pessoal, sem vínculo com a fonte e sem finalidade comercial.
-  </div>
 </footer>
 </body>
 </html>"""
