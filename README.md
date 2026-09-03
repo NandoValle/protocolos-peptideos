@@ -4,6 +4,12 @@ Referência em português sobre protocolos de peptídeos e compostos correlatos:
 
 **55 compostos e combinações · 266 tabelas de dose · 58 páginas estáticas.**
 
+### ▶ [Abrir o site](https://raw.githack.com/NandoValle/protocolos-peptideos/main/index.html)
+
+O site é servido a partir deste repositório, sem GitHub Pages e sem domínio próprio.
+O link acima passa pelo raw.githack.com, um CDN que renderiza arquivos HTML
+hospedados no GitHub — o conteúdo continua morando só aqui.
+
 ---
 
 ## ⚠️ Aviso
