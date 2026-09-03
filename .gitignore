@@ -1,0 +1,11 @@
+# extracao bruta da fonte: fica so na maquina, nao vai para o repositorio
+build/src/
+build/raw/
+build/json/
+build/distilled/
+build/*.txt
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

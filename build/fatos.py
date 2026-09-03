@@ -1,0 +1,341 @@
+# -*- coding: utf-8 -*-
+"""Faixa de fatos rapidos, em PT-BR, por composto.
+
+Traduzido do bloco "Quick Start" da fonte. Numeros preservados.
+Onde a fonte nao trazia bloco proprio, os campos foram montados a partir
+do texto da propria pagina e estao marcados no comentario.
+"""
+
+FATOS = {
+"protocol_5-amino-1mq": [
+    ("Classe", "Inibidor de NNMT, molécula pequena. Não é peptídeo."),
+    ("Via mais comum", "Cápsula oral, 50 a 150 mg por dia, pela manhã."),
+    ("Interesse", "Redução do tamanho da célula de gordura e aumento de NAD+, sem supressão de apetite."),
+    ("Status", "Não aprovado pela FDA (30/07/2026). Nenhum ensaio humano publicado."),
+],
+"protocol_adamax": [
+    ("Via", "Nasal e subcutânea."),
+    ("Base de dose", "Transposta do Semax pela comunidade — não há farmacocinética própria."),
+    ("Status", "Não aprovado. Quase nenhuma pesquisa publicada direta."),
+],
+"protocol_aod-9604": [
+    ("Via", "Subcutânea."),
+    ("Faixa citada", "300–500 mcg por dia nos planos de comunidade."),
+    ("Medida", "Frasco de 5 mg + 3 mL de água bacteriostática ≈ 18–30 unidades na seringa U-100."),
+    ("Status", "Não aprovado pela FDA."),
+],
+"protocol_ara-290": [
+    ("O que é", "Agonista do receptor de reparo inato, derivado da EPO, sem efeito eritropoético."),
+    ("Via", "Injeção subcutânea; ensaios iniciais também usaram intravenosa."),
+    ("Doses de ensaio", "1–8 mg/dia SC na fase 2; 4 mg foi a dose central."),
+    ("Status", "Não aprovado; só designação órfã/fast-track. Desenvolvimento parado."),
+],
+"protocol_bpc-157": [
+    ("Vias estudadas", "Subcutânea é a mais comum; oral, IM e IV aparecem na literatura."),
+    ("Formato do esquema", "O total diário costuma ser dividido em uma ou duas doses."),
+    ("Medida", "Cálculo pela concentração do frasco e unidades da seringa U-100."),
+    ("Status", "Evidência majoritariamente pré-clínica. Não aprovado pela FDA (junho/2026)."),
+],
+"protocol_bremelanotide-pt-141": [
+    ("Via aprovada", "Subcutânea (autoinjetor Vyleesi). A intranasal é investigacional e manipulada."),
+    ("Dose aprovada", "1,75 mg SC, ≥45 min antes da atividade sexual, conforme a bula."),
+    ("Frequência aprovada", "No máximo 1 dose por 24 h e 8 doses por mês."),
+    ("População aprovada", "Mulheres na pré-menopausa com TDSH adquirido e generalizado."),
+],
+"protocol_cagrilintide": [
+    ("Via", "Injeção subcutânea, 1×/semana, no mesmo dia da semana."),
+    ("Meia-vida", "Cerca de 159 a 195 h (~7 a 8 dias) — por isso a dose semanal."),
+    ("Frascos", "A maioria dos fornecedores lista 5 mg ou 10 mg liofilizados."),
+    ("Status", "Fase 3 concluída em monoterapia e no CagriSema; isolada não é aprovada."),
+],
+"protocol_cartalax": [
+    ("Via", "Injetável, a partir de frasco reconstituído."),
+    ("Base", "Pesquisa em células de cartilagem e modelos celulares de envelhecimento."),
+    ("Status", "Não aprovado. Distância grande entre o publicado e o que circula."),
+],
+"protocol_cerebrolysin": [
+    ("O que é", "Mistura injetável de peptídeos e aminoácidos de cérebro suíno."),
+    ("Via", "Intramuscular e intravenosa."),
+    ("Status", "Registro em alguns países; não aprovado pela FDA."),
+],
+"protocol_cjc-1295-dac": [
+    ("Via", "Subcutânea. Reconstituir o pó liofilizado com água bacteriostática."),
+    ("Esquema", "Cadência mais comum é 1×/semana. Alguns protocolos dividem em duas doses (seg/qui)."),
+    ("Medida", "Frasco de 10 mg + 3,0 mL de água bacteriostática ≈ 3.333 mcg/mL."),
+    ("Status", "Investigacional. A fase 2 foi interrompida em 2006 após morte cardiovascular de um participante, atribuída a doença prévia."),
+],
+"protocol_cjc-1295-no-dac": [
+    ("Meia-vida", "Cerca de 30 minutos. Cada dose cria um pulso curto e some."),
+    ("Faixa comum", "100–300 mcg por injeção, 1–3×/dia, em janelas de jejum."),
+    ("Frasco padrão", "10 mg + 3 mL de água bacteriostática = 3.333 mcg/mL."),
+    ("Status", "Não aprovado pela FDA."),
+],
+"protocol_dsip": [
+    ("Via", "Subcutânea é o formato mais descrito. Ensaios humanos antigos usaram infusão IV curta."),
+    ("Esquema", "Dose única à noite, 1–3 h antes do sono pretendido, em ciclos curtos."),
+    ("Medida", "Concentração do frasco e unidades da seringa U-100 para volumes pequenos."),
+    ("Status", "Não aprovado. Em Categoria 2 da FDA, com revisão do PCAC em julho/2026."),
+],
+"protocol_epitalon": [
+    ("Reconstituição", "2,0 mL de água bacteriostática num frasco de 10 mg = 5 mg/mL."),
+    ("Esquema relatado", "Ciclos curtos: cerca de 5–10 mg/dia por 10–20 dias, 1–2 vezes ao ano."),
+    ("Medida", "A 5 mg/mL, 5 mg = 1,0 mL = 100 unidades na seringa U-100."),
+    ("Horário", "Muitos protocolos usam dose noturna, alinhada ao ritmo da melatonina."),
+],
+"protocol_foxo4-dri": [
+    ("Alvo", "Rompe a interação FOXO4-p53 para que a p53 dispare apoptose em células senescentes."),
+    ("Nível de evidência", "Apenas estudos em camundongo e em célula. Nenhum ensaio humano (junho/2026)."),
+    ("Protocolo publicado", "Camundongo: 5 mg/kg intraperitoneal, repetido por semanas (Baar et al., 2017)."),
+    ("Status", "Não aprovado. Uso restrito a pesquisa."),
+],
+"protocol_ghk-cu": [
+    ("Vias", "Subcutânea e formulações tópicas são as duas principais."),
+    ("Faixa comum", "1–2 mg/dia SC ou formulações tópicas de 1–3%."),
+    ("Medida", "Tamanho do frasco e volume de reconstituição definem todo o cálculo."),
+    ("Status", "Não aprovado. O GHK-Cu injetável saiu da Categoria 2 da FDA em 15/04/2026."),
+],
+"protocol_ghrp-6": [
+    ("Mecanismo", "Ativa o receptor de grelina (GHS-R1a), disparando um pulso natural de GH."),
+    ("Efeito marcante", "Fome intensa em minutos — útil para alguns, obstáculo para outros."),
+    ("Regra de horário", "Comida, sobretudo carboidrato e gordura, reduz a resposta de GH; usa-se em jejum."),
+    ("Status", "Não aprovado, uso restrito a pesquisa, e banido pela WADA no esporte."),
+],
+"protocol_glutathione": [
+    ("O que é", "Tripeptídeo antioxidante do próprio corpo (cisteína + glicina + glutamato)."),
+    ("Vias estudadas", "Oral, lipossomal/sublingual, intranasal e intravenosa — cada uma se comporta de um jeito."),
+    ("Contexto oral", "Ensaios humanos usaram 250–1.000 mg/dia por via oral. Se isso eleva os estoques é discutido."),
+    ("A IV é outra coisa", "Não é aprovada para clareamento de pele e carrega riscos reais."),
+],
+"protocol_humanin": [
+    ("Via", "Subcutânea é a mais descrita. Estudos animais frequentemente usam intraperitoneal."),
+    ("Esquema", "Protocolos animais com HNG usam dose 2×/semana. Planos de comunidade vão de diário a 3×/semana."),
+    ("Ciclo", "Tipicamente 4–12 semanas, com pausas."),
+    ("Status", "Não aprovado. Nenhum ECR humano publicado de humanina ou HNG (junho/2026)."),
+],
+"protocol_igf-1-lr3": [
+    ("Via", "Apenas subcutânea ou intramuscular. Não há forma oral ou tópica validada."),
+    ("Esquema", "1×/dia no planejamento, pela meia-vida de 20–30 h."),
+    ("Contexto de dose", "20–100 mcg/dia aparece nos protocolos de comunidade. Nenhum ensaio humano validou uma faixa."),
+    ("Status", "Não aprovado para nenhum uso humano. Banido em tempo integral pela WADA."),
+],
+"protocol_ipamorelin": [
+    ("Via", "Apenas subcutânea — abdome inferior, coxa ou braço."),
+    ("Faixa de dose", "100 a 300 mcg por aplicação. Acima de 300 mcg a liberação de GH não sobe de forma significativa."),
+    ("Esquema", "Uma a três aplicações por dia. A dose única antes de dormir é a mais comum."),
+    ("Ciclo", "Protocolos de comunidade descrevem 8 a 12 semanas on, depois 4 semanas off."),
+],
+"protocol_kisspeptin": [
+    ("Via", "Subcutânea nos protocolos de pesquisa. A infusão IV é só de ensaio clínico."),
+    ("Escolha da forma", "Kisspeptina-10 é de ação mais curta; a kisspeptina-54 é a usada em ensaios humanos."),
+    ("Via da testosterona", "Pode elevar testosterona indiretamente, elevando antes o LH. Não age como testosterona."),
+    ("Ciclo", "Pulsos ou ciclos curtos. Exposição contínua faz o sinal desaparecer — dessensibilização."),
+],
+"protocol_kpv": [
+    ("Via", "Subcutânea e tópica."),
+    ("Frascos", "5 mg e 10 mg liofilizados."),
+    ("Origem", "Fragmento terminal do α-MSH; é o que diferencia a KLOW da GLOW."),
+    ("Status", "Não aprovado. Pesquisa laboratorial e animal."),
+],
+"protocol_lipo-c": [
+    ("O que é", "Injeção lipotrópica manipulada — aminoácidos e vitaminas do complexo B, não um peptídeo."),
+    ("Via", "Intramuscular ou subcutânea."),
+    ("Atenção", "Fórmula de manipulação: a composição varia de farmácia para farmácia."),
+],
+"protocol_ll-37": [
+    ("O que é", "Única catelicidina humana; peptídeo de defesa com 37 aminoácidos."),
+    ("Via de ensaio", "Gel tópico para ferida, 0,5–1,6 mg/mL, 2×/semana."),
+    ("Via de comunidade", "Injeção subcutânea de frasco reconstituído — sem apoio de ensaio humano."),
+    ("Status", "Não aprovado; investigacional como ropocamptida."),
+],
+"protocol_melanotan-ii": [
+    ("Via", "Subcutânea é a mais estudada. O spray nasal foi testado, mas é menos previsível."),
+    ("Medida", "Seringa U-100. O cálculo depende de quanta água bacteriostática entra no frasco de 10 mg."),
+    ("Ataque", "Estrutura comum começa em 100–250 mcg/dia e sobe a 500–1.000 mcg conforme a náusea permite."),
+    ("Manutenção", "Depois do ataque, cai para 1–2 doses por semana para segurar a pigmentação."),
+],
+"protocol_methylene-blue": [
+    ("Formato", "Vendido pronto como líquido oral. Não há pó para reconstituir."),
+    ("Concentração primeiro", "Achar a porcentagem no rótulo (0,5%, 1% ou 2%) antes de contar qualquer gota."),
+    ("Janela de dose baixa", "A pesquisa cognitiva mostrou curva hormética: doses baixas (~0,5–4 mg/kg) ajudaram, altas (>10 mg/kg) reverteram o efeito."),
+    ("Grau", "Apenas grau farmacêutico (USP). Corante industrial ou de aquário pode conter metais pesados."),
+],
+"protocol_mots-c": [
+    ("Via", "Subcutânea — formato usado nos estudos animais e no planejamento relatado."),
+    ("Esquema", "Planejamento comum: 5 mg, 2 a 3 vezes por semana, por 4 a 8 semanas."),
+    ("Medida", "Frasco de 10 mg + 1,0 mL de água bacteriostática. Dose de 5 mg = 0,5 mL = 50 unidades na U-100."),
+    ("Status", "Não aprovado. Desde 22/04/2026 não está mais na Categoria 2 da FDA."),
+],
+"protocol_nad-plus": [
+    ("É peptídeo?", "Não. NAD+ é uma coenzima. Entra aqui por compartilhar o formato injetável de pesquisa."),
+    ("Vias", "SC, IV, IM, oral (NMN/NR), intranasal/sublingual e caneta pré-misturada."),
+    ("Esquema", "SC costuma ser 2–3×/semana. IV é semanal a mensal. Precursores orais são diários."),
+    ("Status", "O NAD+ injetável não é aprovado como terapêutico."),
+],
+"protocol_oxytocin": [
+    ("Via", "IV/IM aprovadas em obstetrícia. Intranasal (10–72 UI) e SC (100–500 mcg) são contexto de pesquisa."),
+    ("Medida", "1 UI ≈ 2 mcg de peptídeo puro. Frasco de 2 mg ≈ 1.000 UI; de 5 mg ≈ 2.500 UI."),
+    ("Biodisponibilidade", "A intranasal fica em torno de 1–2%. A subcutânea não atravessa a barreira hematoencefálica de forma relevante."),
+    ("Evidência", "Forte para uso obstétrico IV. Mista e majoritariamente negativa para desfechos sociais no autismo, após o SOARS-B (NEJM 2021)."),
+],
+"protocol_pinealon": [
+    ("Via", "Cápsula oral ou injeção subcutânea de frasco reconstituído."),
+    ("Frasco comum", "20 mg de pó liofilizado."),
+    ("Âncora de cálculo", "20 mg + 3,0 mL de água bacteriostática ≈ 6,67 mg/mL. Na U-100, 1 unidade = 0,01 mL ≈ 66,7 mcg."),
+    ("Ciclo", "Na literatura, ciclos de 10 a 20 dias, repetidos 2 a 3 vezes por ano."),
+],
+"protocol_retatrutide": [
+    ("Via", "Injeção subcutânea nos ensaios clínicos."),
+    ("Frequência", "1×/semana nos estudos publicados de fase 2 e 3."),
+    ("Dose inicial (fase 3)", "2 mg 1×/semana, com aumento a cada 4 semanas."),
+    ("Alvos de fase 3", "4 mg, 9 mg ou 12 mg, conforme o braço do ensaio TRIUMPH."),
+],
+"protocol_selank": [
+    ("Via", "Subcutânea ou spray nasal. Uma via por ciclo."),
+    ("Esquema", "SC: 1×/dia por 4 semanas, depois 4 semanas off. Intranasal: 14–21 dias on, 1–3 semanas off."),
+    ("Medida", "Seringa U-100 para a via SC."),
+    ("Status", "Uso clínico russo desde os anos 1990. Não aprovado pela FDA."),
+],
+"protocol_semaglutide": [
+    ("Duas vias", "Injetável (1×/semana) e comprimido oral (1×/dia). Os esquemas de dose são diferentes."),
+    ("Início lento", "As doses começam muito baixas e sobem a cada 4 semanas, para o estômago se acostumar."),
+    ("Medida", "A maioria dos frascos de pesquisa fecha bem em 2,5 mg/mL. Nessa mistura, 0,25 mg = 10 unidades na U-100."),
+    ("Meia-vida", "Cerca de 7 dias. O nível estável leva de 4 a 5 semanas em cada degrau."),
+],
+"protocol_semax": [
+    ("Via", "Solução intranasal é o formato mais estudado. A subcutânea de frasco reconstituído também aparece."),
+    ("Esquema", "Administração diária, com frequência dividida entre manhã e tarde para evitar dose tardia."),
+    ("Medida (nasal)", "Os frascos vêm rotulados em mcg por borrifada ou por gota. Ler o rótulo, não contar gotas no olho."),
+    ("Ciclo", "As referências clínicas russas descrevem cursos de algumas semanas seguidos de pausa, e não uso contínuo."),
+    ("Status", "Não aprovado pela FDA. Saiu da Categoria 2 do 503A em 23/04/2026."),
+],
+"protocol_sermorelin": [
+    ("Dose comum", "200–300 mcg SC à noite. A titulação costuma começar em 100 mcg."),
+    ("Meia-vida", "Cerca de 11–12 minutos. É por isso que é noturna, e não semanal."),
+    ("Reconstituição", "3 mL de água bacteriostática num frasco de 10 mg dá 3 unidades por 100 mcg na U-100."),
+    ("Horário", "30–60 minutos antes de dormir, de estômago vazio. Insulina e refeição reduzem o pulso de GH."),
+],
+"protocol_slu-pp-332": [
+    ("Classe", "Agonista pan-ERR, molécula pequena. Descrito como mimético de exercício."),
+    ("Vias", "Comprimido oral e injetável."),
+    ("Dose publicada", "Murina (camundongo). Não há conversão humana estabelecida."),
+    ("Status", "Não aprovado. Sem dados humanos."),
+],
+"protocol_ss-31": [
+    ("Via", "Subcutânea. A bula do Forzinity e o ensaio TAZPOWER usaram dose diária SC."),
+    ("Dose de ensaio", "40 mg SC 1×/dia foi o braço estudado, hoje a dose recomendada do Forzinity para ≥30 kg."),
+    ("Frequência", "1×/dia, no mesmo horário, conforme a bula."),
+    ("Status", "Aprovado pela FDA apenas para síndrome de Barth. Todo o resto é investigacional."),
+],
+"protocol_survodutide": [
+    ("Mecanismo", "Agonista duplo de GLP-1 + glucagon — diferente da tirzepatida, que atinge GLP-1 + GIP."),
+    ("Via", "Injeção subcutânea, 1×/semana."),
+    ("Dose de topo no ensaio", "4,8 mg 1×/semana na fase 2 em obesidade, após 20 semanas de escalonamento."),
+    ("Resultado de fase 3", "16,6% de perda de peso em 76 semanas, contra 3,2% no placebo (SYNCHRONIZE-1)."),
+],
+"protocol_tb-500": [
+    ("Via", "Subcutânea na maioria dos protocolos. Alguns estudos animais usam IM ou intraperitoneal."),
+    ("Concentração", "Frasco de 10 mg + 2 mL de água bacteriostática = 5 mg/mL. Na U-100, 10 unidades = 0,10 mL ≈ 500 mcg."),
+    ("Esquema", "Fase de ataque (2×/semana) seguida de manutenção (1×/semana)."),
+    ("Ciclo", "4–12 semanas. As fases longas de manutenção são discutidas de forma menos consistente."),
+],
+"protocol_tesamorelin": [
+    ("Via", "Subcutânea, apenas no abdome. Alternar o local todo dia."),
+    ("Esquema", "1×/dia. Sem escalonamento — dose cheia desde o primeiro dia."),
+    ("Medida", "Seringa U-100. O volume depende da concentração após a reconstituição."),
+    ("Status", "Aprovado pela FDA para lipodistrofia associada ao HIV. Todo o resto é off-label."),
+],
+"protocol_tesofensine": [
+    ("Via", "Comprimido oral, 1×/dia. Sem injeção, sem reconstituição."),
+    ("Doses estudadas", "0,25 mg e 0,5 mg 1×/dia foram as principais nas fases 2 e 3."),
+    ("Meia-vida", "Cerca de 9 dias — o fármaco acumula nas primeiras 4 a 6 semanas antes de estabilizar."),
+    ("Ciclo nos ensaios", "Períodos de 24 semanas, tanto na fase 2 (Astrup 2008) quanto na fase 3 mexicana."),
+],
+"protocol_thymosin-alpha-1": [
+    ("Via", "Subcutânea — abdome, coxa ou braço. Alternar os locais."),
+    ("Esquema padrão", "1,6 mg 2×/semana, com 3–4 dias de intervalo (ex.: segunda e quinta)."),
+    ("Medida", "Frasco de 10 mg + 2 mL de água bacteriostática (5 mg/mL): 1,6 mg = 0,32 mL = 32 unidades na U-100."),
+    ("Status", "Aprovado como Zadaxin em mais de 35 países; não aprovado nos EUA."),
+],
+"protocol_tirzepatide": [
+    ("Via", "Injeção subcutânea, 1×/semana."),
+    ("Titulação", "De 2,5 mg a 15 mg por semana, subindo a cada 4 semanas."),
+    ("Medida", "Conversões de mg para unidades cobrindo frascos de 5, 10, 15, 40 e 60 mg."),
+    ("Status", "Aprovado — Mounjaro (diabetes tipo 2) e Zepbound (obesidade)."),
+],
+"protocol_vip": [
+    ("Formatos comuns", "Spray intranasal manipulado (cerca de 50 mcg por borrifada) ou frasco subcutâneo (em geral 10 mg)."),
+    ("Trava de segurança", "A lipase, marcador pancreático, é checada antes e durante. Lipase subindo ou dor abdominal significa parar."),
+    ("Reconstituição", "Frasco de 10 mg + 3 mL de água bacteriostática ≈ 3,33 mg/mL."),
+    ("Status", "Não aprovado como fármaco isolado."),
+],
+
+# ------------------------------------------------------------ combinações
+"stacks_advanced-recomp-stack": [
+    ("Reconstituição", "Frascos separados para cada composto. Frascos CJC/Ipa pré-misturados reduzem de três reconstituições para duas."),
+    ("Esquema", "1 aplicação SC semanal de retatrutida. 1–2 aplicações SC diárias de CJC/Ipa, antes de dormir e em jejum."),
+    ("Medida", "Seringa U-100. 100 mcg de CJC ou de ipamorelina numa solução de 2.000 mcg/mL = 5 unidades."),
+    ("Status", "Não aprovado. A WADA proíbe CJC-1295 e ipamorelina em esporte testado."),
+],
+"stacks_cagrilintide-retatrutide": [
+    ("Formatos", "Frascos pré-misturados (o mais comum: 12,5 mg de retatrutida + 2,5 mg de cagrilintida) ou dois frascos separados."),
+    ("Esquema", "1×/semana para os dois. Mesmo dia, locais de injeção diferentes."),
+    ("Titulação", "Começar só com retatrutida por 4–8 semanas, depois acrescentar a cagrilintida. Escalonar junto, devagar."),
+    ("Status", "Ambos investigacionais. O CagriSema, análogo mais próximo, tem dados de fase 3."),
+],
+"stacks_cagrilintide-tirzepatide": [
+    ("Formato", "Dois frascos separados é o padrão. Alguns fornecedores vendem pré-misturado (ex.: 5 mg / 5 mg)."),
+    ("Esquema", "Ambos 1×/semana. Mesmo dia, locais de injeção diferentes."),
+    ("Titulação", "Começar só com tirzepatida por 8 semanas, depois acrescentar cagrilintida a 0,25 mg/semana."),
+    ("Origem", "A tirzepatida pode ser de prescrição (Mounjaro/Zepbound) ou de pesquisa. A cagrilintida é só de pesquisa."),
+],
+"stacks_cagrisema": [
+    ("Reconstituição", "Frasco pré-misturado: água bacteriostática conforme a especificação. Frascos separados: reconstituir cada um."),
+    ("Dose", "Alvo semanal final: cagrilintida 2,4 mg + semaglutida 2,4 mg."),
+    ("Titulação", "Cerca de 16 semanas de escalonamento antes da manutenção, espelhando o protocolo REDEFINE."),
+    ("Status", "Investigacional; NDA protocolado na FDA em dezembro de 2025; não aprovado."),
+],
+"stacks_cjc-1295-ipamorelin-gh-pulse-stack": [
+    ("Reconstituição", "Frasco de blend de 20 mg + 3,0 mL de água bacteriostática → 6,67 mg/mL no total (3,33 mg/mL de cada)."),
+    ("Esquema", "O mais comum é 1×/dia SC, de estômago vazio, antes de dormir."),
+    ("Medida", "Na U-100, 6 unidades = 0,06 mL = 200 mcg de cada peptídeo, num blend de 20 mg em 3,0 mL."),
+    ("Status", "Não aprovado. Cada composto tem dados humanos próprios; a blend combinada não tem ECR publicado."),
+],
+"stacks_glow-stack": [
+    ("Reconstituição", "Pré-misturado: 3,0 mL de água bacteriostática → cerca de 23,3 mg/mL da blend total."),
+    ("Esquema", "Injeção subcutânea 1×/dia para o pré-misturado."),
+    ("Medida", "10 unidades na U-100 = 0,10 mL ≈ 2,33 mg da blend total."),
+    ("Status", "Não aprovado. BPC-157 e TB-500 são proibidos pela WADA para atletas."),
+],
+"stacks_klow-stack": [
+    ("Reconstituição", "3,0 mL de água bacteriostática no frasco de 80 mg → cerca de 26,7 mg/mL da blend total."),
+    ("Medida", "1 unidade na U-100 (0,01 mL) ≈ 267 mcg no total: ~167 mcg de GHK-Cu + ~33 mcg de cada um dos outros três."),
+    ("Esquema", "O planejamento comum usa injeção subcutânea 1×/dia."),
+    ("Ciclo", "Estrutura típica de 4–6 semanas on, 2–4 semanas off. O acúmulo de cobre do GHK-Cu é o que define a pausa."),
+    ("Status", "Não aprovado. Nenhum ensaio publicado avaliou a combinação de quatro peptídeos junta."),
+],
+"stacks_retatrutide-mots-c": [
+    ("Formato", "Apenas frascos separados. Não existe produto comercial pré-misturado."),
+    ("Esquema", "Retatrutida 1×/semana. MOTS-c 2–3×/semana ou em dose diária baixa."),
+    ("Sequência", "Rodar a retatrutida sozinha nas 4 primeiras semanas. Acrescentar MOTS-c na semana 5, com a tolerância já definida."),
+    ("Status", "Retatrutida em fase 3. MOTS-c é só de pesquisa e banido pela WADA."),
+],
+"stacks_russian-nootropic-stack": [
+    ("Formato", "Dois frascos separados é o padrão. Alguns fornecedores vendem soluções nasais pré-misturadas."),
+    ("Esquema", "Ambos 1×/dia pela manhã. O Semax precisa ser dosado antes das 14 h para não atrapalhar o sono."),
+    ("Vias", "Subcutânea (absorção mais consistente) ou intranasal (a via original aprovada na Rússia)."),
+    ("Medida", "As doses são em mcg, não em mg. Seringas de 0,3 mL / 30 unidades dão precisão em volume pequeno."),
+    ("Status", "Ambos aprovados na Rússia. Nenhum aprovado pela FDA. Nenhum na lista da WADA em 2026."),
+],
+"stacks_tesamorelin-ipamorelin": [
+    ("Reconstituição", "3,0 mL de água bacteriostática em qualquer dos frascos. 10/3 → ~4,33 mg/mL no total; 5/5 → ~3,33 mg/mL."),
+    ("Medida", "Na U-100, 10 unidades = 0,10 mL. No 10/3 isso dá ~0,33 mg de tesamorelina + ~0,10 mg de ipamorelina."),
+    ("Esquema", "Subcutânea 1×/dia é a estrutura comum; a dose noturna é escolhida para acompanhar a liberação natural de GH."),
+    ("Status", "Não aprovado como blend."),
+],
+"stacks_wolverine-stack": [
+    ("Compostos", "BPC-157 + TB-500, com frequência num frasco pré-misturado 1:1 de 20 mg."),
+    ("Esquema", "Aspirações diárias da blend, ou BPC-157 diário + TB-500 2×/semana em frascos separados."),
+    ("Reconstituição", "2,0 mL de água bacteriostática num blend de 20 mg → 10 mg/mL no total (5 mg/mL de cada)."),
+    ("Ciclo", "A maioria dos protocolos roda 6–12 semanas no total, em geral ataque + manutenção."),
+],
+}

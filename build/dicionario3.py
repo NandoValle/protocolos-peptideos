@@ -1,0 +1,327 @@
+# -*- coding: utf-8 -*-
+"""Celulas das tabelas comparativas (X vs Y). EN -> PT-BR."""
+
+COMPARATIVAS = {
+ "Evidence base": "Base de evidência",
+ "Evidence Strength": "Força da evidência",
+ "Evidence limits": "Limites da evidência",
+ "Evidence for combining them": "Evidência para combinar os dois",
+ "Evidence for weight loss": "Evidência para perda de peso",
+ "Evidence ou planning note": "Evidência ou nota de planejamento",
+ "Clinical evidence": "Evidência clínica",
+ "Human evidence": "Evidência humana",
+ "Best human evidence": "Melhor evidência humana",
+ "Strongest human evidence": "Evidência humana mais forte",
+ "Strongest evidence": "Evidência mais forte",
+ "Direct published research": "Pesquisa publicada direta",
+ "Most direct evidence": "Evidência mais direta",
+ "Main evidence limit": "Principal limite da evidência",
+ "Absorption evidence": "Evidência de absorção",
+ "Preclinical only": "Apenas pré-clínico",
+ "None (preclinical only)": "Nenhuma (apenas pré-clínico)",
+ "Preclinical only (Valdecantos 2024)": "Apenas pré-clínico (Valdecantos, 2024)",
+ "Mostly preclinical; not FDA-approved": "Majoritariamente pré-clínico; não aprovado pela FDA",
+ "Mostly preclinical; community use": "Majoritariamente pré-clínico; uso de comunidade",
+ "Compound-level only; no direct stack RCT": "Só por composto isolado; nenhum ECR da combinação",
+ "No route-specific study": "Nenhum estudo específico por via",
+ "No direct Adamax study": "Nenhum estudo direto de Adamax",
+ "Not confirmed for Adamax": "Não confirmado para o Adamax",
+ "Direct Adamax evidence": "Evidência direta de Adamax",
+ "Adamax evidence": "Evidência de Adamax",
+ "No Adamax absorption ou brain-distribution study": "Nenhum estudo de absorção ou distribuição cerebral do Adamax",
+ "Claims about the added adamantane-related modification": "Alegações sobre a modificação adicionada, ligada ao adamantano",
+ "Parent-peptide e animal research involving Semax": "Pesquisa animal e do peptídeo de origem, envolvendo Semax",
+ "Semax e ACTH-fragment research": "Pesquisa com Semax e com fragmentos do ACTH",
+ "User reports e comparison with Semax": "Relatos de usuário e comparação com o Semax",
+ "Where the claim comes from": "De onde vem a alegação",
+ "Almost every benefit claim is indirect": "Quase toda alegação de benefício é indireta",
+ "Research exists, but it does not prove that Adamax has the same effects": "A pesquisa existe, mas não prova que o Adamax tenha os mesmos efeitos",
+ "Semax timing has been studied more, but results depend on route e study design": "O horário do Semax foi mais estudado, mas os resultados dependem da via e do desenho do estudo",
+ "Most closely linked with intranasal use": "Mais associado ao uso intranasal",
+ "FDA-approved for chronic weight management": "Aprovado pela FDA para manejo crônico de peso",
+ "FDA-approved weight-management drugs": "Fármacos aprovados pela FDA para manejo de peso",
+ "Not FDA approved": "Não aprovado pela FDA",
+ "Not FDA-approved as a drug": "Não aprovado pela FDA como fármaco",
+ "Not FDA-approved in the United States": "Não aprovado pela FDA nos Estados Unidos",
+ "Not FDA-approved; compounded only": "Não aprovado pela FDA; apenas manipulado",
+ "Not FDA-approved · research-use": "Não aprovado pela FDA · uso em pesquisa",
+ "Not FDA-approved · Category 2 (2023) · PCAC July 2026": "Não aprovado pela FDA · Categoria 2 (2023) · PCAC em julho de 2026",
+ "Not FDA-approved; WADA banned at all times.": "Não aprovado pela FDA; banido pela WADA em tempo integral.",
+ "Not FDA-approved (April 2025 FDA accelerated approval pathway concerns reported; verify current status)":
+     "Não aprovado pela FDA (há relatos de ressalvas na via de aprovação acelerada em abril de 2025; confirmar o status atual)",
+ "Main research framing": "Enquadramento principal da pesquisa",
+ "Main research focus": "Foco principal da pesquisa",
+ "Common research focus": "Foco comum de pesquisa",
+ "Primary research interest": "Interesse principal de pesquisa",
+ "Primary target": "Alvo principal",
+ "Primary use": "Uso principal",
+ "Primary use case": "Caso de uso principal",
+ "Primary use model": "Modelo de uso principal",
+ "Typical use": "Uso típico",
+ "Use Context": "Contexto de uso",
+ "Approved use": "Uso aprovado",
+ "Best-studied use": "Uso mais estudado",
+ "Main research context": "Contexto principal de pesquisa",
+ "Best-supported research context": "Contexto de pesquisa com melhor apoio",
+ "Typical research context": "Contexto típico de pesquisa",
+ "No controlled study supports a Cartalax e BPC-157 stack": "Nenhum estudo controlado apoia a combinação de Cartalax com BPC-157",
+ "Not established in controlled Cartalax studies": "Não estabelecido em estudos controlados de Cartalax",
+ "Not clearly established for pure AED": "Não claramente estabelecido para o AED puro",
+ "Not established as an approved musculoskeletal protocol": "Não estabelecido como protocolo musculoesquelético aprovado",
+ "CJC-1295 with DAC": "CJC-1295 com DAC",
+ "CJC-1295 with DAC alone": "CJC-1295 com DAC isolado",
+ "Common dose range": "Faixa de dose comum",
+ "Common dose context": "Contexto de dose comum",
+ "Typical research-planning dose": "Dose típica de planejamento",
+ "Typical Research Dose": "Dose típica de pesquisa",
+ "Commonly discussed research amounts": "Quantidades comumente discutidas",
+ "100-300 mcg per injeção": "100–300 mcg por injeção",
+ "100–300 mcg per injeção": "100–300 mcg por injeção",
+ "100–500 mcg per injeção": "100–500 mcg por injeção",
+ "20-100 mcg/dia (research)": "20–100 mcg/dia (pesquisa)",
+ "50-150 mcg/dia dividida (research)": "50–150 mcg/dia, dividida (pesquisa)",
+ "2-8 IU/dia (research)": "2–8 UI/dia (pesquisa)",
+ "250-1,000 mg per session": "250–1.000 mg por sessão",
+ "Previously approved; discontinued": "Aprovado no passado; descontinuado",
+ "Dosing": "Dose",
+ "Dosing Frequency": "Frequência de dose",
+ "Days to weeks": "De dias a semanas",
+ "Approved (obesity + T2D)": "Aprovado (obesidade + DM2)",
+ "Approved (T2D, obesity)": "Aprovado (DM2, obesidade)",
+ "Approved (T2D, obesity, CVD, MASH, CKD, oral)": "Aprovado (DM2, obesidade, doença cardiovascular, MASH, doença renal crônica, oral)",
+ "Approved (Saxenda obesity, Victoza T2D)": "Aprovado (Saxenda para obesidade, Victoza para DM2)",
+ "Approved (Zepbound, Mounjaro)": "Aprovado (Zepbound, Mounjaro)",
+ "Approved (Wegovy, Ozempic)": "Aprovado (Wegovy, Ozempic)",
+ "Approved (2021)": "Aprovado (2021)",
+ "Approved (2023)": "Aprovado (2023)",
+ "Approved (2010; Egrifta)": "Aprovado (2010; Egrifta)",
+ "Approved (Scenesse) for EPP": "Aprovado (Scenesse) para protoporfiria eritropoética",
+ "Approved (Vyleesi) for low female sexual desire": "Aprovado (Vyleesi) para baixo desejo sexual feminino",
+ "None reported in published Russian trials": "Nenhum relatado nos ensaios russos publicados",
+ "Not approved; PCAC review July 23 2026": "Não aprovado; revisão do PCAC em 23/07/2026",
+ "Not approved; no human trials": "Não aprovado; nenhum ensaio humano",
+ "Not approved; no native human trials": "Não aprovado; nenhum ensaio humano com o peptídeo nativo",
+ "Not approved for fat loss; Phase 2 failed primary endpoint": "Não aprovado para perda de gordura; a fase 2 falhou no desfecho primário",
+ "Not approved; investigational in topical/ophthalmic formulations": "Não aprovado; investigacional em formulações tópicas e oftálmicas",
+ "Neither approved": "Nenhum dos dois é aprovado",
+ "Neither approved; no combo data": "Nenhum dos dois é aprovado; não há dado da combinação",
+ "Semaglutide approved; cag not": "Semaglutida aprovada; cagrilintida não",
+ "NDA filed Dec 2025; not approved": "NDA protocolado em dezembro de 2025; não aprovado",
+ "FDA-approved component": "Componente aprovado pela FDA",
+ "FDA-approved": "Aprovado pela FDA",
+ "FDA-approved prescription drug.": "Fármaco de prescrição aprovado pela FDA.",
+ "FDA-approved prescription drugs": "Fármacos de prescrição aprovados pela FDA",
+ "FDA-approved (HIV lipodystrophy)": "Aprovado pela FDA (lipodistrofia do HIV)",
+ "FDA-approved (multiple indications)": "Aprovado pela FDA (várias indicações)",
+ "FDA-approved (pediatric severe primary IGFD)": "Aprovado pela FDA (deficiência primária grave de IGF-1 em pediatria)",
+ "FDA-approved hypogonadism": "Aprovado pela FDA para hipogonadismo",
+ "FDA-approved for specific indications (GH deficiency, certain growth disorders, AIDS wasting)":
+     "Aprovado pela FDA para indicações específicas (deficiência de GH, certos distúrbios de crescimento, caquexia da aids)",
+ "FDA-approved for type 2 diabetes; widely studied for healthy aging.":
+     "Aprovado pela FDA para diabetes tipo 2; muito estudado em envelhecimento saudável.",
+ "FDA-approved for HIV-associated visceral fat; community use for body composition.":
+     "Aprovado pela FDA para gordura visceral associada ao HIV; uso de comunidade para composição corporal.",
+ "FDA-approved for one indication. See Tesamorelin protocol.": "Aprovado pela FDA para uma indicação. Ver o protocolo da tesamorelina.",
+ "FDA-approved for ovulation induction; off-label male hypogonadism": "Aprovado pela FDA para indução de ovulação; off-label em hipogonadismo masculino",
+ "FDA-approved IVF trigger; off-label TRT support": "Gatilho de FIV aprovado pela FDA; suporte off-label em reposição de testosterona",
+ "Some FDA-approved; fertility, prostate cancer": "Alguns aprovados pela FDA; fertilidade e câncer de próstata",
+ "Retatrutide only": "Apenas retatrutida",
+ "Semax only": "Apenas Semax",
+ "GLP-1 only (single)": "Apenas GLP-1 (isolado)",
+ "BDNF/dopamine only": "Apenas BDNF/dopamina",
+ "Methionine, inositol, choline only": "Apenas metionina, inositol e colina",
+ "Weak; ingredient-level only": "Fraca; apenas no nível de ingrediente",
+ "Reconstituted solution placed under the skin": "Solução reconstituída aplicada sob a pele",
+ "Usually discussed as 1×/dia, with some dividida examples": "Em geral discutida como 1×/dia, com alguns exemplos de dose dividida",
+ "38,4% oral bioavailability in one rat study; human bioavailability is unknown":
+     "Biodisponibilidade oral de 38,4% em um estudo em ratos; a biodisponibilidade humana é desconhecida",
+ "Can the amounts be treated as equal?": "Dá para tratar as quantidades como equivalentes?",
+ "Can the doses be converted?": "Dá para converter as doses?",
+ "No. A smaller injected amount is not proven equal to a larger oral amount.":
+     "Não. Uma quantidade injetada menor não está provada como equivalente a uma quantidade oral maior.",
+ "Ready-made spray, nasal drops, ou pó mixed for nasal use": "Spray pronto, gotas nasais ou pó preparado para uso nasal",
+ "Freeze-dried frasco mixed with bacteriostatic water": "Frasco liofilizado misturado com água bacteriostática",
+ "Depends on the listed concentration e amount delivered by each spray": "Depende da concentração declarada e da quantidade entregue por borrifada",
+ "Depends on frasco strength, BAC-water volume, e unidades na seringa U-100":
+     "Depende da concentração do frasco, do volume de água bacteriostática e das unidades na seringa U-100",
+ "Common community pattern": "Padrão comum de comunidade",
+ "A few hundred micrograms por dia with some titulação schedules": "Algumas centenas de microgramas por dia, com alguns esquemas de titulação",
+ "Different spray products may deliver different amounts per pump": "Produtos de spray diferentes podem entregar quantidades diferentes por acionamento",
+ "Mixing errors can change the amount contained in each seringa unit": "Erro na mistura muda a quantidade contida em cada unidade da seringa",
+ "Common format": "Formato comum",
+ "Common name": "Nome comum",
+ "Common route": "Via comum",
+ "Common label context": "Contexto comum de rótulo",
+ "Common Approach": "Abordagem comum",
+ "Animal, laboratory, e some human research exists": "Existe pesquisa animal, laboratorial e alguma pesquisa humana",
+ "Same molecule as AOD-9604 without the stabilizing tyrosine": "Mesma molécula do AOD-9604, sem a tirosina estabilizadora",
+ "Same overall research base; AOD-9604 is the more-studied stabilized version":
+     "Mesma base de pesquisa; o AOD-9604 é a versão estabilizada e mais estudada",
+ "Strong human evidence for approved indications; raises IGF-1 e carries glucose-tolerance risk":
+     "Evidência humana forte nas indicações aprovadas; eleva IGF-1 e traz risco de tolerância à glicose",
+ "Strong RCT evidence (SURMOUNT, STEP)": "Evidência forte de ECR (SURMOUNT, STEP)",
+ "Tendon, gut, vessel models; gut-stable for oral research": "Modelos de tendão, intestino e vaso; estável no trato digestivo para pesquisa oral",
+ "Most common research route": "Via de pesquisa mais comum",
+ "SubQ; oral cápsulas also used": "Subcutânea; cápsulas orais também são usadas",
+ "Longer signaling-relevant action; less frequent dosing": "Ação sinalizadora mais longa; dose menos frequente",
+ "Often paired with TB-500 in community planning (Wolverine stack)": "Frequentemente pareado com TB-500 no planejamento de comunidade (combinação Wolverine)",
+ "Removed from FDA Category 2 April 22, 2026; not approved": "Retirado da Categoria 2 da FDA em 22/04/2026; não aprovado",
+ "Also removed from FDA Category 2 April 22, 2026; not approved": "Também retirado da Categoria 2 da FDA em 22/04/2026; não aprovado",
+ "Amylin pathway; additive with GLP-1": "Via da amilina; aditivo ao GLP-1",
+ "Established CV outcomes": "Desfechos cardiovasculares estabelecidos",
+ "Injectable research vials": "Frascos injetáveis de pesquisa",
+ "Injectable GHK-Cu (research-use)": "GHK-Cu injetável (uso em pesquisa)",
+ "Active amount": "Quantidade ativa",
+ "May not equal the full cápsulas weight": "Pode não corresponder ao peso total da cápsula",
+ "Usually listed as total milligrams of research material": "Em geral declarado como total de miligramas de material de pesquisa",
+ "Injury, tissue-healing, blood-vessel, e gastrointestinal models": "Modelos de lesão, cicatrização, vaso sanguíneo e trato gastrointestinal",
+ "Research-frasco format": "Formato de frasco de pesquisa",
+ "More often linked with oral bioregulator products": "Mais associado a produtos orais de bioregulador",
+ "Nudges the bodys own BDNF": "Estimula o BDNF do próprio corpo",
+ "Most studied of the three": "O mais estudado dos três",
+ "Most human clinical history of the three": "O de maior histórico clínico humano entre os três",
+ "Only approved GHRH analog": "Único análogo de GHRH aprovado",
+ "Only FDA-approved GHRH with deepest trial evidence": "Único GHRH aprovado pela FDA e com a evidência de ensaio mais profunda",
+ "Strongest GHRH evidence of the GHRH options here.": "A evidência mais forte entre as opções de GHRH listadas aqui.",
+ "Selective GH pulse with minimal cortisol/prolactin impact": "Pulso de GH seletivo, com impacto mínimo sobre cortisol e prolactina",
+ "Convenient semanal dosing": "Dose semanal, mais conveniente",
+ "Shifts sleep timing via the circadian system.": "Desloca o horário do sono pelo sistema circadiano.",
+ "Studied for circadian/longevity markers; sleep effects anecdotal.":
+     "Estudado em marcadores circadianos e de longevidade; os efeitos sobre o sono são anedóticos.",
+ "Strongest human evidence (Leyden 2002, NEEL 2023)": "Evidência humana mais forte (Leyden 2002, NEEL 2023)",
+ "Combined skin/recovery research": "Pesquisa combinada de pele e recuperação",
+ "Receptor / type": "Receptor / tipo",
+ "Receptor Target": "Alvo do receptor",
+ "Compound type": "Tipo de composto",
+ "More GH per mcg, less hunger; approved in Japan as a diagnostic": "Mais GH por mcg, menos fome; aprovado no Japão como diagnóstico",
+ "Different receptor; paired with GHRP-6 for a bigger pulse": "Receptor diferente; pareado com GHRP-6 para um pulso maior",
+ "Protected delivery for better absorption": "Entrega protegida, para melhor absorção",
+ "Raising blood GSH (small studies)": "Elevar a glutationa sanguínea (estudos pequenos)",
+ "Acetaminophen overdose (FDA use)": "Intoxicação por paracetamol (uso aprovado pela FDA)",
+ "Indirect; not the same as GSH": "Indireto; não é a mesma coisa que glutationa",
+ "Bypasses the gut entirely": "Contorna o trato digestivo por completo",
+ "Clinic cosmetic use (unapproved)": "Uso estético em clínica (não aprovado)",
+ "Long-acting IGF-1 analog with the most accumulated community data":
+     "Análogo de IGF-1 de ação longa, com o maior acúmulo de dados de comunidade",
+ "The clinical reference compound for everything else in this column":
+     "O composto de referência clínica para todo o resto desta coluna",
+ "Research; IVF trigger; HSDD trials": "Pesquisa; gatilho de FIV; ensaios em TDSH",
+ "Starts high in the pathway; not FDA-approved": "Age no topo da via; não aprovado pela FDA",
+ "One step lower in the pathway; longer clinical track record": "Um degrau abaixo na via; histórico clínico mais longo",
+ "Extensive hormonal research": "Pesquisa hormonal extensa",
+ "On-demand, max 1 per 24 h": "Sob demanda, no máximo 1 por 24 h",
+ "Lower in selective use": "Menor no uso seletivo",
+ "Common, listed on label": "Comum, descrito em bula",
+ "Human use?": "Uso humano?",
+ "Yes — the only grade for people": "Sim — o único grau próprio para pessoas",
+ "A different dye (aniline blue family), not the same compound": "Um corante diferente (família do azul de anilina), não é o mesmo composto",
+ "Lower-purity dye for labs/manufacturing": "Corante de menor pureza, para laboratório e indústria",
+ "Metabolic flexibility, exercise capacity, aging research.": "Flexibilidade metabólica, capacidade de exercício e pesquisa em envelhecimento.",
+ "GHRH analog that raises growth hormone release.": "Análogo de GHRH que aumenta a liberação de hormônio do crescimento.",
+ "Targets cardiolipin in the inner mitochondrial membrane.": "Tem como alvo a cardiolipina na membrana mitocondrial interna.",
+ "Mitochondrial repair e ischemia research.": "Pesquisa de reparo mitocondrial e isquemia.",
+ "Not FDA-approved. See SS-31 protocol.": "Não aprovado pela FDA. Ver o protocolo do SS-31.",
+ "Not currently a dietary supplement in the US": "Atualmente não é suplemento alimentar nos EUA",
+ "Cost (research-context)": "Custo (contexto de pesquisa)",
+ "Cost (research-grade, monthly)": "Custo (grau de pesquisa, mensal)",
+ "Moderate per ciclo": "Moderado por ciclo",
+ "High per session": "Alto por sessão",
+ "Endogenous peptide hormone; synthesized for clinical use": "Hormônio peptídico endógeno; sintetizado para uso clínico",
+ "Endogenous mitochondrial peptide with AMPK-focused signaling": "Peptídeo mitocondrial endógeno, com sinalização focada em AMPK",
+ "FDA-approved (IV/IM) obstetric drug; investigational for other routes.":
+     "Fármaco obstétrico aprovado pela FDA (IV/IM); investigacional nas demais vias.",
+ "US brand name for synthetic oxytocin injeção": "Nome comercial nos EUA para a ocitocina sintética injetável",
+ "International brand name for synthetic oxytocin": "Nome comercial internacional da ocitocina sintética",
+ "Approved in many countries for postpartum hemorrhage; not FDA-approved in the US.":
+     "Aprovado em vários países para hemorragia pós-parto; não aprovado pela FDA nos EUA.",
+ "Approved in 35+ countries; decades of clinical use": "Aprovado em mais de 35 países; décadas de uso clínico",
+ "Approved for some uses abroad": "Aprovado para alguns usos fora dos EUA",
+ "Sister neurohypophysial peptide, differs from oxytocin by 2 amino acids":
+     "Peptídeo neuro-hipofisário irmão, difere da ocitocina por 2 aminoácidos",
+ "Not an oxytocin analog; sometimes paired with oxytocin in community sexual-function research but pharmacologically distinct.":
+     "Não é análogo da ocitocina; às vezes é pareado com ela em pesquisa de função sexual na comunidade, mas é farmacologicamente distinto.",
+ "Significant (Schedule IV)": "Significativo (Lista IV nos EUA)",
+ "Intranasal (most studied); subQ less common": "Intranasal (a mais estudada); subcutânea é menos comum",
+ "Overstimulation; FDA immunogenicity flag for compounded forms":
+     "Superestimulação; alerta de imunogenicidade da FDA para as formas manipuladas",
+ "Tolerance, sleep disruption": "Tolerância e prejuízo do sono",
+ "Prescription-only; interactions": "Apenas sob prescrição; interações",
+ "Reduced fat mass; improved glucose tolerance; lower triglycerides.":
+     "Redução de massa gorda, melhora da tolerância à glicose e queda de triglicerídeos.",
+ "Improved metabolic markers in the ob/ob model.": "Melhora dos marcadores metabólicos no modelo ob/ob.",
+ "IP dosing (Burris-lab standard)": "Dose intraperitoneal (padrão do laboratório Burris)",
+ "Improved ejection fraction; reduced fibrosis; increased survival in the TAC model.":
+     "Melhora da fração de ejeção, redução de fibrose e aumento de sobrevida no modelo TAC.",
+ "Initial research planning window aligned with the shortest published mouse studies.":
+     "Janela inicial de planejamento, alinhada aos estudos em camundongo mais curtos já publicados.",
+ "SC in community use; no human efficacy trials": "Subcutânea no uso de comunidade; nenhum ensaio humano de eficácia",
+ "Only pan-ERR agonist with demonstrated in-vivo exercise-mimetic activity":
+     "Único agonista pan-ERR com atividade mimética de exercício demonstrada in vivo",
+ "Phase 2/3 in Barth syndrome (TAZPOWER) → FDA-approved as Forzinity":
+     "Fase 2/3 em síndrome de Barth (TAZPOWER) → aprovado pela FDA como Forzinity",
+ "Yes, Barth syndrome only (Sept 2025)": "Sim, apenas para síndrome de Barth (setembro de 2025)",
+ "No (sold as supplements / research compounds)": "Não (vendidos como suplemento ou composto de pesquisa)",
+ "Top reported weight loss": "Maior perda de peso relatada",
+ "Synthetic, derived from gastric juice": "Sintético, derivado do suco gástrico",
+ "None for the fragment specifically": "Nenhuma para o fragmento especificamente",
+ "Small open-label e case series for joint pain": "Estudos pequenos abertos e séries de casos para dor articular",
+ "Limited native-peptide human evidence": "Evidência humana limitada com o peptídeo nativo",
+ "Mechanism clear; small clinical footprint": "Mecanismo claro; presença clínica pequena",
+ "Negative COVID trial; weak CIRS evidence": "Ensaio negativo em covid; evidência fraca em CIRS",
+ "~29% from retatrutide + theoretical lean preservation": "~29% vindo da retatrutida + preservação de massa magra, teórica",
+ "~29% from reta; mitochondrial support add": "~29% vindo da retatrutida; acréscimo de suporte mitocondrial",
+ "Phase 3 (reta); preclinical for MOTS-c": "Fase 3 (retatrutida); pré-clínico para o MOTS-c",
+ "Not a combination; Phase 3 monotherapy available": "Não é combinação; há monoterapia em fase 3",
+ "Sermorelin (alone ou with Ipamorelin)": "Sermorelina (isolada ou com ipamorelina)",
+ "Skin / anti-aging research": "Pesquisa de pele e antienvelhecimento",
+ "Typical schedule discussed": "Esquema típico discutido",
+ "Several days por semana in community protocols": "Vários dias por semana nos protocolos de comunidade",
+ "Off-label research route": "Via de pesquisa off-label",
+ "Original Russian-approved route": "Via original aprovada na Rússia",
+ "More consistent dose-to-blood levels": "Relação dose–nível sanguíneo mais consistente",
+ "Users who want precise dosing e once-diário simplicity": "Quem quer dose precisa e a simplicidade de 1×/dia",
+ "Semax + Selank (This Stack)": "Semax + Selank (esta combinação)",
+ "GHRH-dominant (more tesamorelin per draw)": "Predomínio de GHRH (mais tesamorelina por aspiração)",
+ "CJC-1295 extends GHRH signaling; common alternative pairing.":
+     "O CJC-1295 estende a sinalização de GHRH; pareamento alternativo comum.",
+ "1–2 injections (depending on day)": "1–2 injeções (conforme o dia)",
+ "Schedule control": "Controle do esquema",
+ "Both compounds on the same schedule": "Os dois compostos no mesmo esquema",
+ "Study type": "Tipo de estudo",
+}
+
+# blocos longos, com apostrofo no original
+COMPARATIVAS["Sermorelin is the original GHRH analog (FDA-approved 1997 for pediatric GH deficiency, withdrawn 2008). "
+             "Stronger human evidence base, but very short half-life (10-12 min) e lower bioavailability. "
+             "Pairs with Ipamorelin similarly. Researchers often choose Sermorelin when published evidence depth "
+             "matters more than convenience."] = (
+    "A sermorelina é o análogo de GHRH original (aprovada pela FDA em 1997 para deficiência de GH em pediatria, "
+    "retirada em 2008). Tem base de evidência humana mais forte, mas meia-vida muito curta (10–12 min) e "
+    "biodisponibilidade menor. Combina com a ipamorelina de forma semelhante. Costuma ser escolhida quando a "
+    "profundidade da evidência publicada importa mais que a conveniência.")
+
+COMPARATIVAS["The Tesamorelin + Ipamorelin blend swaps CJC-1295 for tesamorelin, an FDA-approved GHRH analog in "
+             "HIV-associated lipodystrophy. It uses different frasco ratios e dose math, so it should be planned "
+             "from its own protocol rather than treated as a CJC-1295 substitute."] = (
+    "A blend de tesamorelina + ipamorelina troca o CJC-1295 pela tesamorelina, análogo de GHRH aprovado pela FDA na "
+    "lipodistrofia associada ao HIV. Usa proporções de frasco e cálculo de dose diferentes, então deve ser planejada "
+    "pelo protocolo próprio, e não tratada como substituta do CJC-1295.")
+
+COMPARATIVAS["DAC's 5,8-8,1 day half-life enables semanal dosing e is more convenient, but produces sustained GHRH "
+             "stimulation rather than pulses. Pairs poorly with Ipamorelin's pulsatile mechanism. Better suited for "
+             "standalone semanal plans."] = (
+    "A meia-vida de 5,8–8,1 dias do DAC permite dose semanal e é mais conveniente, mas produz estímulo de GHRH "
+    "sustentado em vez de pulsos. Combina mal com o mecanismo pulsátil da ipamorelina. Serve melhor para planos "
+    "semanais isolados.")
+
+COMPARATIVAS["GHRP-2 is more potent at raw GH stimulation than Ipamorelin. But GHRP-2 elevates cortisol, prolactin, "
+             "e appetite (food intake increased ~36% in one study). Researchers who want minimal cortisol e prolactin "
+             "impact choose Ipamorelin."] = (
+    "O GHRP-2 é mais potente que a ipamorelina no estímulo bruto de GH. Em compensação, eleva cortisol, prolactina e "
+    "apetite (a ingestão alimentar subiu ~36% em um estudo). Quem quer impacto mínimo sobre cortisol e prolactina "
+    "escolhe a ipamorelina.")
+
+COMPARATIVAS["Often paired with TB-500 in community planning ('Wolverine stack')"] = (
+    "Frequentemente pareado com TB-500 no planejamento de comunidade (combinação Wolverine)")
+
+COMPARATIVAS["Nudges the body's own BDNF"] = "Estimula o BDNF do próprio corpo"
