@@ -25,22 +25,22 @@ LESTE = {
             linhas=[
                 ["Composto", "O que é", "PubMed", "ECR/meta", "Ensaio registrado"],
                 ["Mexidol", "Etilmetilhidroxipiridina succinato (emoxipina)", "<strong>614</strong>", "<strong>59</strong>", "Sim — 6 vistos, fases 2 a 4"],
-                ["Cytoflavin", "Ácido succínico + inosina + nicotinamida + riboflavina", "<strong>314</strong>", "não conferido", "Sim — 5 vistos, fase 3"],
+                ["Cytoflavin", "Ácido succínico + inosina + nicotinamida + riboflavina", "<strong>309</strong>", "<strong>59</strong>", "Sim — 5 vistos, fase 3"],
                 ["Actovegin", "Hemoderivado desproteinizado de sangue de bezerro", "<strong>185</strong>", "<strong>26</strong>", "Sim — 2 de fase 3, patrocínio ocidental"],
-                ["Pantogam / Pantocalcin", "Ácido hopantênico / hopantenato de cálcio", "<strong>166</strong>", "não conferido", "não visto"],
+                ["Pantogam / Pantocalcin", "Ácido hopantênico / hopantenato de cálcio", "<strong>166</strong>", "<strong>7</strong>", "não visto"],
                 ["Afobazol", "Fabomotizol, ansiolítico não benzodiazepínico", "<strong>158</strong>", "<strong>5</strong>", "Sim — 1, fase 4, recrutando"],
                 ["Neuromidin", "Ipidacrina (amiridina), inibidor de colinesterase", "<strong>148</strong>", "<strong>18</strong>", "não visto"],
+                ["Cortexin", "Polipeptídeos corticais bovinos", "<strong>127</strong> <strong>(corrigido)</strong>", "<strong>16</strong>", "não visto"],
                 ["Stresam", "Etifoxina, ansiolítico", "<strong>118</strong>", "<strong>12</strong>", "Sim — 2, incluindo comparação com lorazepam"],
-                ["Polyoxidonium", "Azoximer brometo, imunomodulador", "<strong>84</strong>", "não conferido", "Sim — 3, incluindo fase 2/3 em covid com 394 participantes"],
-                ["Picamilon", "Nicotinoil-GABA", "<strong>60</strong>", "não conferido", "não visto"],
-                ["Derinat", "Desoxirribonucleato de sódio", "<strong>36</strong>", "não conferido", "não visto"],
-                ["Nanotropil", "Fenilpiracetam (fonturacetam, carfedon)", "<strong>34</strong>", "não conferido", "não visto"],
-                ["Galavit", "Aminodihidroftalazinediona sódica", "<strong>28</strong>", "não conferido", "não visto"],
-                ["Cortexin", "Polipeptídeos corticais bovinos", "<strong>26</strong>", "não conferido", "não visto"],
-                ["Memoprove", "N-PEP-12, derivado peptídico", "<strong>16</strong>", "não conferido", "não visto"],
-                ["Etoxidol", "Etilmetilhidroxipiridina malato", "<strong>11</strong>", "não conferido", "não visto"],
-                ["Cocarboxilase", "Tiamina pirofosfato", "534 <strong>(contagem inflada)</strong>", "não conferido", "não visto"],
-                ["Citocromo C", "Citocromo c injetável", "108 <strong>(contagem inflada)</strong>", "não conferido", "não visto"],
+                ["Polyoxidonium", "Azoximer brometo, imunomodulador", "<strong>84</strong>", "<strong>2</strong>", "Sim — 3, incluindo fase 2/3 em covid com 394 participantes"],
+                ["Picamilon", "Nicotinoil-GABA", "<strong>60</strong>", "<strong>3</strong>", "não visto"],
+                ["Derinat", "Desoxirribonucleato de sódio", "<strong>36</strong>", "<strong>1</strong>", "não visto"],
+                ["Nanotropil", "Fenilpiracetam (fonturacetam, carfedon)", "<strong>34</strong>", "<strong>2</strong>", "não visto"],
+                ["Galavit", "Aminodihidroftalazinediona sódica", "<strong>28</strong>", "<strong>2</strong>", "não visto"],
+                ["Memoprove", "N-PEP-12, derivado peptídico", "<strong>16</strong>", "<strong>3</strong>", "não visto"],
+                ["Etoxidol", "Etilmetilhidroxipiridina malato", "<strong>11</strong>", "<strong>0</strong>", "não visto"],
+                ["Cocarboxilase", "Tiamina pirofosfato", "534 <strong>(contagem inflada)</strong>", "<strong>0</strong> do injetável", "não visto"],
+                ["Citocromo C", "Citocromo c injetável", "108 <strong>(contagem inflada)</strong>", "<strong>0</strong> do injetável", "não visto"],
                 ["Meldonium", "Já tem página própria nesta referência", "357", "35", "Sim — 7"],
             ])),
         dict(h="A armadilha da contagem, de novo", tipo="p", corpo=[
@@ -113,9 +113,14 @@ LESTE = {
         dict(h="O que esta página não traz", tipo="p", corpo=[
             "Não traz posologia. Para todos os dezoito, a referência válida é a bula do país de registro — russa, "
             "letã ou francesa, conforme o caso — e não uma tabela montada aqui por tradução de revendedor.",
-            "Nove compostos estão marcados como <em>não conferido</em> na coluna de ensaios randomizados: fiz a "
-            "contagem total no PubMed para todos, mas não rodei o filtro de tipo de publicação em cada um. E dos 29 "
-            "ensaios registrados, examinei 20 — os 9 restantes estão contados no total, mas não foram lidos.",
+            "A coluna de ensaios randomizados está fechada para os dezoito. Fechá-la mudou três coisas. <strong>Cortexin "
+            "estava com o total errado</strong>: a página trazia 26 artigos e a contagem real é <strong>127</strong> "
+            "restrita ao fármaco, com 16 ensaios randomizados, entre eles estudos multicêntricos em AVC isquêmico. "
+            "O erro era meu, não da fonte. <strong>Cocarboxilase e citocromo C ficaram em zero</strong>: abri os "
+            "resultados e nenhum é do injetável — são bioquímica do metabolismo e da apoptose, exatamente o que a "
+            "marca de contagem inflada já indicava. E <strong>Etoxidol não tem nenhum ensaio randomizado</strong>: "
+            "os onze artigos são todos pré-clínicos, em rato e em cultura.",
+            "Dos 29 ensaios registrados, examinei 20 — os 9 restantes continuam contados no total e não foram lidos.",
         ]),
     ],
     referencias=[

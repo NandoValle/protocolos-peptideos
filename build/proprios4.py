@@ -9,13 +9,13 @@ SUPS = {
 "proprio_suplementos": dict(
     secoes=[
         dict(h="Como ler esta página", tipo="p", corpo=[
-            "Quarenta e cinco itens de venda livre, com a faixa de dose usada em estudos e no rótulo padronizado. "
+            "Quarenta e três itens de venda livre, com a faixa de dose usada em estudos e no rótulo padronizado. "
             "Diferente do resto do site, aqui <strong>a maioria tem risco baixo e evidência real</strong> — e é por "
             "isso que a dose aparece.",
             "A coluna <strong>ECR/meta</strong> traz o número de ensaios randomizados e metanálises indexados no "
-            "PubMed, <strong>conferido item a item em 4 de setembro de 2026</strong>. Onde está escrito "
-            "<em>não conferido</em>, é porque não fiz a consulta daquele item — e prefiro dizer isso a inventar "
-            "um número.",
+            "PubMed, <strong>conferido item a item em 4 de setembro de 2026</strong>. Os quarenta e três itens desta "
+            "página estão conferidos: os treze que ficaram pendentes na primeira passagem foram fechados na "
+            "mesma data, com a mesma consulta.",
             "Ler o número com cuidado: contagem alta significa que muita gente estudou, não que o resultado foi "
             "favorável. O ginkgo, na página de fitoterápicos, é o exemplo caricato disso.",
         ]),
@@ -33,27 +33,27 @@ SUPS = {
                 ["Item", "Faixa usual", "Para quê", "ECR/meta", "Ressalva"],
                 ["Vitamina D3", "1.000–4.000 UI/dia", "Deficiência, saúde óssea, imunidade", "<strong>3.625</strong>",
                  "4.000 UI/dia é o limite superior tolerável do IOM. A apresentação de 5.000 UI passa dele — dosar 25-OH-vitamina D antes"],
-                ["Vitamina D3 + K2", "D3 conforme acima + K2 (MK-7) 90–200 mcg", "Direcionamento do cálcio para o osso", "não conferido",
+                ["Vitamina D3 + K2", "D3 conforme acima + K2 (MK-7) 90–200 mcg", "Direcionamento do cálcio para o osso", "<strong>116</strong>",
                  "<strong>K2 interage com varfarina.</strong> Quem anticoagula com cumarínico não usa sem orientação"],
-                ["Vitamina C", "500–1.000 mg/dia", "Antioxidante, colágeno, absorção de ferro", "não conferido",
+                ["Vitamina C", "500–1.000 mg/dia", "Antioxidante, colágeno, absorção de ferro", "<strong>270</strong>",
                  "Acima de 2 g/dia: diarreia osmótica e risco de cálculo de oxalato"],
-                ["Vitamina B12 (metilcobalamina)", "500–1.000 mcg/dia", "Deficiência, sobretudo em vegetariano e em quem usa metformina", "não conferido",
+                ["Vitamina B12 (metilcobalamina)", "500–1.000 mcg/dia", "Deficiência, sobretudo em vegetariano e em quem usa metformina", "<strong>436</strong>",
                  "Praticamente sem toxicidade. Dosar antes evita suplementar o que não falta"],
-                ["Complexo B", "conforme rótulo", "Cobertura ampla do grupo B", "não conferido",
+                ["Complexo B", "conforme rótulo", "Cobertura ampla do grupo B", "<strong>196</strong>",
                  "B6 acima de 100 mg/dia por tempo longo causa neuropatia periférica — é o risco esquecido do complexo B"],
                 ["Magnésio glicinato", "200–400 mg de magnésio elementar/dia", "Sono, cãibra, ansiedade, pressão", "<strong>563</strong>",
                  "Base sólida. A forma glicinato é a mais bem tolerada. Reduzir dose em doença renal"],
-                ["Magnésio L-treonato", "1,5–2 g/dia do composto (~144 mg de Mg elementar)", "Alegação de foco cognitivo", "não conferido",
+                ["Magnésio L-treonato", "1,5–2 g/dia do composto (~144 mg de Mg elementar)", "Alegação de foco cognitivo", "<strong>4</strong>",
                  "A alegação de atravessar melhor a barreira hematoencefálica vem de estudo animal. Custa várias vezes mais que o glicinato"],
                 ["Zinco + cobre", "15–30 mg de zinco + 1–2 mg de cobre", "Imunidade, testosterona, pele", "<strong>1.363</strong>",
                  "Base ampla. Zinco isolado e prolongado <strong>causa deficiência de cobre</strong> — por isso vêm juntos. Limite superior do zinco: 40 mg/dia"],
-                ["Selênio", "100–200 mcg/dia", "Tireoide, antioxidante", "não conferido",
+                ["Selênio", "100–200 mcg/dia", "Tireoide, antioxidante", "<strong>320</strong>",
                  "Janela estreita. Limite superior 400 mcg/dia; acima disso há selenose"],
-                ["Iodo", "150 mcg/dia (RDA do adulto)", "Função tireoidiana", "não conferido",
+                ["Iodo", "150 mcg/dia (RDA do adulto)", "Função tireoidiana", "<strong>72</strong>",
                  "Excesso pode <strong>desencadear</strong> disfunção tireoidiana em quem tem tireoidite. Não é item para dose alta por conta própria"],
-                ["Ferro bisglicinato", "25–50 mg/dia", "Anemia ferropriva", "não conferido",
+                ["Ferro bisglicinato", "25–50 mg/dia", "Anemia ferropriva", "<strong>14</strong>",
                  "<strong>Só com ferritina baixa comprovada.</strong> A forma bisglicinato causa menos constipação que o sulfato"],
-                ["Boro", "3–10 mg/dia", "Testosterona livre, metabolismo ósseo", "não conferido",
+                ["Boro", "3–10 mg/dia", "Testosterona livre, metabolismo ósseo", "<strong>13</strong>",
                  "Estudos pequenos. Limite superior 20 mg/dia"],
             ])),
         dict(h="Desempenho e músculo", tipo="p", corpo=[], tabela=dict(
@@ -62,13 +62,13 @@ SUPS = {
                 ["Item", "Faixa usual", "Para quê", "ECR/meta", "Ressalva"],
                 ["Creatina monoidratada", "3–5 g/dia. Saturação opcional: 20 g/dia divididos, por 5–7 dias", "Força, potência, massa magra, cognição", "<strong>878</strong>",
                  "<strong>É o suplemento esportivo mais bem estudado que existe.</strong> Eleva a creatinina sérica sem lesão renal: avise quem for ler seu exame. Não precisa de ciclo nem de pausa"],
-                ["L-glutamina", "5–10 g/dia", "Recuperação, barreira intestinal", "não conferido",
+                ["L-glutamina", "5–10 g/dia", "Recuperação, barreira intestinal", "<strong>207</strong>",
                  "A evidência boa é em paciente crítico e queimado, não em quem treina"],
                 ["Acetil-L-carnitina (ALCAR)", "500–2.000 mg/dia", "Cognição, neuropatia, fadiga", "<strong>173</strong>",
                  "Base real, sobretudo em neuropatia diabética. Aumenta TMAO, marcador ligado a risco cardiovascular"],
                 ["Colágeno hidrolisado + vitamina C", "10 g/dia, com vitamina C, 30–60 min antes do treino", "Tendão, ligamento, pele", "<strong>234</strong>",
                  "Volume alto. O momento da tomada importa aqui, diferente da maioria"],
-                ["Colágeno tipo II (UC-II)", "40 mg/dia", "Osteoartrite de joelho", "não conferido",
+                ["Colágeno tipo II (UC-II)", "40 mg/dia", "Osteoartrite de joelho", "<strong>16</strong>",
                  "É outro mecanismo: tolerância oral, não matéria-prima. Não confundir com o hidrolisado, nem somar as doses"],
                 ["Glucosamina + condroitina", "1.500 mg + 1.200 mg/dia", "Osteoartrite", "<strong>98</strong>",
                  "Muito estudado e ainda assim inconsistente — é o caso em que o volume não resolveu a dúvida. Glucosamina costuma vir de crustáceo: atenção a alergia"],
@@ -93,7 +93,7 @@ SUPS = {
                  "<strong>O GABA oral atravessa mal a barreira hematoencefálica.</strong> Se há efeito, o mecanismo provavelmente não é o que o rótulo diz"],
                 ["Inositol (mio-inositol)", "2–4 g/dia; 4 g nos estudos de SOP", "SOP, ansiedade, sensibilidade à insulina", "<strong>87</strong> (só em SOP)",
                  "Uma das melhores relações entre evidência e risco desta página"],
-                ["Lecitina de soja", "1–2 g/dia", "Fonte de colina e fosfolipídio", "não conferido",
+                ["Lecitina de soja", "1–2 g/dia", "Fonte de colina e fosfolipídio", "<strong>18</strong>",
                  "Fonte barata de colina; efeito próprio pouco demonstrado"],
             ])),
         dict(h="Longevidade e metabolismo", tipo="p", corpo=[], tabela=dict(
@@ -135,7 +135,7 @@ SUPS = {
                  "Base fina. O butirato produzido pela fibra fermentada provavelmente rende mais que a cápsula"],
                 ["TUDCA", "250–1.500 mg/dia", "Fígado, colestase, estresse de retículo", "<strong>24</strong>",
                  "A evidência é hepatológica, não a de proteção hepática em ciclo de anabolizante"],
-                ["Colesevelam natural", "conforme rótulo", "Alegação de sequestro de ácido biliar", "não conferido",
+                ["Colesevelam natural", "conforme rótulo", "Alegação de sequestro de ácido biliar", "<strong>77</strong> (do fármaco)",
                  "<strong>Nome confuso:</strong> colesevelam de verdade é fármaco de prescrição. O produto de venda livre com esse nome é outra coisa — conferir a composição real antes"],
             ])),
         dict(h="O que a contagem revelou", tipo="li", corpo=[
@@ -143,16 +143,19 @@ SUPS = {
             "pesquisa não é sinônimo de resultado — e por isso a coluna traz o número, não um selo de aprovação.",
             "<strong>Probiótico tem 5.248, o maior da página, e é o mais enganoso</strong>, porque o efeito é de "
             "cepa específica: os milhares de ensaios não somam a favor do frasco que você comprou.",
-            "<strong>Glicina, alpha-GPC, butirato e fisetina têm entre 2 e 5 ensaios cada.</strong> São os quatro de "
-            "base mais fina desta página.",
-            "<strong>Nove itens estão marcados como não conferidos.</strong> Preferi deixar o buraco visível a "
-            "preenchê-lo com estimativa.",
+            "<strong>Glicina, alpha-GPC, butirato, fisetina e o magnésio L-treonato têm entre 2 e 5 ensaios cada.</strong> "
+            "São os cinco de base mais fina desta página — e o L-treonato, com <strong>4</strong>, é o que mais "
+            "destoa do preço que cobra.",
+            "<strong>Não sobrou item sem contagem.</strong> Os treze que faltavam foram fechados, e três deles mudaram "
+            "a leitura da página: vitamina B12 tem <strong>436</strong> ensaios, selênio tem <strong>320</strong> "
+            "e vitamina C tem <strong>270</strong> — os três estavam entre os mais bem estudados daqui e "
+            "apareciam em branco.",
             "<strong>Dose de suplemento também tem teto.</strong> Selênio, zinco, iodo, B6 e vitamina D têm limite "
             "superior tolerável definido; passar dele não traz benefício extra.",
         ]),
     ],
     referencias=[
-        ("Contagens obtidas no PubMed em 4 de setembro de 2026, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], uma consulta por item. Itens marcados como não conferidos não tiveram consulta feita.",
+        ("Contagens obtidas no PubMed em 4 de setembro de 2026, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], uma consulta por item. Onde a consulta ampla estava inflada pelo papel biológico da própria molécula, a consulta restrita usada está declarada na ressalva da linha.",
          "https://pubmed.ncbi.nlm.nih.gov/"),
         ("Limites superiores toleráveis de vitaminas e minerais: Dietary Reference Intakes, National Academies.",
          "https://www.nationalacademies.org/our-work/summary-report-of-the-dietary-reference-intakes"),

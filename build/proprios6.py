@@ -61,10 +61,10 @@ KLOW_SEMAX = {
                 ["Componente", "Artigos", "Ensaios clínicos publicados", "Leitura"],
                 ["BPC-157", "<strong>271</strong>", "<strong>2</strong> (de 2002 e 2003)",
                  "Muito estudado em modelo animal, quase nada em humano até agora. Os dois ensaios publicados têm mais de vinte anos"],
-                ["GHK-Cu", "<strong>180</strong>", "não conferido",
-                 "É o mais antigo dos quatro e o de literatura mais madura, com boa base em pele e cicatrização"],
-                ["TB-500", "<strong>26</strong>", "não conferido",
-                 "O menor volume. A literatura maior é da timosina beta-4 inteira, não do fragmento de sete aminoácidos"],
+                ["GHK-Cu", "<strong>180</strong>", "<strong>3</strong> (1992, 2006 e 2006)",
+                 "É o mais antigo dos quatro e o de literatura mais madura. Mas os três ensaios são <strong>tópicos</strong> — pele, ferida e úlcera venosa. Nenhum injetável"],
+                ["TB-500", "<strong>26</strong>", "<strong>9</strong> (8 reais)",
+                 "Um dos nove é falso positivo: um estudo de <strong>tuberculose</strong>, que casou com a sigla TB. Os oito reais são todos da <strong>timosina beta-4 inteira</strong> — úlcera venosa, olho seco, cardiopatia isquêmica —, não do fragmento de sete aminoácidos que se vende como TB-500"],
                 ["KPV", "<strong>9</strong> (em colite)", "2",
                  "Base mínima, concentrada em modelo de colite. É o componente que diferencia o KLOW da GLOW — e o de menor lastro"],
             ])),
@@ -82,9 +82,11 @@ KLOW_SEMAX = {
             "para fevereiro de 2027. É a primeira vez que esses compostos terão desfecho controlado.",
         ]),
         dict(h="O que esta página não responde", tipo="p", corpo=[
-            "Não conferi os ensaios clínicos publicados de GHK-Cu e TB-500 individualmente — estão marcados como "
-            "não conferidos na tabela. E não li os protocolos completos dos ensaios em recrutamento: as doses que "
-            "eles usam não estavam no registro resumido que consultei.",
+            "Os quatro componentes estão com a contagem fechada, e fechá-la piorou a leitura do KLOW, não melhorou: os "
+            "três ensaios de GHK-Cu são <strong>tópicos</strong> e os oito de TB-500 são da <strong>timosina "
+            "beta-4 inteira</strong>. Nenhum dos onze testou o que o protocolo do KLOW manda injetar. "
+            "Não li os protocolos completos dos ensaios em recrutamento: as doses que eles usam não estavam no "
+            "registro resumido que consultei.",
             "As tabelas de dose do KLOW continuam na página de protocolo, e continuam vindo da fonte secundária. "
             "Nenhum número de lá foi validado por este levantamento.",
         ]),

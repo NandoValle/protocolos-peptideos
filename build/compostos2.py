@@ -9,8 +9,8 @@ EXTRA_CATEGORIAS = {
 EXTRA_COMPOSTOS = {
 "proprio_suplementos": dict(
     nome="Suplementos de venda livre", categoria="suplemento", aprovado="parcial",
-    tagline="45 itens com dose, do que tem evidência boa ao que só tem marketing",
-    resumo="Quarenta e cinco suplementos de venda livre com a faixa de dose usada em estudos e em rótulo padronizado, "
+    tagline="43 itens com dose, do que tem evidência boa ao que só tem marketing",
+    resumo="Quarenta e três suplementos de venda livre com a faixa de dose usada em estudos e em rótulo padronizado, "
            "organizados por finalidade: vitaminas e minerais, desempenho, sono e cognição, longevidade, intestino e fígado. "
            "Cada um traz a força da evidência e a ressalva que importa — limite superior, interação medicamentosa ou "
            "alegação que o dado não sustenta. É a única seção do site em que a maioria dos itens tem risco baixo e "
@@ -21,7 +21,7 @@ EXTRA_COMPOSTOS = {
 ),
 "proprio_fitoterapicos": dict(
     nome="Fitoterápicos e nootrópicos", categoria="suplemento", aprovado="nao",
-    tagline="17 itens onde o marketing costuma correr à frente do dado",
+    tagline="18 itens onde o marketing costuma correr à frente do dado",
     resumo="Ashwagandha, rhodiola, bacopa, ginkgo, berberina, curcumina, tongkat ali e mais dez. Risco geralmente "
            "baixo, evidência geralmente fraca e marketing geralmente forte — a tabela separa as três coisas, item a item. "
            "Traz a faixa de dose usada em estudo, a força da evidência e a ressalva de cada um, incluindo os que têm "

@@ -11,7 +11,7 @@ SUPLEMENTOS = {
 "proprio_tarja": dict(
     secoes=[
         dict(h="Por que estes estão separados", tipo="p", corpo=[
-            "Os treze itens desta página apareciam misturados numa lista de suplementos. <strong>Não são "
+            "Os doze itens desta página apareciam misturados numa lista de suplementos. <strong>Não são "
             "suplementos.</strong> São medicamentos que exigem prescrição médica — vários com indicação "
             "oncológica, um é broncodilatador de uso veterinário e outro é esteroide anabolizante.",
             "Esta página diz o que cada um é e por que exige receita. <strong>Não traz posologia, e isso é "
@@ -114,12 +114,12 @@ SUPLEMENTOS = {
                  "Boa base para osteoartrite. A piperina que aumenta a absorção também aumenta a de outros fármacos"],
                 ["Silimarina (cardo mariano)", "200–400 mg/dia", "Proteção hepática", "<strong>33</strong>",
                  "Volume razoável, resultado inconsistente em hepatite. Vendida como detox, que não é desfecho clínico"],
-                ["Bergamota (Citrus bergamia)", "500–1.000 mg/dia do extrato", "Colesterol", "não conferido",
-                 "Estudos majoritariamente italianos e pequenos"],
+                ["Bergamota (Citrus bergamia)", "500–1.000 mg/dia do extrato", "Colesterol", "<strong>24</strong>",
+                 "Vinte e quatro ensaios com desfecho lipídico. A consulta ampla devolve 53, mas parte é óleo essencial em aromaterapia, que não tem relação com colesterol. Estudos majoritariamente italianos e pequenos"],
                 ["Canela (extrato)", "1–6 g/dia", "Glicemia", "<strong>23</strong>",
                  "O problema não é falta de ensaio, é resultado inconsistente entre eles. A canela cássia contém cumarina, hepatotóxica em dose alta; a Ceylon tem muito menos"],
-                ["Ácido corosólico (banaba)", "10–50 mg/dia", "Glicemia", "não conferido",
-                 "Poucos ensaios humanos, todos pequenos"],
+                ["Ácido corosólico (banaba)", "10–50 mg/dia", "Glicemia", "<strong>8</strong>",
+                 "Oito ensaios, todos pequenos. É o menor número desta tabela"],
             ])),
         dict(h="Testosterona, libido e o resto", tipo="p", corpo=[], tabela=dict(
             cap="Os de alegação hormonal",
