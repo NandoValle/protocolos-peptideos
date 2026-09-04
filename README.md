@@ -61,6 +61,7 @@ build/dicionario*.py  dicionário EN→PT-BR das células de tabela
 build/datas.py        as duas datas do site, num lugar só
 build/trava_datas.py  trava que impede data cravada ou tirada do relógio
 build/trava_consultas.py  trava que exige a consulta ao lado da contagem
+build/reconferir.py   reexecuta as consultas e avisa o que envelheceu
 hooks/pre-commit      roda as duas travas antes de deixar commitar
 ```
 
@@ -99,6 +100,31 @@ Os quatro levantamentos foram **refeitos em 04/09/2026**, com a consulta de cada
 Ficou uma lição registrada no código: buscando `LGD-4033 OR ligandrol` no ClinicalTrials.gov o resultado é **zero**, e a página teria afirmado que o ligandrol nunca entrou em ensaio. O ensaio existe — fase 2, 108 participantes, fratura de quadril — registrado sob o sinônimo `VK5211`. Consulta declarada não serve só para o leitor conferir: serve para quem escreve **perceber que a própria busca estava incompleta**.
 
 Estado atual, medido reexecutando toda consulta declarada em tabela no site: **63 de 65 reproduzem**. As duas restantes são o Semax, que oscila em um artigo conforme a indexação do dia, e uma linha cuja base é o ClinicalTrials.gov e não o PubMed.
+
+## Reconferir os números, de tempos em tempos
+
+A trava garante que todo número publicado venha com a consulta que o produziu. Isso torna o site conferível — mas não impede que os números **envelheçam em silêncio**. O PubMed indexa artigo novo todo dia; uma contagem correta em setembro pode estar velha em dezembro sem que nada no repositório mude.
+
+`build/reconferir.py` fecha esse buraco. Ele lê as consultas do próprio conteúdo, roda cada uma e compara com o publicado:
+
+```bash
+python build/reconferir.py --quieto
+```
+
+```
+Reconferência de 87 contagens publicadas.
+Data de apuração declarada no site: 4 de setembro de 2026
+
+  iguais 87 · oscilaram dentro de 2.0% 0 · DIVERGEM 0 · erro de rede 0
+```
+
+Opções: `--pagina proprio_leste` para conferir só uma, `--limiar 5` para tolerar 5% de variação, `--json arquivo.json` para gravar o relatório. **Sai com código 1 quando algo diverge**, para servir de gatilho em tarefa agendada.
+
+Ele distingue busca por condição de busca por intervenção no ClinicalTrials.gov — são coisas diferentes e devolvem números diferentes. A página diz qual usou, e o script obedece.
+
+### O que ele deliberadamente não faz
+
+**Não corrige nada.** A tentação óbvia seria reescrever os números sozinho — e aí o site passaria a afirmar, com a data de apuração antiga, resultados colhidos em outro dia. Número e data de apuração andam juntos: quem atualiza um atualiza o outro, e isso é decisão de quem apura, não de um script agendado.
 
 ## Regenerar
 
