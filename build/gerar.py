@@ -8,7 +8,7 @@ Grava: ./index.html, ./p/*.html, ./seguranca.html, ./sobre.html
 Regra: uma tabela so e publicada se passar no portao de traducao.
 Tabela que nao passa e descartada e contabilizada no relatorio.
 """
-import json, glob, os, re, sys, html, datetime
+import json, glob, os, re, sys, html
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dicionario as D
@@ -19,8 +19,24 @@ from evidencia import CORPO as CORPO_EVIDENCIA
 from anvisa import ANVISA
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HOJE = "3 de setembro de 2026"
 FONTE = "https://www.peptidedosingprotocols.com/"
+
+# ---------------------------------------------------------------------------
+# DATAS. As duas abaixo sao FATOS HISTORICOS, nao a data de hoje.
+#
+# NUNCA derivar nenhuma delas do relogio (datetime.now, date.today e afins).
+# O gerador roda de novo a cada edicao de texto; se a data vier do relogio, o
+# site passa a afirmar, a cada rebuild, que foi conferido hoje -- sem que
+# ninguem tenha conferido nada. Data velha e correta e melhor que data fresca
+# e falsa.
+#
+# Trocar DATA_FONTE so ao raspar a fonte secundaria de novo.
+# Trocar DATA_APURACAO so ao refazer a apuracao em fonte primaria.
+# ---------------------------------------------------------------------------
+DATA_FONTE = "3 de setembro de 2026"      # acesso a peptidedosingprotocols.com
+DATA_APURACAO = "4 de setembro de 2026"   # PubMed, ClinicalTrials.gov, ANVISA, WADA
+
+HOJE = DATA_FONTE  # compatibilidade: o nome enganava, era a data da fonte
 
 # tabelas que interessam
 CORE = re.compile(r'(dosing|dosage|reconstitution|cycle|titration|protocol format|schedule|half-life|dose|comparison|timeline|\bvs\b)', re.I)
@@ -241,7 +257,7 @@ TARJA_GLP1 = {
 }
 
 _RODAPE_TARJA = (
-    '<p>Esta advertência não estava nesta página até 4 de setembro de 2026, e a falha era deste site, não da '
+    f'<p>Esta advertência não estava nesta página até {DATA_APURACAO}, e a falha era deste site, não da '
     'fonte. A auditoria das tabelas de dose contra as bulas da FDA e da ANVISA está em '
     '<a href="proprio_glp1_bula.html">Os GLP-1 contra a bula</a>.</p>'
     '</div></div>'
@@ -315,7 +331,7 @@ def linha_anvisa(slug):
     if reg:
         lista = ', '.join(prod[:6]) + ('...' if len(prod) >= 6 else '')
         return (f'<div class="nota"><strong>No Brasil: {reg} medicamento(s) com registro ativo na ANVISA.</strong> '
-                f'{esc(lista)}. Levantado em 4 de setembro de 2026 no dado aberto da agência. '
+                f'{esc(lista)}. Levantado em {DATA_APURACAO} no dado aberto da agência. '
                 f'A varredura dos {len(ANVISA)} compostos está em '
                 f'<a href="proprio_anvisa.html">O que existe no Brasil</a>.</div>')
     if nof:
@@ -323,7 +339,7 @@ def linha_anvisa(slug):
                 f'Notificação é a via de baixo risco e não passa pela mesma análise de um registro. '
                 f'Ver <a href="proprio_anvisa.html">O que existe no Brasil</a>.</div>')
     return ('<div class="aviso-linha"><strong>No Brasil: nenhum medicamento registrado com este princípio ativo.</strong> '
-            'Conferido em 4 de setembro de 2026 no dado aberto da ANVISA, com 43.489 registros. '
+            f'Conferido em {DATA_APURACAO} no dado aberto da ANVISA, com 43.489 registros. '
             'Não existe bula brasileira, dose aprovada nem lote fiscalizado — o que circula é importação ou manipulação. '
             'A varredura completa está em <a href="proprio_anvisa.html">O que existe no Brasil</a>.</div>')
 
@@ -376,7 +392,7 @@ def gera_index(itens, stats):
   </div>
 </div>""")
     partes.append('<p class="nota-filtro">O selo de registro vem da <a href="evidencia.html">varredura do dado aberto '
-                  'da ANVISA</a> feita em 4 de setembro de 2026, e só aparece nos 44 compostos que foram medidos um a '
+                  f'da ANVISA</a> feita em {DATA_APURACAO}, e só aparece nos 44 compostos que foram medidos um a '
                   'um. Combinações e páginas de método não têm selo.</p>')
     partes.append('<p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>')
 
@@ -524,7 +540,7 @@ def gera_composto(item):
         # ANVISA nao usa PubMed, e afirmar isso ali e falso. Default generico,
         # com override por pagina via 'nota_refs'.
         nota_refs = proprio.get('nota_refs',
-            'Cada número foi levantado por mim nas fontes listadas abaixo, em 4 de setembro de 2026, '
+            f'Cada número foi levantado por mim nas fontes listadas abaixo, em {DATA_APURACAO}, '
             'e a consulta usada está declarada acima.')
         p.append('<div class="nota"><strong>Esta página não veio da fonte secundária.</strong> '
                  f'{nota_refs}</div>')
