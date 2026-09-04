@@ -219,3 +219,6 @@ PROPRIOS.update(_CRISPR)
 
 from proprios13 import CASGEVY as _CASG
 PROPRIOS.update(_CASG)
+
+from proprios14 import RIM as _RIM
+PROPRIOS.update(_RIM)
