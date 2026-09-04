@@ -196,3 +196,6 @@ PROPRIOS.update(_LESTE)
 
 from proprios6 import KLOW_SEMAX as _KS
 PROPRIOS.update(_KS)
+
+from proprios7 import NOOT as _NOOT
+PROPRIOS.update(_NOOT)
