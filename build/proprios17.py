@@ -80,9 +80,10 @@ dict(h="Os números que definem o MetALD, e o que eles são em copos", tipo="p",
 ], tabela=dict(
     cap="Faixa do MetALD convertida em doses padrão de 14 g",
     linhas=[
-        ["", "Gramas por semana (consenso)", "Doses padrão por semana (conta minha)"],
-        ["Mulheres", "140 a 350 g", "<strong>10 a 25 doses</strong>"],
-        ["Homens", "210 a 420 g", "<strong>15 a 30 doses</strong>"],
+        ["", "Gramas por dia (consenso)", "Gramas por semana (consenso)",
+         "Doses padrão por semana (conta minha)"],
+        ["Mulheres", "20 a 50 g", "140 a 350 g", "<strong>10 a 25 doses</strong>"],
+        ["Homens", "30 a 60 g", "210 a 420 g", "<strong>15 a 30 doses</strong>"],
     ])),
 
 dict(h="O que essa conversão revela", tipo="li", corpo=[
@@ -100,21 +101,66 @@ dict(h="O que essa conversão revela", tipo="li", corpo=[
 ]),
 
 # --------------------------------------------------------- 3. supra-aditivo
-dict(h="Álcool e gordura no fígado não somam — multiplicam", tipo="p", corpo=[
-    "Este é o achado que justifica a categoria nova, e é o mais importante desta página.",
-    "A literatura epidemiológica é consistente em descrever efeito <strong>supra-aditivo</strong> "
-    "entre consumo de álcool e componentes da síndrome metabólica na progressão da doença hepática. "
-    "Em bom português: quem tem os dois não corre a soma dos dois riscos, corre bem mais que isso. "
-    "Coortes grandes na Itália, França, Escócia, China e Coreia do Sul mostraram que pessoas obesas "
-    "que bebem têm risco <strong>2 a 3 vezes maior</strong> de desenvolver esteato-hepatite, com "
-    "progressão acentuada para fibrose e cirrose. Um estudo populacional finlandês encontrou efeito "
-    "supra-aditivo entre síndrome metabólica e binge semanal — definido como 60 g de etanol ou mais "
-    "numa única ocasião, o equivalente a pouco mais de quatro doses.",
-    "A consequência prática é desconfortável para quem gosta de contabilidade: <strong>a mesma "
-    "quantidade de álcool não representa o mesmo risco em duas pessoas diferentes</strong>. Num "
-    "fígado magro, quinze doses semanais são uma coisa; num fígado com esteatose e resistência à "
-    "insulina, são outra. Não existe um número universal de doses seguras a ser descoberto — existe "
-    "um número que depende do fígado que recebe.",
+dict(h="Álcool e gordura no fígado interagem — e a interação é supra-aditiva", tipo="p", corpo=[
+    "Este é o achado que justifica a categoria nova, e é o mais importante desta página. Também é o "
+    "trecho que precisei refazer: a primeira versão publicada atribuiu à revisão citada abaixo "
+    "números que não estão nela. Fui ao original. O que ele sustenta é isto.",
+    "A revisão crítica de Åberg, Färkkilä e Männistö, publicada em <em>Alcoholism: Clinical and "
+    "Experimental Research</em> em 2020, conclui que evidência clínica e mecanística apontam "
+    "<strong>efeitos consideráveis de interação supra-aditiva</strong> entre uso nocivo de álcool e "
+    "anormalidades metabólicas — obesidade, diabetes e síndrome metabólica — no desenvolvimento e na "
+    "progressão da doença hepática crônica. Em bom português: quem tem os dois não corre a soma dos "
+    "dois riscos, corre mais que isso.",
+    "Três conclusões dessa revisão merecem ser lidas na formulação dela:",
+], tabela=dict(
+    cap="O que a revisão de 2020 conclui, em suas próprias palavras",
+    linhas=[
+        ["Sobre", "O que está escrito"],
+        ["Beber muito de vez em quando",
+         "Binge intermitente <strong>uma vez por mês ou mais</strong> parece associado a progressão da "
+         "doença hepática <em>mesmo quando o consumo médio está dentro dos limites</em> hoje aceitos "
+         "para o diagnóstico de esteatose não alcoólica. E há relato de interação supra-aditiva entre "
+         "binge e síndrome metabólica"],
+        ["Quem já tem gordura no fígado",
+         "A presença de esteatose <strong>parece amplificar a hepatotoxicidade do álcool</strong>. "
+         "Estudos longitudinais recentes em pessoas com esteatose associam <em>consumo baixo</em> de "
+         "álcool tanto a progressão de fibrose quanto a risco elevado de câncer de fígado e de doença "
+         "hepática grave"],
+        ["Limite seguro",
+         "<strong>Não há limite seguro claro de ingestão de álcool na presença de esteatose ou de "
+         "risco metabólico.</strong> E a dicotomia estrita entre doença hepática puramente alcoólica e "
+         "não alcoólica pode ser inadequada — que é exatamente o que a nomenclatura de 2023 veio "
+         "corrigir"],
+    ])),
+
+dict(h="Um número concreto, de um estudo que dá para conferir", tipo="p", corpo=[
+    "Segundo o PubMed, o estudo Dionysos, publicado nos <em>Annals of Internal Medicine</em> em 2000, "
+    "mediu esteatose por ultrassom em <strong>257 pessoas</strong> divididas em quatro grupos: 67 "
+    "controles, 66 obesos, 69 grandes bebedores e 55 que eram as duas coisas.",
+], tabela=dict(
+    cap="Prevalência de esteatose no estudo Dionysos",
+    linhas=[
+        ["Grupo", "Tinha esteatose", "Risco em relação aos controles"],
+        ["Controles", "16,4%", "—"],
+        ["Grandes bebedores", "46,4%", "2,8× (IC 95% 1,4 a 7,1)"],
+        ["Obesos", "75,8%", "4,6× (IC 95% 2,5 a 11,0)"],
+        ["<strong>Obesos e grandes bebedores</strong>", "<strong>94,5%</strong>",
+         "<strong>5,8×</strong> (IC 95% 3,2 a 12,3)"],
+    ])),
+
+dict(h="E a leitura desse estudo que não pode ser omitida", tipo="li", corpo=[
+    "<strong>Praticamente todo obeso que bebia pesado tinha esteatose: 94,5%.</strong> Os autores "
+    "escrevem que ela está quase sempre presente em pessoas obesas que bebem mais de 60 g de álcool "
+    "por dia.",
+    "<strong>Mas esse estudo, sozinho, não demonstra multiplicação.</strong> Os próprios autores "
+    "concluem que a esteatose se associa <em>mais fortemente à obesidade do que ao consumo pesado de "
+    "álcool</em>, sugerindo papel maior do excesso de peso. Nos números deles, entre grandes "
+    "bebedores a obesidade dobrou o risco, enquanto entre obesos o consumo pesado aumentou o risco em "
+    "apenas 1,3 vez.",
+    "<strong>Por que mantenho os dois na mesma página.</strong> A conclusão de supra-aditividade é da "
+    "revisão de 2020, que sintetiza muitos estudos e olha progressão de doença; o Dionysos é de 2000 e "
+    "mede prevalência de esteatose, que é outra pergunta. Publicar só o que confirma a tese seria "
+    "fazer aqui exatamente o que este site cobra dos outros.",
 ]),
 
 dict(h="A posição da OMS sobre nível seguro, e o que ela de fato diz", tipo="p", corpo=[
@@ -254,8 +300,8 @@ dict(h="O que esta página não é", tipo="li", corpo=[
          "https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=REZDIFFRA"),
         ("DailyMed — WEGOVY (semaglutida), rótulo completo",
          "https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=WEGOVY"),
-        ("Rinella ME et al. A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Journal of Hepatology, 2023 — origem das siglas SLD, MASLD, MetALD e MASH e dos limiares de álcool",
-         "https://www.journal-of-hepatology.eu/article/S0168-8278(23)00418-X/fulltext"),
+        ("PubMed — Rinella ME, Lazarus JV, Ratziu V, et al. A multisociety Delphi consensus statement on new fatty liver disease nomenclature. J Hepatol. 2023;79(6):1542-1556. PMID 37364790 \u00b7 doi:10.1016/j.jhep.2023.06.003 \u2014 236 painelistas de 56 pa\u00edses; origem das siglas SLD, MASLD, MetALD e MASH e dos limiares de \u00e1lcool",
+         "https://doi.org/10.1016/j.jhep.2023.06.003"),
         ("AASLD. New MASLD Nomenclature — página oficial da associação americana sobre a mudança",
          "https://www.aasld.org/new-masld-nomenclature"),
         ("NIAAA. What Is A Standard Drink? — a definição de 14 g de álcool puro por dose padrão",
@@ -264,8 +310,10 @@ dict(h="O que esta página não é", tipo="li", corpo=[
          "https://www.who.int/europe/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health"),
         ("The Lancet Public Health. Health and cancer risks associated with low levels of alcohol consumption — o texto da declaração",
          "https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(22)00317-6/fulltext"),
-        ("Åberg F, Färkkilä M. Interaction Between Alcohol Use and Metabolic Risk Factors for Liver Disease: A Critical Review of Epidemiological Studies. PMID 31854001 — a revisão sobre efeito supra-aditivo",
-         "https://pubmed.ncbi.nlm.nih.gov/31854001/"),
+        ("PubMed \u2014 \u00c5berg F, F\u00e4rkkil\u00e4 M, M\u00e4nnist\u00f6 V. Interaction Between Alcohol Use and Metabolic Risk Factors for Liver Disease: A Critical Review of Epidemiological Studies. Alcohol Clin Exp Res. 2020;44(2):384-403. PMID 31854001 \u00b7 doi:10.1111/acer.14271",
+         "https://doi.org/10.1111/acer.14271"),
+        ("PubMed \u2014 Bellentani S, Saccoccio G, Masutti F, et al. Prevalence of and risk factors for hepatic steatosis in Northern Italy. Ann Intern Med. 2000;132(2):112-7. PMID 10644271 \u00b7 doi:10.7326/0003-4819-132-2-200001180-00004 \u2014 o estudo Dionysos",
+         "https://doi.org/10.7326/0003-4819-132-2-200001180-00004"),
         ("AASLD Liver Fellow Network. Spare Me the Jab: Noninvasive Assessment of Patients with MASLD — o FIB-4, seus cortes e seus limites por faixa etária",
          "https://www.aasld.org/liver-fellow-network/core-series/clinical-pearls/spare-me-jab-noninvasive-assessment-patients-masld"),
     ],
