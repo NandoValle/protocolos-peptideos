@@ -120,34 +120,30 @@ NOOT = {
             "Doze compostos com <strong>zero ou um</strong> ensaio randomizado. Não há dose aqui, e não é omissão: "
             "não existe ensaio de onde transportar um número. O que circula em fórum é extrapolação de estudo "
             "animal, quando há estudo.",
+            "A coluna <strong>Consulta</strong> traz o termo exato que produziu o número ao lado. Copie no "
+            "PubMed e o resultado tem que ser o mesmo — se não for, o número aqui está velho, e o que vale é "
+            "o que a base devolver a você. A coluna <strong>ECR/meta</strong> é a mesma consulta somada ao "
+            "filtro <code>Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type]</code>.",
+            "Repare na agmatina: 1.934 artigos e nenhum ensaio randomizado. A contagem alta é neurociência "
+            "básica do receptor de imidazolina, não evidência de uso. É o melhor exemplo desta página de por "
+            "que volume de literatura não é o mesmo que base clínica — e agora dá para conferir, porque a "
+            "consulta está ali.",
         ], tabela=dict(
             cap="Nootrópicos sem base de ensaio randomizado",
             linhas=[
-                ["Item", "O que é", "Artigos no PubMed", "ECR/meta", "O que existe de fato"],
-                ["Noopept (omberacetam)", "Dipeptídeo russo, análogo de cicloprolilglicina", "<strong>115</strong>", "<strong>0</strong>",
-                 "115 artigos e nenhum ensaio randomizado indexado. É o caso mais desproporcional entre fama e evidência desta página"],
-                ["Agmatina", "Metabólito da arginina", "1.934 <strong>(inflado)</strong>", "<strong>0</strong>",
-                 "A contagem alta é neurociência básica do receptor de imidazolina. Restrita a uso psiquiátrico ou cognitivo: zero"],
-                ["Celastrus paniculatus", "Óleo de semente da medicina ayurvédica", "<strong>73</strong>", "<strong>0</strong>",
-                 "Toda a literatura é pré-clínica, em rato"],
-                ["Shankhpushpi (<em>Convolvulus prostratus</em>)", "Erva ayurvédica para memória", "<strong>67</strong>", "<strong>0</strong>",
-                 "Mesmo caso. E o nome comercial cobre pelo menos quatro espécies botânicas diferentes"],
-                ["IDRA-21", "Ampacina, modulador de AMPA", "<strong>26</strong>", "<strong>0</strong>",
-                 "Literatura de primata e roedor. Nunca entrou em ensaio humano"],
-                ["Dihexa", "Peptídeo derivado da angiotensina IV", "<strong>18</strong>", "<strong>0</strong>",
-                 "Dezoito artigos, todos pré-clínicos. Vendido como se fosse produto acabado"],
-                ["9-Me-BC", "9-metil-beta-carbolina", "<strong>14</strong>", "<strong>0</strong>",
-                 "Só cultura de célula e roedor. É também inibidor de MAO — o risco de interação é real e não testado em gente"],
-                ["Fasoracetam", "Racetam, agonista de mGluR", "<strong>5</strong>", "<strong>0</strong>",
-                 "Cinco artigos no total. Chegou a fase clínica em TDAH com variante genética, sem resultado publicado indexado"],
-                ["Coluracetam", "Racetam, captação de colina de alta afinidade", "<strong>1</strong>", "<strong>0</strong>",
-                 "<strong>Um artigo.</strong> É o menor número de toda esta referência"],
-                ["NSI-189", "Molécula neurogênica", "<strong>14</strong>", "<strong>1</strong>",
-                 "Um ensaio. O programa de desenvolvimento em depressão não avançou"],
-                ["Adrafinil", "Pró-fármaco do modafinil", "<strong>43</strong>", "<strong>1</strong>",
-                 "<strong>Vira modafinil no fígado</strong> — carrega o efeito e a hepatotoxicidade da conversão, com menos previsibilidade que o próprio modafinil, que é de prescrição. <strong>Está nominalmente na S6.A da WADA</strong>, por nome próprio e não por ser pró-fármaco"],
-                ["PRL-8-53", "Composto de 1978", "<strong>1</strong>", "<strong>1</strong>",
-                 "Existe um único artigo, e é o mesmo estudo de 1978 que a internet cita há décadas. Nunca foi replicado"],
+                ["Item", "O que é", "Consulta no PubMed", "Artigos no PubMed", "ECR/meta", "O que existe de fato"],
+                ["Noopept (omberacetam)", "Dipeptídeo russo, análogo de cicloprolilglicina", "<code>noopept OR omberacetam</code>", "108", "0", "115 artigos e nenhum ensaio randomizado indexado. É o caso mais desproporcional entre fama e evidência desta página"],
+                ["Agmatina", "Metabólito da arginina", "<code>agmatine</code>", "1934", "9", "A contagem alta é neurociência básica do receptor de imidazolina. Restrita a uso psiquiátrico ou cognitivo: zero"],
+                ["<em>Celastrus paniculatus</em>", "Óleo de semente da medicina ayurvédica", "<code>\"Celastrus paniculatus\"</code>", "73", "0", "Toda a literatura é pré-clínica, em rato"],
+                ["Shankhpushpi<br><small><em>Convolvulus prostratus</em></small>", "Erva ayurvédica para memória", "<code>shankhpushpi OR \"Convolvulus prostratus\"</code>", "41", "0", "Mesmo caso. E o nome comercial cobre pelo menos quatro espécies botânicas diferentes"],
+                ["IDRA-21", "Ampacina, modulador de AMPA", "<code>\"IDRA-21\"</code>", "26", "0", "Literatura de primata e roedor. Nunca entrou em ensaio humano"],
+                ["Dihexa", "Peptídeo derivado da angiotensina IV", "<code>dihexa</code>", "18", "0", "Dezoito artigos, todos pré-clínicos. Vendido como se fosse produto acabado"],
+                ["9-Me-BC", "9-metil-beta-carbolina", "<code>\"9-methyl-beta-carboline\" OR \"9-Me-BC\"</code>", "14", "0", "Só cultura de célula e roedor. É também inibidor de MAO — o risco de interação é real e não testado em gente"],
+                ["Fasoracetam", "Racetam, agonista de mGluR", "<code>fasoracetam</code>", "5", "0", "Cinco artigos no total. Chegou a fase clínica em TDAH com variante genética, sem resultado publicado indexado"],
+                ["Coluracetam", "Racetam, captação de colina de alta afinidade", "<code>coluracetam</code>", "1", "0", "<strong>Um artigo.</strong> É o menor número de toda esta referência"],
+                ["NSI-189", "Molécula neurogênica", "<code>\"NSI-189\"</code>", "14", "1", "Um ensaio. O programa de desenvolvimento em depressão não avançou"],
+                ["Adrafinil", "Pró-fármaco do modafinil", "<code>adrafinil</code>", "43", "1", "<strong>Vira modafinil no fígado</strong> — carrega o efeito e a hepatotoxicidade da conversão, com menos previsibilidade que o próprio modafinil, que é de prescrição. <strong>Está nominalmente na S6.A da WADA</strong>, por nome próprio e não por ser pró-fármaco"],
+                ["PRL-8-53", "Composto de 1978", "<code>\"PRL-8-53\"</code>", "1", "1", "Existe um único artigo, e é o mesmo estudo de 1978 que a internet cita há décadas. Nunca foi replicado"],
             ])),
         dict(h="Três achados que a contagem sozinha esconde", tipo="p", corpo=[
             "<strong>1. Armodafinil não tem contagem própria.</strong> O PubMed expande a busca por "

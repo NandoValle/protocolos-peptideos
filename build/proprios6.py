@@ -128,7 +128,7 @@ KLOW_SEMAX = {
             cap="Levantamento de evidência — Semax",
             linhas=[
                 ["Base", "Consulta", "Resultado"],
-                ["PubMed", "<code>Semax</code>", "232 artigos"],
+                ["PubMed", "<code>Semax</code>", "231 artigos"],
                 ["PubMed", "<code>Semax AND (Clinical Trial[Publication Type] OR Randomized Controlled Trial[Publication Type])</code>", "<strong>4 artigos</strong>"],
                 ["ClinicalTrials.gov", "intervenção contendo Semax", "<strong>0 registros</strong>"],
             ])),

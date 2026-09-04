@@ -111,21 +111,25 @@ PROPRIOS = {
         ]),
         dict(h="O levantamento", tipo="p", corpo=[
             f"Consultei o PubMed e o ClinicalTrials.gov em {_DT}, um a um. O resultado está abaixo.",
+            "A coluna <strong>Consulta</strong> traz o termo exato que produziu o número ao lado. Copie no PubMed e o resultado tem que ser o mesmo — se não for, o número aqui está velho, e o que vale é o que a base devolver a você.",
+            "A coluna <strong>Ensaios clínicos</strong> é a mesma consulta somada ao filtro "
+            "<code>Clinical Trial[Publication Type] OR Randomized Controlled Trial[Publication Type]</code>. "
+            "No ClinicalTrials.gov a busca foi por intervenção, com o mesmo termo.",
         ], tabela=dict(
             cap="Evidência por composto",
             linhas=[
-                ["Composto", "Sequência", "Artigos no PubMed", "Ensaios clínicos", "ClinicalTrials.gov"],
-                ["Vilon", "Lys-Glu (KE)", "74", "3", "0"],
-                ["Vesugen / Vezugen", "Lys-Glu-Asp (KED)", "35 (bloco)", "2", "0"],
-                ["Livagen", "não indexada", "19", "0", "0"],
-                ["Cortagen", "Ala-Glu-Asp-Pro (AEDP)", "15", "0", "0"],
-                ["Pancragen", "Lys-Glu-Asp-Trp (KEDW)", "10 (bloco)", "0", "0"],
-                ["Prostamax", "não indexada", "6", "0", "0"],
-                ["Testagen", "não indexada", "35 (bloco)", "0", "0"],
-                ["Chonluten", "não indexada", "35 (bloco)", "0", "0"],
-                ["Bronchogen", "não indexada", "35 (bloco)", "0", "0"],
-                ["Crystagen", "não indexada", "10 (bloco)", "0", "0"],
-                ["Ovagen", "não indexada", "10 (bloco)", "0", "0"],
+                ["Composto", "Sequência", "Consulta no PubMed", "Artigos no PubMed", "Ensaios clínicos", "ClinicalTrials.gov"],
+                ["Vilon", "Lys-Glu (KE)", "<code>vilon</code>", "80", "3", "0"],
+                ["Vesugen / Vezugen", "Lys-Glu-Asp (KED)", "<code>vesugen OR vezugen</code>", "29", "2", "0"],
+                ["Livagen", "não indexada", "<code>livagen</code>", "19", "0", "0"],
+                ["Cortagen", "Ala-Glu-Asp-Pro (AEDP)", "<code>cortagen</code>", "15", "0", "0"],
+                ["Pancragen", "Lys-Glu-Asp-Trp (KEDW)", "<code>pancragen</code>", "9", "0", "0"],
+                ["Prostamax", "não indexada", "<code>prostamax</code>", "6", "0", "0"],
+                ["Testagen", "não indexada", "<code>testagen</code>", "2", "0", "1"],
+                ["Chonluten", "não indexada", "<code>chonluten</code>", "1", "0", "0"],
+                ["Bronchogen", "não indexada", "<code>bronchogen</code>", "12", "0", "1"],
+                ["Crystagen", "não indexada", "<code>crystagen</code>", "1", "0", "0"],
+                ["Ovagen", "não indexada", "<code>ovagen</code>", "34", "2", "0"],
             ])),
         dict(h="Três coisas que esse levantamento revela", tipo="li", corpo=[
             "<strong>Nenhum dos onze tem um único ensaio registrado no ClinicalTrials.gov.</strong> A busca por "

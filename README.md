@@ -90,11 +90,15 @@ Em 04/09/2026, uma auditoria reexecutou as consultas que as próprias páginas d
 
 A trava **não** acusa número que é conteúdo de terceiro. "A meta-análise reuniu 21 estudos" é fato reportado, não levantamento do site, e não tem consulta para declarar. Uma primeira versão acusava 12 ocorrências, das quais 9 eram desse tipo — e trava que acusa o legítimo ensina a ser ignorada. Por isso a regra só olha tabela.
 
-### A dívida que ela herdou
+### A dívida que ela herdou — e que foi paga
 
-Quatro tabelas anteriores à trava publicam contagem sem a consulta, e a consulta **não é reconstituível por quem lê**. Medido: rodando o nome simples do composto, reproduzi 3 de 15 linhas na página do leste europeu e 1 de 7 na de SARMs; tentando com os sinônimos que a própria célula mostra, 3 de 15 e 2 de 7. O caso do meldonium mostra o mecanismo — a página publica 357, o termo `Meldonium` sozinho devolve 309, e a consulta que reproduz, `meldonium OR mildronate`, está declarada em *outra* página.
+Quatro tabelas nasceram antes da trava e publicavam contagem sem a consulta. Medido na época: rodando o nome simples do composto, reproduzi 3 de 15 linhas na página do leste europeu e 1 de 7 na de SARMs.
 
-Essas quatro estão listadas em `DIVIDA`, no topo do arquivo da trava. Elas são **reportadas a cada execução, sem bloquear**; tabela nova sem consulta continua bloqueando. Sair da dívida exige refazer o levantamento e publicar consulta e número juntos — decisão de conteúdo, não de código. Inventar a consulta para fechar o buraco seria publicar como método algo que não foi o método.
+Os quatro levantamentos foram **refeitos em 04/09/2026**, com a consulta de cada linha definida, rodada e publicada ao lado do número. A lista `DIVIDA` está vazia.
+
+Ficou uma lição registrada no código: buscando `LGD-4033 OR ligandrol` no ClinicalTrials.gov o resultado é **zero**, e a página teria afirmado que o ligandrol nunca entrou em ensaio. O ensaio existe — fase 2, 108 participantes, fratura de quadril — registrado sob o sinônimo `VK5211`. Consulta declarada não serve só para o leitor conferir: serve para quem escreve **perceber que a própria busca estava incompleta**.
+
+Estado atual, medido reexecutando toda consulta declarada em tabela no site: **63 de 65 reproduzem**. As duas restantes são o Semax, que oscila em um artigo conforme a indexação do dia, e uma linha cuja base é o ClinicalTrials.gov e não o PubMed.
 
 ## Regenerar
 

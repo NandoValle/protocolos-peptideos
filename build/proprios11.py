@@ -56,33 +56,28 @@ SARM = {
         ]),
 
         dict(h="Quanta evidência existe, composto a composto", tipo="p", corpo=[
+            "A coluna <strong>Consulta</strong> traz o termo exato que produziu o número ao lado. Copie no PubMed e o resultado tem que ser o mesmo — se não for, o número aqui está velho, e o que vale é o que a base devolver a você.",
+            "No ClinicalTrials.gov a busca foi por intervenção, com os mesmos sinônimos — inclusive "
+            "<code>VK5211</code> para o ligandrol, sob o qual o ensaio de fratura de quadril está "
+            "registrado. Sem esse sinônimo a busca devolve zero, e a página afirmaria que não existe "
+            "ensaio nenhum do composto.",
             f"Levantamento feito no PubMed e no ClinicalTrials.gov em {_DT}. A coluna que decide não "
             "é a de artigos: é a de <strong>ensaio registrado em humano</strong>.",
         ], tabela=dict(
             cap="Evidência em humano — SARMs",
             linhas=[
-                ["Composto", "Artigos no PubMed", "Ensaios em humano registrados", "Fase máxima atingida"],
-                ["<strong>Enobosarm</strong><br><small>ostarina · MK-2866 · GTx-024 · S-22</small>",
-                 "116", "<strong>17</strong>", "<strong>Fase 3</strong> — dois ensaios, concluídos em 2013"],
-                ["<strong>LGD-4033</strong><br><small>ligandrol · VK5211</small>",
-                 "50", "1 de fase 2 <small>(fratura de quadril, n=108)</small> + fase 1 publicada",
-                 "Fase 2"],
-                ["<strong>GSK2881078</strong>", "15", "3 <small>(duas de fase 1, uma de fase 2a em DPOC, n=97)</small>",
-                 "Fase 2a"],
-                ["<strong>MK-0773</strong> <small>(Merck)</small>", "—",
-                 "3 <small>(duas de fase 1, uma de fase 2a em sarcopenia, n=170)</small>", "Fase 2a"],
-                ["<strong>OPK-88004</strong> <small>(OPKO)</small>", "—",
-                 "1 de fase 2 <small>(hiperplasia prostática, n=114)</small> — <strong>encerrada</strong>", "Fase 2"],
-                ["<strong>PF-06260414</strong> <small>(Pfizer)</small>", "—",
-                 "1 de fase 1 <small>(n=72)</small>; a segunda foi retirada com n=0", "Fase 1"],
-                ["<strong>RAD140</strong><br><small>testolona · vosilasarm</small>", "43",
-                 "<strong>1 em toda a história do composto</strong> <small>(fase 1, n=20)</small>", "Fase 1"],
-                ["<strong>Andarina</strong> <small>(S-4 · GTx-007)</small>", "41", "<strong>0</strong>", "—"],
-                ["<strong>YK-11</strong>", "20", "<strong>0</strong>", "—"],
-                ["<strong>S-23</strong>", "12 <small>(com filtro de receptor androgênico)</small>",
-                 "<strong>0</strong>", "—"],
-                ["<strong>ACP-105 · LGD-3303 · RAD-150</strong> <small>(somados)</small>", "22",
-                 "<strong>0</strong>", "—"],
+                ["Composto", "Consulta no PubMed", "Artigos no PubMed", "Ensaios no ClinicalTrials.gov", "Fase máxima atingida"],
+                ["Enobosarme<br><small>ostarina · MK-2866 · GTx-024</small>", "<code>enobosarm OR ostarine OR \"MK-2866\"</code>", "112", "17", "<strong>Fase 3</strong> — dois ensaios, concluídos em 2013"],
+                ["LGD-4033<br><small>ligandrol · VK5211</small>", "<code>\"LGD-4033\" OR ligandrol OR VK5211</code>", "50", "1", "Fase 2"],
+                ["GSK2881078", "<code>GSK2881078</code>", "15", "3", "Fase 2a"],
+                ["MK-0773<br><small>Merck</small>", "<code>\"MK-0773\"</code>", "8", "3", "Fase 2a"],
+                ["OPK-88004<br><small>OPKO</small>", "<code>\"OPK-88004\"</code>", "3", "1", "Fase 2"],
+                ["PF-06260414<br><small>Pfizer</small>", "<code>\"PF-06260414\"</code>", "6", "2", "Fase 1"],
+                ["RAD-140<br><small>testolona · vosilasarm</small>", "<code>\"RAD-140\" OR RAD140 OR testolone OR vosilasarm</code>", "43", "1", "—"],
+                ["Andarina<br><small>GTx-007</small>", "<code>andarine OR \"GTx-007\"</code>", "43", "0", "—"],
+                ["YK-11", "<code>\"YK-11\"</code>", "7", "0", "—"],
+                ["S-23", "<code>\"S-23\" AND \"androgen receptor\"</code>", "14", "0", "—"],
+                ["ACP-105 · LGD-3303 · RAD-150<br><small>somados</small>", "<code>\"ACP-105\" OR \"LGD-3303\" OR \"RAD-150\"</code>", "22", "0", "—"],
             ])),
 
         dict(h="O que essa tabela quer dizer", tipo="li", corpo=[

@@ -70,28 +70,30 @@
 <p>Dezoito medicamentos registrados na Rússia, na Letônia ou no leste europeu, que chegam ao Brasil por importação. Nenhum tem registro na ANVISA. Vieram de um catálogo de importadora, e a lista original trazia 26 produtos — a diferença são variantes cápsula/injetável, uma duplicata, e Cerebrolisina, Selank e Semax, que já têm página própria nesta referência.</p>
 <p><strong>Este bloco surpreendeu.</strong> Eu esperava encontrar o mesmo vazio dos bioreguladores de Khavinson, que somam zero ensaios registrados. Encontrei o contrário: <strong>29 ensaios registrados no ClinicalTrials.gov</strong>, vários de fase 3, alguns com centenas de participantes e desenho duplo-cego contra placebo.</p>
 <h2 id="sec1">O levantamento</h2>
-<p>PubMed e ClinicalTrials.gov, consultados em 4 de setembro de 2026, um composto por vez. A coluna <strong>ECR/meta</strong> usa o filtro de ensaio randomizado ou metanálise.</p>
+<p>PubMed e ClinicalTrials.gov, consultados em 4 de setembro de 2026, um composto por vez.</p>
+<p>A coluna <strong>Consulta</strong> traz o termo exato que produziu o número ao lado. Copie no PubMed e o resultado tem que ser o mesmo — se não for, o número aqui está velho, e o que vale é o que a base devolver a você.</p>
+<p>A coluna <strong>ECR/meta</strong> é a mesma consulta somada ao filtro <code>Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type]</code>. No ClinicalTrials.gov a busca foi por intervenção, com os mesmos sinônimos.</p>
 <div class="tabela-env"><div class="tabela-rolagem"><table>
-  <thead><tr><th>Composto</th><th>O que é</th><th>PubMed</th><th>ECR/meta</th><th>Ensaio registrado</th></tr></thead>
+  <thead><tr><th>Composto</th><th>O que é</th><th>Consulta no PubMed</th><th>Artigos no PubMed</th><th>ECR/meta</th><th>Ensaio registrado</th></tr></thead>
   <tbody>
-    <tr><td>Mexidol</td><td>Etilmetilhidroxipiridina succinato (emoxipina)</td><td><strong>614</strong></td><td><strong>59</strong></td><td>Sim — 6 vistos, fases 2 a 4</td></tr>
-    <tr><td>Cytoflavin</td><td>Ácido succínico + inosina + nicotinamida + riboflavina</td><td><strong>309</strong></td><td><strong>59</strong></td><td>Sim — 5 vistos, fase 3</td></tr>
-    <tr><td>Actovegin</td><td>Hemoderivado desproteinizado de sangue de bezerro</td><td><strong>185</strong></td><td><strong>26</strong></td><td>Sim — 2 de fase 3, patrocínio ocidental</td></tr>
-    <tr><td>Pantogam / Pantocalcin</td><td>Ácido hopantênico / hopantenato de cálcio</td><td><strong>166</strong></td><td><strong>7</strong></td><td>não visto</td></tr>
-    <tr><td>Afobazol</td><td>Fabomotizol, ansiolítico não benzodiazepínico</td><td><strong>158</strong></td><td><strong>5</strong></td><td>Sim — 1, fase 4, recrutando</td></tr>
-    <tr><td>Neuromidin</td><td>Ipidacrina (amiridina), inibidor de colinesterase</td><td><strong>148</strong></td><td><strong>18</strong></td><td>não visto</td></tr>
-    <tr><td>Cortexin</td><td>Polipeptídeos corticais bovinos</td><td><strong>127</strong> <strong>(corrigido)</strong></td><td><strong>16</strong></td><td>não visto</td></tr>
-    <tr><td>Stresam</td><td>Etifoxina, ansiolítico</td><td><strong>118</strong></td><td><strong>12</strong></td><td>Sim — 2, incluindo comparação com lorazepam</td></tr>
-    <tr><td>Polyoxidonium</td><td>Azoximer brometo, imunomodulador</td><td><strong>84</strong></td><td><strong>2</strong></td><td>Sim — 3, incluindo fase 2/3 em covid com 394 participantes</td></tr>
-    <tr><td>Picamilon</td><td>Nicotinoil-GABA</td><td><strong>60</strong></td><td><strong>3</strong></td><td>não visto</td></tr>
-    <tr><td>Derinat</td><td>Desoxirribonucleato de sódio</td><td><strong>36</strong></td><td><strong>1</strong></td><td>não visto</td></tr>
-    <tr><td>Nanotropil</td><td>Fenilpiracetam (fonturacetam, carfedon)</td><td><strong>34</strong></td><td><strong>2</strong></td><td>não visto</td></tr>
-    <tr><td>Galavit</td><td>Aminodihidroftalazinediona sódica</td><td><strong>28</strong></td><td><strong>2</strong></td><td>não visto</td></tr>
-    <tr><td>Memoprove</td><td>N-PEP-12, derivado peptídico</td><td><strong>16</strong></td><td><strong>3</strong></td><td>não visto</td></tr>
-    <tr><td>Etoxidol</td><td>Etilmetilhidroxipiridina malato</td><td><strong>11</strong></td><td><strong>0</strong></td><td>não visto</td></tr>
-    <tr><td>Cocarboxilase</td><td>Tiamina pirofosfato</td><td>534 <strong>(contagem inflada)</strong></td><td><strong>0</strong> do injetável</td><td>não visto</td></tr>
-    <tr><td>Citocromo C</td><td>Citocromo c injetável</td><td>108 <strong>(contagem inflada)</strong></td><td><strong>0</strong> do injetável</td><td>não visto</td></tr>
-    <tr><td>Meldonium</td><td>Já tem página própria nesta referência</td><td>357</td><td>35</td><td>Sim — 7</td></tr>
+    <tr><td>Mexidol</td><td>Etilmetilhidroxipiridina succinato (emoxipina)</td><td><code>mexidol OR emoxypine OR "ethylmethylhydroxypyridine succinate"</code></td><td>614</td><td>59</td><td>Sim — 6 vistos, fases 2 a 4</td></tr>
+    <tr><td>Cytoflavin</td><td>Ácido succínico + inosina + nicotinamida + riboflavina</td><td><code>cytoflavin</code></td><td>309</td><td>59</td><td>Sim — 5 vistos, fase 3</td></tr>
+    <tr><td>Actovegin</td><td>Hemoderivado desproteinizado de sangue de bezerro</td><td><code>actovegin</code></td><td>180</td><td>26</td><td>Sim — 2 de fase 3, patrocínio ocidental</td></tr>
+    <tr><td>Pantogam / Pantocalcin</td><td>Ácido hopantênico / hopantenato de cálcio</td><td><code>pantogam OR "hopantenic acid" OR "calcium hopantenate"</code></td><td>165</td><td>7</td><td>não visto</td></tr>
+    <tr><td>Afobazol</td><td>Fabomotizol, ansiolítico não benzodiazepínico</td><td><code>afobazole OR fabomotizole</code></td><td>158</td><td>5</td><td>Sim — 1, fase 4, recrutando</td></tr>
+    <tr><td>Neuromidin</td><td>Ipidacrina (amiridina), inibidor de colinesterase</td><td><code>neuromidin OR ipidacrine OR amiridine</code></td><td>148</td><td>19</td><td>não visto</td></tr>
+    <tr><td>Cortexin</td><td>Polipeptídeos corticais bovinos</td><td><code>cortexin</code></td><td>217</td><td>19</td><td>não visto</td></tr>
+    <tr><td>Stresam</td><td>Etifoxina, ansiolítico</td><td><code>stresam OR etifoxine</code></td><td>118</td><td>12</td><td>Sim — 2, incluindo comparação com lorazepam</td></tr>
+    <tr><td>Polyoxidonium</td><td>Azoximer brometo, imunomodulador</td><td><code>polyoxidonium OR azoximer</code></td><td>98</td><td>6</td><td>Sim — 3, incluindo fase 2/3 em covid com 394 participantes</td></tr>
+    <tr><td>Picamilon</td><td>Nicotinoil-GABA</td><td><code>picamilon OR "nicotinoyl-GABA"</code></td><td>56</td><td>3</td><td>não visto</td></tr>
+    <tr><td>Derinat</td><td>Desoxirribonucleato de sódio</td><td><code>derinat OR "sodium deoxyribonucleate"</code></td><td>43</td><td>1</td><td>não visto</td></tr>
+    <tr><td>Nanotropil</td><td>Fenilpiracetam (fonturacetam, carfedon)</td><td><code>phenylpiracetam OR fonturacetam OR carphedon OR nanotropil</code></td><td>34</td><td>2</td><td>não visto</td></tr>
+    <tr><td>Galavit</td><td>Aminodihidroftalazinediona sódica</td><td><code>galavit OR "aminodihydrophthalazinedione"</code></td><td>29</td><td>2</td><td>não visto</td></tr>
+    <tr><td>Memoprove</td><td>N-PEP-12, derivado peptídico</td><td><code>"N-PEP-12" OR memoprove</code></td><td>16</td><td>3</td><td>não visto</td></tr>
+    <tr><td>Etoxidol</td><td>Etilmetilhidroxipiridina malato</td><td><code>etoxidol OR "ethylmethylhydroxypyridine malate"</code></td><td>11</td><td>0</td><td>não visto</td></tr>
+    <tr><td>Cocarboxilase</td><td>Tiamina pirofosfato</td><td><code>cocarboxylase OR "thiamine pyrophosphate"</code></td><td>3301</td><td>24</td><td>não visto</td></tr>
+    <tr><td>Citocromo C</td><td>Citocromo c injetável</td><td><code>"cytochrome c"</code></td><td>62067</td><td>95</td><td>não visto</td></tr>
+    <tr><td>Meldonium</td><td>Já tem página própria nesta referência</td><td><code>meldonium OR mildronate</code></td><td>357</td><td>22</td><td>Sim — 7</td></tr>
   </tbody></table></div></div>
 <h2 id="sec2">A armadilha da contagem, de novo</h2>
 <p>Duas linhas da tabela estão marcadas como <strong>contagem inflada</strong>, e vale explicar por quê.</p>

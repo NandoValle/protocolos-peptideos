@@ -73,28 +73,19 @@ def _codigos(*blocos):
 
 
 # ---------------------------------------------------------------------------
-# DIVIDA CONHECIDA, herdada de antes desta trava existir.
+# DIVIDA: vazia.
 #
-# Estas quatro tabelas publicam contagem de PubMed sem declarar a consulta, e a
-# consulta NAO e reconstituivel por quem le. Testei em 04/09/2026: rodando o
-# nome simples do composto, reproduzi 3 de 15 linhas na do leste europeu e 1 de
-# 7 na de SARMs. Tentando com os sinonimos que a propria celula mostra, 3 de 15
-# e 2 de 7. O caso do meldonium mostra o mecanismo: a pagina publica 357, o
-# termo "Meldonium" sozinho devolve 309, e a consulta que reproduz --
-# "meldonium OR mildronate" -- esta declarada em OUTRA pagina.
+# Quatro tabelas nasceram antes desta trava e publicavam contagem sem a consulta
+# que a produziu. Em 04/09/2026 os quatro levantamentos foram REFEITOS, com a
+# consulta de cada linha definida, rodada e publicada ao lado do numero.
 #
-# Nao invento a consulta para fechar o buraco: seria publicar como metodo algo
-# que nao foi o metodo. Sair da divida exige REFAZER o levantamento e publicar
-# consulta e numero novos juntos -- decisao de conteudo, nao de codigo.
-#
-# Enquanto isso, a trava REPORTA estas quatro a cada execucao, sem bloquear.
-# Tabela nova sem consulta continua bloqueando.
-DIVIDA = {
-    ("proprio_bioreguladores", "Evidência por composto"),
-    ("proprio_leste", "Evidência por composto"),
-    ("proprio_nootropicos", "Nootrópicos sem base de ensaio randomizado"),
-    ("proprio_sarms", "Evidência em humano — SARMs"),
-}
+# Ficou de licao o caso do ligandrol: buscando "LGD-4033 OR ligandrol" no
+# ClinicalTrials.gov o resultado e zero, e a pagina teria afirmado que o
+# composto nunca entrou em ensaio. O ensaio existe -- fase 2, 108 participantes,
+# fratura de quadril -- registrado sob o sinonimo VK5211. Consulta declarada nao
+# serve so para o leitor conferir: serve para quem escreve perceber que a busca
+# estava incompleta.
+DIVIDA = set()
 
 
 def confere(PROPRIOS):
