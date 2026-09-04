@@ -434,7 +434,9 @@ def selo_aprovacao(v):
 def gera_index(itens, stats):
     partes = [cabecalho(
         "Protocolos — peptídeos, nootrópicos e correlatos",
-        "Referência em português sobre peptídeos, nootrópicos, SARMs e correlatos: dose, ciclo, status regulatório e o limite da evidência de cada um. Material experimental, não é recomendação médica.",
+        # 150 caracteres. A description tambem vira og:description, que e o
+        # que aparece na previa de link do WhatsApp: a ressalva medica fica.
+        "Peptídeos, nootrópicos, SARMs e correlatos em português: dose, ciclo, registro na ANVISA e o limite da evidência. Experimental, não é conselho médico.",
         "", "inicio", caminho="/index.html")]
 
     partes.append('<main id="principal" class="env-largo">')
@@ -746,8 +748,9 @@ def gera_evidencia():
     # atualizado. Paginas de fonte primaria entram aqui a toda hora.
     n_prim = sum(1 for m in COMPOSTOS.values() if m['categoria'] == 'primaria')
     p = [cabecalho("Verificado em fonte primária — Protocolos",
-                   f"As {n_prim} páginas em que cada número foi levantado por mim na fonte primária "
-                   "— PubMed, ClinicalTrials.gov, dado aberto da ANVISA, bula e lista da WADA — "
+                   # 145 caracteres com n_prim = 18
+                   f"As {n_prim} páginas em que cada número veio da fonte primária "
+                   "— PubMed, ClinicalTrials.gov, ANVISA, bula e WADA — "
                    "com a consulta declarada em cada uma.",
                    "", "evidencia", indexavel=True, caminho="/evidencia.html")]
     p.append('<main id="principal" class="env-largo" style="max-width:860px;padding-top:52px;padding-bottom:80px">')
