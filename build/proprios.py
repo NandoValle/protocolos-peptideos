@@ -222,3 +222,6 @@ PROPRIOS.update(_CASG)
 
 from proprios14 import RIM as _RIM
 PROPRIOS.update(_RIM)
+
+from proprios15 import DOSE_RENAL as _DOSER
+PROPRIOS.update(_DOSER)

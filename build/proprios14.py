@@ -274,10 +274,10 @@ dict(h="O que esta página não autoriza", tipo="li", corpo=[
     "Dois registros no ClinicalTrials.gov, ambos usando o peptídeo como <em>marcador medido</em>, não "
     "como tratamento aplicado. Qualquer alegação de \"proteção renal\" por peptídeo vendido como "
     "material de pesquisa não tem, hoje, um ensaio registrado atrás dela.",
-    "<strong>Função renal reduzida muda o risco de tudo o mais neste site.</strong> Compostos "
-    "eliminados por via renal se acumulam quando o rim filtra menos. Esta página não traz ajuste de "
-    "dose para insuficiência renal — e a ausência é deliberada: esse ajuste é decisão clínica com "
-    "exame na mão, não tabela de referência.",
+    "<strong>Função renal reduzida muda o risco de tudo o mais neste site.</strong> Esta página não "
+    "traz tabela de redução de dose por faixa de TFGe, e a ausência é deliberada. O motivo, com o "
+    "que cada bula de fato determina e o levantamento do que não existe em lugar nenhum, está em "
+    "<a href=\"proprio_dose_renal.html\">ajuste de dose por função renal</a>.",
 ]),
     ],
     referencias=[
