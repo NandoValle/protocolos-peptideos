@@ -228,3 +228,6 @@ PROPRIOS.update(_DOSER)
 
 from proprios16 import HEPATICA as _HEP
 PROPRIOS.update(_HEP)
+
+from proprios17 import ALCOOL as _ALC
+PROPRIOS.update(_ALC)

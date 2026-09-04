@@ -367,3 +367,6 @@ COMPOSTOS.update(_X12)
 
 from compostos14 import EXTRA13 as _X13
 COMPOSTOS.update(_X13)
+
+from compostos15 import EXTRA14 as _X14
+COMPOSTOS.update(_X14)

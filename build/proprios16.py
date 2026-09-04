@@ -252,9 +252,10 @@ dict(h="O que esta página não é", tipo="li", corpo=[
     "<strong>Não é lista de compostos hepatotóxicos deste site.</strong> O que há é o que está "
     "documentado: SARMs, suplementos de fisiculturismo e a classe dos antagonistas de endotelina. "
     "Ausência de relato para os demais é ausência de relato, não atestado.",
-    "<strong>Não cobre álcool, hepatites virais, esteatose nem interação medicamentosa</strong> — que "
-    "são, no mundo real, causa muito mais frequente de exame hepático alterado do que qualquer coisa "
-    "catalogada aqui.",
+    "<strong>Não cobre hepatites virais nem interação medicamentosa</strong> — que são, no mundo real, "
+    "causa muito mais frequente de exame hepático alterado do que qualquer coisa catalogada aqui. "
+    "Álcool e esteatose, que estavam nessa mesma lista, agora têm página própria: "
+    "<a href=\"proprio_alcool_esteatose.html\">álcool e esteatose</a>.",
     "<strong>Não substitui a bula brasileira.</strong> O texto acima é o rótulo americano.",
 ]),
     ],
