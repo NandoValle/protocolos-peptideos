@@ -6,6 +6,8 @@ Os resultados dos ensaios POWER foram extraidos da API v2 do
 ClinicalTrials.gov, porque nao existe publicacao em revista.
 """
 
+from datas import DATA_APURACAO as _DT
+
 SARM = {
 "proprio_sarms": dict(
     secoes=[
@@ -54,7 +56,7 @@ SARM = {
         ]),
 
         dict(h="Quanta evidência existe, composto a composto", tipo="p", corpo=[
-            "Levantamento feito no PubMed e no ClinicalTrials.gov em 4 de setembro de 2026. A coluna que decide não "
+            f"Levantamento feito no PubMed e no ClinicalTrials.gov em {_DT}. A coluna que decide não "
             "é a de artigos: é a de <strong>ensaio registrado em humano</strong>.",
         ], tabela=dict(
             cap="Evidência em humano — SARMs",
@@ -108,7 +110,7 @@ SARM = {
             "<strong>E não existe artigo sobre eles.</strong> Nenhuma publicação de resultados foi indexada no "
             "PubMed nem consta vinculada aos próprios registros — a única referência ligada aos dois é o artigo de "
             "<em>desenho</em>. Os números abaixo foram extraídos da <strong>API v2 do ClinicalTrials.gov</strong> em "
-            "4 de setembro de 2026, que é o único lugar onde eles existem.",
+            f"{_DT}, que é o único lugar onde eles existem.",
             "Os dois ensaios tinham <strong>desfechos coprimários</strong>, medidos no dia 84 como percentual de "
             "respondedores: ganho de <strong>≥10% na potência de subida de escada</strong> para função física, e "
             "variação <strong>≥0%</strong> (isto é, não perder) para massa magra.",
@@ -329,7 +331,7 @@ SARM = {
          "https://doi.org/10.1016/S1470-2045(24)00004-4"),
         ("Crawford J et al., 2016 — desenho e justificativa do programa de fase 3 do enobosarm (ensaios POWER). É a única publicação vinculada aos dois registros. Curr Oncol Rep 18(6):37.",
          "https://doi.org/10.1007/s11912-016-0522-0"),
-        ("ClinicalTrials.gov, registro NCT01355484 (POWER 1) — resultados dos desfechos coprimários, extraídos da API v2 em 4 de setembro de 2026.",
+        (f"ClinicalTrials.gov, registro NCT01355484 (POWER 1) — resultados dos desfechos coprimários, extraídos da API v2 em {_DT}.",
          "https://clinicaltrials.gov/study/NCT01355484"),
         ("ClinicalTrials.gov, registro NCT01355497 (POWER 2) — resultados dos desfechos coprimários, postados em 9 de novembro de 2020.",
          "https://clinicaltrials.gov/study/NCT01355497"),

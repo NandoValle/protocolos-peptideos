@@ -5,6 +5,8 @@ A coluna "ECR/meta" traz a contagem de ensaios randomizados e metanalises
 no PubMed, conferida em 04/09/2026, item a item.
 """
 
+from datas import DATA_APURACAO as _DT
+
 SUPLEMENTOS = {
 
 # =========================================================== 1. TARJA (13)
@@ -80,7 +82,7 @@ SUPLEMENTOS = {
             "Fitoterápico e nootrópico de venda livre ocupam um lugar incômodo: risco geralmente baixo, evidência "
             "muito desigual e marketing sempre forte. As tabelas separam as três coisas.",
             "A coluna <strong>ECR/meta</strong> traz o número de ensaios randomizados e metanálises indexados no "
-            "PubMed, <strong>conferido item a item em 4 de setembro de 2026</strong>. É número, não opinião — e em "
+            f"PubMed, <strong>conferido item a item em {_DT}</strong>. É número, não opinião — e em "
             "alguns casos ele contradiz a fama do produto nas duas direções.",
         ]),
         dict(h="Adaptógenos e cognição", tipo="p", corpo=[], tabela=dict(
@@ -144,7 +146,7 @@ SUPLEMENTOS = {
         ]),
     ],
     referencias=[
-        ("Contagens de ensaios randomizados e metanálises obtidas no PubMed em 4 de setembro de 2026, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], item a item.",
+        (f"Contagens de ensaios randomizados e metanálises obtidas no PubMed em {_DT}, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], item a item.",
          "https://pubmed.ncbi.nlm.nih.gov/"),
         ("Fadogia agrestis — os três artigos indexados como humanos: Ogunro & Yakubu 2022 (ratos Wistar), van Andel et al. 2012 (mercado herbal de Gana), Sanon et al. 2003 (triagem antimalárica in vitro).",
          "https://pubmed.ncbi.nlm.nih.gov/?term=Fadogia+agrestis"),

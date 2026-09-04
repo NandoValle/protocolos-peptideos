@@ -5,6 +5,8 @@ Complementam as paginas de protocolo, que vem da fonte secundaria.
 Consultas feitas no PubMed e no ClinicalTrials.gov em 04/09/2026.
 """
 
+from datas import DATA_APURACAO as _DT
+
 KLOW_SEMAX = {
 
 # =============================================================== KLOW
@@ -27,7 +29,7 @@ KLOW_SEMAX = {
             "num frasco é uma aposta de quem monta a blend, não um achado de pesquisa.",
         ]),
         dict(h="O que mudou: os componentes entraram em ensaio", tipo="p", corpo=[
-            "Levantamento no ClinicalTrials.gov em 4 de setembro de 2026. Três destes ensaios têm o mesmo "
+            f"Levantamento no ClinicalTrials.gov em {_DT}. Três destes ensaios têm o mesmo "
             "patrocinador, a Hudson Biotech, e todos começaram em fevereiro de 2026 — é um programa de "
             "desenvolvimento clínico coordenado, não estudos avulsos.",
         ], tabela=dict(
@@ -102,7 +104,7 @@ KLOW_SEMAX = {
          "https://clinicaltrials.gov/study/NCT07803250"),
         ("NCT02637284 — Fase 1 em voluntários saudáveis, segurança e farmacocinética do PCO-02 (BPC-157). PharmaCotherapia, 42 participantes.",
          "https://clinicaltrials.gov/study/NCT02637284"),
-        ("Contagens do PubMed obtidas em 4 de setembro de 2026, uma consulta por componente.",
+        (f"Contagens do PubMed obtidas em {_DT}, uma consulta por componente.",
          "https://pubmed.ncbi.nlm.nih.gov/"),
     ],
 ),
@@ -121,7 +123,7 @@ KLOW_SEMAX = {
             "do Semax foi construída num regime completamente diferente daquele que se pratica.",
         ]),
         dict(h="Quanta evidência existe", tipo="p", corpo=[
-            "PubMed e ClinicalTrials.gov, consultados em 4 de setembro de 2026.",
+            f"PubMed e ClinicalTrials.gov, consultados em {_DT}.",
         ], tabela=dict(
             cap="Levantamento de evidência — Semax",
             linhas=[
@@ -187,7 +189,7 @@ KLOW_SEMAX = {
          "https://pubmed.ncbi.nlm.nih.gov/11517472/"),
         ("Polunin GS et al. [Evaluation of therapeutic effect of new Russian drug semax in optic nerve disease]. Vestn Oftalmol. 2000;116(1):15-8. PMID 10741256",
          "https://pubmed.ncbi.nlm.nih.gov/10741256/"),
-        ("Busca por intervenção contendo Semax no ClinicalTrials.gov em 4 de setembro de 2026: nenhum registro.",
+        (f"Busca por intervenção contendo Semax no ClinicalTrials.gov em {_DT}: nenhum registro.",
          "https://clinicaltrials.gov/search?intr=Semax"),
     ],
 ),

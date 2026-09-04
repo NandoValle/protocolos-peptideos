@@ -6,6 +6,8 @@ conferido no PubMed ou no ClinicalTrials.gov em 04/09/2026, e a consulta
 usada esta declarada na propria pagina.
 """
 
+from datas import DATA_APURACAO as _DT
+
 PROPRIOS = {
 
 # ---------------------------------------------------------------- Thymalin
@@ -23,7 +25,7 @@ PROPRIOS = {
         ]),
         dict(h="Quanta evidência existe, de verdade", tipo="p", corpo=[
             "Esta é a parte que nenhum site de venda mostra. Os números abaixo foram levantados diretamente no "
-            "PubMed e no ClinicalTrials.gov em 4 de setembro de 2026.",
+            f"PubMed e no ClinicalTrials.gov em {_DT}.",
         ], tabela=dict(
             cap="Levantamento de evidência — Thymalin",
             linhas=[
@@ -108,7 +110,7 @@ PROPRIOS = {
             "com tabela de dose daria a impressão de que existe base para isso, e não existe.",
         ]),
         dict(h="O levantamento", tipo="p", corpo=[
-            "Consultei o PubMed e o ClinicalTrials.gov em 4 de setembro de 2026, um a um. O resultado está abaixo.",
+            f"Consultei o PubMed e o ClinicalTrials.gov em {_DT}, um a um. O resultado está abaixo.",
         ], tabela=dict(
             cap="Evidência por composto",
             linhas=[

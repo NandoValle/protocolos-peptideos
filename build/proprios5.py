@@ -4,6 +4,8 @@
 Contagens conferidas no PubMed e no ClinicalTrials.gov em 04/09/2026.
 """
 
+from datas import DATA_APURACAO as _DT
+
 LESTE = {
 "proprio_leste": dict(
     secoes=[
@@ -18,7 +20,7 @@ LESTE = {
             "duplo-cego contra placebo.",
         ]),
         dict(h="O levantamento", tipo="p", corpo=[
-            "PubMed e ClinicalTrials.gov, consultados em 4 de setembro de 2026, um composto por vez. A coluna "
+            f"PubMed e ClinicalTrials.gov, consultados em {_DT}, um composto por vez. A coluna "
             "<strong>ECR/meta</strong> usa o filtro de ensaio randomizado ou metanálise.",
         ], tabela=dict(
             cap="Evidência por composto",
@@ -130,9 +132,9 @@ LESTE = {
          "https://pubmed.ncbi.nlm.nih.gov/10434717/"),
         ("Ensaios de fase 3 do Actovegin: NCT01582854 (Takeda, 503 participantes) e NCT00483730 (Nycomed, 569 participantes).",
          "https://clinicaltrials.gov/study/NCT01582854"),
-        ("Ensaios registrados do bloco, consultados por intervenção no ClinicalTrials.gov em 4 de setembro de 2026: 29 no total, 20 examinados.",
+        (f"Ensaios registrados do bloco, consultados por intervenção no ClinicalTrials.gov em {_DT}: 29 no total, 20 examinados.",
          "https://clinicaltrials.gov/search?intr=Mexidol%20OR%20Cytoflavin%20OR%20Actovegin%20OR%20Polyoxidonium"),
-        ("Contagens do PubMed obtidas em 4 de setembro de 2026, uma consulta por composto.",
+        (f"Contagens do PubMed obtidas em {_DT}, uma consulta por composto.",
          "https://pubmed.ncbi.nlm.nih.gov/"),
     ],
 ),

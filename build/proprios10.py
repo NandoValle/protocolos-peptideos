@@ -6,6 +6,8 @@ Fonte: DADOS_ABERTOS_MEDICAMENTOS.csv, dado aberto oficial da ANVISA,
 nome de produto, sem acento e sem caixa, contando so registro Ativo.
 """
 
+from datas import DATA_APURACAO as _DT
+
 ANV = {
 "proprio_anvisa": dict(
     secoes=[
@@ -72,7 +74,7 @@ ANV = {
             linhas=[
                 ["Passo", "O que fiz"],
                 ["<strong>1. Fonte</strong>",
-                 "Baixei <code>DADOS_ABERTOS_MEDICAMENTOS.csv</code> do portal de dados abertos da ANVISA em 4 de setembro de 2026. São <strong>43.489 linhas</strong>, com princípio ativo, nome do produto, categoria regulatória, empresa e situação do registro"],
+                 f"Baixei <code>DADOS_ABERTOS_MEDICAMENTOS.csv</code> do portal de dados abertos da ANVISA em {_DT}. São <strong>43.489 linhas</strong>, com princípio ativo, nome do produto, categoria regulatória, empresa e situação do registro"],
                 ["<strong>2. Busca</strong>",
                  "Para cada composto, procurei o termo no princípio ativo <em>e</em> no nome do produto, sem acento e sem diferença de caixa, contando só o que está com situação <strong>Ativo</strong>. Registro inativo aparece na base e foi descartado"],
                 ["<strong>3. Controle</strong>",
@@ -114,7 +116,7 @@ ANV = {
               'de 2026, contando apenas registros com situação Ativo. <strong>Esta página não usa o PubMed</strong> — '
               'a pergunta dela é regulatória, não de evidência.'),
     referencias=[
-        ("Dados abertos da ANVISA, arquivo DADOS_ABERTOS_MEDICAMENTOS.csv, baixado em 4 de setembro de 2026 com 43.489 registros. É a fonte de toda a contagem desta página.",
+        (f"Dados abertos da ANVISA, arquivo DADOS_ABERTOS_MEDICAMENTOS.csv, baixado em {_DT} com 43.489 registros. É a fonte de toda a contagem desta página.",
          "https://dados.anvisa.gov.br/dados/"),
         ("Bulário eletrônico da ANVISA — a consulta que falhou no controle e foi descartada como método, mas que serve para ler a bula de quem tem registro.",
          "https://consultas.anvisa.gov.br/#/bulario/"),

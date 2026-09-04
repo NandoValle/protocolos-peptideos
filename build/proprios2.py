@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Meldonium — pagina montada de fonte primaria."""
 
+from datas import DATA_APURACAO as _DT
+
 MELDONIUM = {
 "proprio_meldonium": dict(
     secoes=[
@@ -26,7 +28,7 @@ MELDONIUM = {
             "mecanismo, independente de carnitina, via produção de óxido nítrico no endotélio vascular.",
         ]),
         dict(h="Quanta evidência existe", tipo="p", corpo=[
-            "Levantamento feito no PubMed e no ClinicalTrials.gov em 4 de setembro de 2026.",
+            f"Levantamento feito no PubMed e no ClinicalTrials.gov em {_DT}.",
         ], tabela=dict(
             cap="Levantamento de evidência",
             linhas=[

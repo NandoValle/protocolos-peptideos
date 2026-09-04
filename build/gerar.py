@@ -21,20 +21,10 @@ from anvisa import ANVISA
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONTE = "https://www.peptidedosingprotocols.com/"
 
-# ---------------------------------------------------------------------------
-# DATAS. As duas abaixo sao FATOS HISTORICOS, nao a data de hoje.
-#
-# NUNCA derivar nenhuma delas do relogio (datetime.now, date.today e afins).
-# O gerador roda de novo a cada edicao de texto; se a data vier do relogio, o
-# site passa a afirmar, a cada rebuild, que foi conferido hoje -- sem que
-# ninguem tenha conferido nada. Data velha e correta e melhor que data fresca
-# e falsa.
-#
-# Trocar DATA_FONTE so ao raspar a fonte secundaria de novo.
-# Trocar DATA_APURACAO so ao refazer a apuracao em fonte primaria.
-# ---------------------------------------------------------------------------
-DATA_FONTE = "3 de setembro de 2026"      # acesso a peptidedosingprotocols.com
-DATA_APURACAO = "4 de setembro de 2026"   # PubMed, ClinicalTrials.gov, ANVISA, WADA
+# As duas datas do site vivem em build/datas.py, que os modulos de conteudo
+# tambem importam. Leia o cabecalho daquele arquivo antes de mexer nelas: sao
+# fatos historicos, e nao podem ser derivadas do relogio.
+from datas import DATA_FONTE, DATA_APURACAO
 
 HOJE = DATA_FONTE  # compatibilidade: o nome enganava, era a data da fonte
 

@@ -6,6 +6,8 @@ filtro Randomized Controlled Trial OR Meta-Analysis. As faixas de dose foram
 extraidas dos resumos dos proprios ensaios, nao de rotulo nem de forum.
 """
 
+from datas import DATA_APURACAO as _DT
+
 NOOT = {
 "proprio_nootropicos": dict(
     secoes=[
@@ -15,7 +17,7 @@ NOOT = {
             "piracetam, fenilpiracetam, picamilon, Cortexin, Cerebrolisina, Semax, Selank, alpha-GPC, citicolina, "
             "L-teanina, bacopa, rhodiola, ginkgo e lion's mane já têm lugar próprio neste site.",
             "A coluna <strong>ECR/meta</strong> é o número de ensaios randomizados e metanálises indexados no "
-            "PubMed, <strong>conferido item a item em 4 de setembro de 2026</strong>. A coluna "
+            f"PubMed, <strong>conferido item a item em {_DT}</strong>. A coluna "
             "<strong>faixa dos estudos</strong> não é dose de rótulo nem de fórum: é a dose que apareceu nos "
             "resumos dos ensaios citados, transportada de lá.",
             "A ordem é por quantidade de evidência, não por quanto funciona. São coisas diferentes, e a página "
@@ -194,7 +196,7 @@ NOOT = {
         ]),
     ],
     referencias=[
-        ("Contagens obtidas no PubMed em 4 de setembro de 2026, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], uma consulta por item. Onde a consulta ampla estava inflada, a consulta restrita está declarada no texto.",
+        (f"Contagens obtidas no PubMed em {_DT}, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], uma consulta por item. Onde a consulta ampla estava inflada, a consulta restrita está declarada no texto.",
          "https://pubmed.ncbi.nlm.nih.gov/"),
         ("Faixas de dose extraídas dos resumos dos próprios ensaios recuperados em cada consulta, via E-utilities do NCBI.",
          "https://www.ncbi.nlm.nih.gov/books/NBK25501/"),
@@ -202,7 +204,7 @@ NOOT = {
          "https://pubmed.ncbi.nlm.nih.gov/?term=tianeptine+AND+(poison+center+OR+abuse)"),
         ("Vinpocetina, avaliação de toxicidade no desenvolvimento em gastruloides 3D de camundongo e humanos, maio de 2026.",
          "https://pubmed.ncbi.nlm.nih.gov/42167926/"),
-        ("Agência Mundial Antidopagem, Lista de Proibições de 2026, em vigor desde 1º de janeiro de 2026. Seção S6.A conferida nome a nome na fonte oficial em 4 de setembro de 2026: modafinil, adrafinil, bromantan, fonturacetam (4-phenylpiracetam/carphedon), hydrafinil (fluorenol), fladrafinil, flmodafinil e lisdexamfetamine. Meldonium em S4.4.3, proibido em todos os momentos.",
+        (f"Agência Mundial Antidopagem, Lista de Proibições de 2026, em vigor desde 1º de janeiro de 2026. Seção S6.A conferida nome a nome na fonte oficial em {_DT}: modafinil, adrafinil, bromantan, fonturacetam (4-phenylpiracetam/carphedon), hydrafinil (fluorenol), fladrafinil, flmodafinil e lisdexamfetamine. Meldonium em S4.4.3, proibido em todos os momentos.",
          "https://www.wada-ama.org/en/prohibited-list"),
     ],
 ),

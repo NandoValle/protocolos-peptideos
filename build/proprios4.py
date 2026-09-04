@@ -5,6 +5,8 @@ A coluna "ECR/meta" foi conferida no PubMed em 04/09/2026, item a item,
 com o filtro Randomized Controlled Trial OR Meta-Analysis.
 """
 
+from datas import DATA_APURACAO as _DT
+
 SUPS = {
 "proprio_suplementos": dict(
     secoes=[
@@ -13,7 +15,7 @@ SUPS = {
             "Diferente do resto do site, aqui <strong>a maioria tem risco baixo e evidência real</strong> — e é por "
             "isso que a dose aparece.",
             "A coluna <strong>ECR/meta</strong> traz o número de ensaios randomizados e metanálises indexados no "
-            "PubMed, <strong>conferido item a item em 4 de setembro de 2026</strong>. Os quarenta e três itens desta "
+            f"PubMed, <strong>conferido item a item em {_DT}</strong>. Os quarenta e três itens desta "
             "página estão conferidos: os treze que ficaram pendentes na primeira passagem foram fechados na "
             "mesma data, com a mesma consulta.",
             "Ler o número com cuidado: contagem alta significa que muita gente estudou, não que o resultado foi "
@@ -155,7 +157,7 @@ SUPS = {
         ]),
     ],
     referencias=[
-        ("Contagens obtidas no PubMed em 4 de setembro de 2026, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], uma consulta por item. Onde a consulta ampla estava inflada pelo papel biológico da própria molécula, a consulta restrita usada está declarada na ressalva da linha.",
+        (f"Contagens obtidas no PubMed em {_DT}, com o filtro Randomized Controlled Trial[Publication Type] OR Meta-Analysis[Publication Type], uma consulta por item. Onde a consulta ampla estava inflada pelo papel biológico da própria molécula, a consulta restrita usada está declarada na ressalva da linha.",
          "https://pubmed.ncbi.nlm.nih.gov/"),
         ("Limites superiores toleráveis de vitaminas e minerais: Dietary Reference Intakes, National Academies.",
          "https://www.nationalacademies.org/our-work/summary-report-of-the-dietary-reference-intakes"),

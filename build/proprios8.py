@@ -7,6 +7,8 @@ grandes lidos no PubMed em 04/09/2026; todo tamanho de efeito foi transportado
 do resumo do proprio estudo, nao calculado nem estimado aqui.
 """
 
+from datas import DATA_APURACAO as _DT
+
 EFEITO = {
 "proprio_efeito": dict(
     secoes=[
@@ -154,7 +156,7 @@ EFEITO = {
             "<strong>Não conferi a situação regulatória na ANVISA item a item.</strong> A suspensão do oxiracetam "
             "na Coreia do Sul é afirmação dos autores do ensaio, não verificação independente em fonte "
             "regulatória coreana.",
-            "<strong>A lista da WADA, essa eu conferi</strong> — na fonte oficial, em 4 de setembro de 2026. "
+            f"<strong>A lista da WADA, essa eu conferi</strong> — na fonte oficial, em {_DT}. "
             "Vale a <em>Lista de Proibições de 2026</em>, em vigor desde 1º de janeiro. Da seção "
             "<strong>S6.A, estimulantes não especificados, proibidos apenas em competição</strong>, constam "
             "nominalmente: <strong>Modafinil</strong>, <strong>Adrafinil</strong>, <strong>Bromantan</strong>, "
@@ -172,7 +174,7 @@ EFEITO = {
         ]),
     ],
     nota_refs=('Cada tamanho de efeito foi transportado do resumo estruturado do próprio estudo, lido no '
-              'PubMed em 4 de setembro de 2026. Segundo o PubMed, os trabalhos abaixo são o que existe. '
+              f'PubMed em {_DT}. Segundo o PubMed, os trabalhos abaixo são o que existe. '
               'A seção S6.A foi conferida na fonte oficial da WADA na mesma data.'),
     referencias=[
         ("Xu C et al. The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis. Front Nutr. 2024;11:1424972.", "https://doi.org/10.3389/fnut.2024.1424972"),
@@ -199,8 +201,8 @@ EFEITO = {
         ("Hausenblas HA et al. Magnesium-L-threonate improves sleep quality and daytime functioning in adults with self-reported sleep problems: a randomized controlled trial. Sleep Med X. 2024;8:100121.", "https://doi.org/10.1016/j.sleepx.2024.100121"),
         ("Zhang C et al. A Magtein, magnesium L-threonate, based formula improves brain cognitive functions in healthy Chinese adults. Nutrients. 2022;14(24):5235.", "https://doi.org/10.3390/nu14245235"),
         ("Lopresti AL, Smith SJ. The effects of magnesium L-threonate (Magtein) on cognitive performance and sleep quality in adults: a randomised, double-blind, placebo-controlled trial. Front Nutr. 2026;12:1729164.", "https://doi.org/10.3389/fnut.2025.1729164"),
-        ("Todas as buscas e leituras foram feitas no PubMed em 4 de setembro de 2026.", "https://pubmed.ncbi.nlm.nih.gov/"),
-        ("Agência Mundial Antidopagem, Lista de Proibições de 2026, em vigor desde 1º de janeiro de 2026. Seção S6.A conferida nominalmente na fonte oficial em 4 de setembro de 2026.", "https://www.wada-ama.org/en/prohibited-list"),
+        (f"Todas as buscas e leituras foram feitas no PubMed em {_DT}.", "https://pubmed.ncbi.nlm.nih.gov/"),
+        (f"Agência Mundial Antidopagem, Lista de Proibições de 2026, em vigor desde 1º de janeiro de 2026. Seção S6.A conferida nominalmente na fonte oficial em {_DT}.", "https://www.wada-ama.org/en/prohibited-list"),
     ],
 ),
 }
