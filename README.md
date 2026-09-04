@@ -53,6 +53,23 @@ build/gerar.py        gerador estático
 build/compostos.py    metadados PT-BR de cada composto (autoral)
 build/fatos.py        faixa de referência rápida por composto (autoral)
 build/dicionario*.py  dicionário EN→PT-BR das células de tabela
+build/datas.py        as duas datas do site, num lugar só
+build/trava_datas.py  trava que impede data cravada ou tirada do relógio
+hooks/pre-commit      roda a trava antes de deixar commitar
+```
+
+## As duas datas, e por que existe uma trava para elas
+
+O site afirma duas datas sobre si mesmo: **3 de setembro de 2026**, quando a fonte secundária foi raspada, e **4 de setembro de 2026**, quando a apuração em fonte primária foi feita. As duas vivem em `build/datas.py` e em nenhum outro lugar.
+
+A tentação óbvia é trocá-las por `datetime.now()`. **Não pode.** O gerador roda de novo a cada edição de texto; com data de relógio, o site passaria a afirmar, a cada rebuild, que foi conferido hoje — sem que ninguém tenha conferido nada. Data velha e correta vale mais que data fresca e falsa.
+
+`build/trava_datas.py` transforma isso em garantia. Checa o AST, não o texto, para não acusar comentário que apenas mencione o problema. Duas regras: nenhum módulo deriva data do relógio, e nenhum módulo além do `datas.py` escreve à mão as datas do próprio site. Data que é **conteúdo** — quando um ensaio começou, quando a FDA revisou uma bula — fica onde está: é fato reportado, não afirmação do site sobre si.
+
+A trava roda no início do `gerar.py`, que aborta sem escrever nada, e no hook de pre-commit. **Num clone novo o hook precisa ser ligado uma vez:**
+
+```bash
+git config core.hooksPath hooks
 ```
 
 ## Regenerar

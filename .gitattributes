@@ -1,0 +1,9 @@
+# Este repositorio e editado no Windows, com core.autocrlf=true. Sem a regra
+# abaixo, o git faria checkout do hook com CRLF e o shell reclamaria do
+# shebang ("bad interpreter: /bin/sh^M"), deixando o hook mudo -- que e o pior
+# jeito de uma trava falhar: sem avisar.
+hooks/** text eol=lf
+
+# Os .py sao lidos pelo Python, que aceita os dois, mas manter LF evita diff
+# de arquivo inteiro quando outra maquina toca neles.
+*.py text eol=lf
