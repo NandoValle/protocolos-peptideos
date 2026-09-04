@@ -15,6 +15,7 @@ import dicionario as D
 from compostos import COMPOSTOS, CATEGORIAS
 from fatos import FATOS
 from proprios import PROPRIOS
+from evidencia import CORPO as CORPO_EVIDENCIA
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOJE = "3 de setembro de 2026"
@@ -164,6 +165,7 @@ def cabecalho(titulo, descricao, prefixo="", atual=""):
     </a>
     <nav class="nav" aria-label="Principal">
       <a href="{prefixo}index.html"{cls('inicio')}>Compostos</a>
+      <a href="{prefixo}evidencia.html"{cls('evidencia')}>Evidência</a>
       <a href="{prefixo}seguranca.html"{cls('seguranca')}>Segurança</a>
       <a href="{prefixo}sobre.html"{cls('sobre')}>Sobre</a>
     </nav>
@@ -475,6 +477,23 @@ def gera_seguranca():
     return '\n'.join(p)
 
 
+def gera_evidencia():
+    p = [cabecalho("Verificado em fonte primária — Protocolos de Peptídeos",
+                   "As sete páginas montadas direto do PubMed e do ClinicalTrials.gov, com a consulta declarada. 105 compostos.",
+                   "", "evidencia")]
+    p.append('<main id="principal" class="env-largo" style="max-width:860px;padding-top:52px;padding-bottom:80px">')
+    p.append('<h1 style="font-family:var(--display);font-size:clamp(32px,4.6vw,44px);font-weight:600;'
+             'letter-spacing:-.026em;margin:0 0 14px">Verificado em fonte primária</h1>')
+    p.append('<p class="artigo-sub" style="margin-bottom:30px">Sete páginas, 105 compostos, cada número '
+             'levantado no PubMed e no ClinicalTrials.gov com a consulta declarada.</p>')
+    p.append('<div class="conteudo" style="padding:0">')
+    p.append(CORPO_EVIDENCIA)
+    p.append('</div>')
+    p.append('</main>')
+    p.append(rodape(""))
+    return chr(10).join(p)
+
+
 def gera_sobre(stats):
     p = [cabecalho("Sobre, fonte e método — Protocolos de Peptídeos",
                    "De onde vieram os dados, como foram traduzidos e o que ficou de fora.",
@@ -634,6 +653,7 @@ def main():
             f.write(txt)
 
     grava('index.html', gera_index(itens, stats))
+    grava('evidencia.html', gera_evidencia())
     grava('seguranca.html', gera_seguranca())
     grava('sobre.html', gera_sobre(stats))
     grava(os.path.join('assets', 'app.js'), APP_JS)

@@ -1,0 +1,109 @@
+# -*- coding: utf-8 -*-
+"""Pagina de indice das paginas montadas de fonte primaria."""
+
+CORPO = """
+<h2>O que separa estas páginas do resto do site</h2>
+
+<p>A maior parte deste site é tradução organizada de uma fonte secundária comercial. Está declarado em cada
+página, e é a fraqueza estrutural do material: se a fonte errou, eu repito o erro.</p>
+
+<p>As <strong>sete páginas listadas abaixo</strong> são diferentes. Cada número nelas foi levantado por mim
+diretamente no <strong>PubMed</strong> e no <strong>ClinicalTrials.gov</strong>, com a consulta usada declarada
+dentro da própria página, para que qualquer pessoa possa repetir e me contradizer. Cobrem
+<strong>105 compostos</strong>.</p>
+
+<p>Não é uma seção de destaque por vaidade de método. É porque, das duas coisas que um site destes pode fazer —
+listar dose ou dizer o que a dose vale —, só a segunda é difícil de achar em português.</p>
+
+<h2>As sete páginas</h2>
+
+<div class="tabela-env"><div class="tabela-rolagem"><table>
+<thead><tr><th>Página</th><th>Compostos</th><th>O achado central</th></tr></thead>
+<tbody>
+<tr>
+  <td><a href="p/proprio_bioreguladores.html"><strong>Bioreguladores de Khavinson</strong></a></td>
+  <td>11</td>
+  <td><strong>Zero ensaios registrados</strong> no ClinicalTrials.gov. Oito dos onze não têm nenhum artigo de
+      ensaio clínico. Sete não têm nem sequência química indexada. Toda a literatura clínica da família se
+      concentra em dois compostos</td>
+</tr>
+<tr>
+  <td><a href="p/proprio_thymalin.html"><strong>Thymalin</strong></a></td>
+  <td>1</td>
+  <td>293 artigos e 13 ensaios — o outlier da família. Mas <strong>zero registros</strong>, e o estudo que
+      sustenta toda a alegação de longevidade é assinado pelo próprio inventor</td>
+</tr>
+<tr>
+  <td><a href="p/proprio_meldonium.html"><strong>Meldonium</strong></a></td>
+  <td>1</td>
+  <td>357 artigos, 35 ensaios, <strong>7 registros</strong>. O achado que decide o uso não é de eficácia: a
+      janela de detecção urinária chega a <strong>117 dias</strong> após seis dias de uso</td>
+</tr>
+<tr>
+  <td><a href="p/proprio_leste.html"><strong>Medicamentos do leste europeu</strong></a></td>
+  <td>17</td>
+  <td><strong>29 ensaios registrados</strong>, vários de fase 3 — o oposto dos bioreguladores. E um sinal
+      esquecido: o hopantenato de cálcio tem <strong>47 casos e 11 mortes</strong> por encefalopatia relatados
+      desde 1986</td>
+</tr>
+<tr>
+  <td><a href="p/proprio_suplementos.html"><strong>Suplementos de venda livre</strong></a></td>
+  <td>45</td>
+  <td>Contagem de ensaios item a item, com dose. <strong>Resveratrol tem 391 ensaios e decepcionou</strong>;
+      glicina, alpha-GPC, butirato e fisetina têm entre 2 e 5 cada</td>
+</tr>
+<tr>
+  <td><a href="p/proprio_fitoterapicos.html"><strong>Fitoterápicos e nootrópicos</strong></a></td>
+  <td>17</td>
+  <td><strong>Fadogia agrestis: zero.</strong> Nenhum ensaio, nenhum estudo humano — conferi os três artigos que
+      o PubMed marca como humanos e nenhum é. Lion's Mane tem dois</td>
+</tr>
+<tr>
+  <td><a href="p/proprio_tarja.html"><strong>Itens de tarja</strong></a></td>
+  <td>13</td>
+  <td>Medicamentos de prescrição que apareciam misturados a vitamina D e creatina numa lista de suplementos.
+      <strong>Única página do site sem posologia</strong>, por decisão</td>
+</tr>
+</tbody>
+</table></div></div>
+
+<h2>Três coisas que este levantamento ensinou</h2>
+
+<h3>1. Muita literatura não é o mesmo que evidência</h3>
+<p>Os onze bioreguladores de Khavinson somam quase duzentos artigos no PubMed e <strong>zero ensaios
+registrados</strong>. Registro prévio é o que impede que um desfecho ruim vire outro desfecho na publicação —
+sem ele, não há como saber quantos estudos ficaram na gaveta. Contagem de artigo mede atividade acadêmica,
+não confiabilidade.</p>
+
+<h3>2. Volume alto não é resultado favorável</h3>
+<p>O resveratrol tem 391 ensaios randomizados e metanálises, e a promessa não se confirmou. O ginkgo tem 88 e
+continua não recomendado para prevenir demência, porque os grandes ensaios deram negativo. O probiótico tem
+5.248 — o maior número do site — e é o mais enganoso, porque o efeito é de cepa específica e não se transfere
+para o frasco que você comprou.</p>
+
+<h3>3. Buscar pelo nome comercial infla a conta</h3>
+<p>Ao levantar os bioreguladores, um ensaio randomizado apareceu para o <em>Ovagen</em>. Fui ler: era um estudo
+de superovulação em <strong>vacas</strong>, porque Ovagen também é marca de FSH veterinário. No bloco do leste
+europeu, cocarboxilase e citocromo C aparecem com centenas de artigos que tratam de bioquímica do metabolismo
+e de apoptose — não do injetável. <strong>Quando a molécula tem função biológica própria, a contagem mede a
+biologia, não o remédio.</strong></p>
+
+<h2>O que continua faltando</h2>
+
+<ul>
+  <li><strong>Li resumos e metadados, não artigos completos</strong>, salvo nos casos em que o achado dependia
+      disso — o Fadogia e o hopantenato de cálcio, que abri e conferi um a um.</li>
+  <li><strong>Contagem não é qualidade.</strong> Um número alto pode ser cem ensaios pequenos e mal feitos. É a
+      limitação central do método usado aqui.</li>
+  <li><strong>27 itens estão marcados como não conferidos</strong> nas páginas de suplementos, fitoterápicos e
+      leste europeu. Preferi deixar o buraco visível a preenchê-lo com estimativa.</li>
+  <li><strong>Literatura russa fora do PubMed não foi consultada.</strong> A escola de Khavinson publica muito em
+      periódico não indexado — a ausência aqui não prova ausência absoluta.</li>
+  <li><strong>As outras 55 páginas do site continuam dependendo da fonte secundária.</strong> Este método ainda
+      não foi aplicado a elas.</li>
+</ul>
+
+<div class="nota"><strong>Como conferir o que está aqui.</strong> Toda página desta seção declara a consulta
+que usei e a data. Abra o PubMed ou o ClinicalTrials.gov, repita a busca e compare. Se o número mudou, é porque
+a literatura andou — e se estava errado, é erro meu, não da fonte.</div>
+"""
