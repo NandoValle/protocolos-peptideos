@@ -13,6 +13,7 @@ EXTRA4 = {
     alerta="Três itens são medicamentos de prescrição e aparecem sem posologia: modafinil, tianeptina e adrafinil. "
            "A tianeptina tem 204 artigos de abuso e intoxicação, incluindo revisão sistemática de 2025 sobre o uso "
            "não médico. A vinpocetina, vendida como suplemento, tem estudo de maio de 2026 apontando toxicidade no "
-           "desenvolvimento. Bromantano e modafinil são proibidos pela WADA.",
+           "desenvolvimento. Oito itens desta página estão na seção S6.A da WADA, proibidos em competição — "
+           "inclusive o fenilpiracetam, que aparece lá sob o nome fonturacetam.",
 ),
 }

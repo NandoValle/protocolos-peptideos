@@ -143,7 +143,7 @@ NOOT = {
                 ["NSI-189", "Molécula neurogênica", "<strong>14</strong>", "<strong>1</strong>",
                  "Um ensaio. O programa de desenvolvimento em depressão não avançou"],
                 ["Adrafinil", "Pró-fármaco do modafinil", "<strong>43</strong>", "<strong>1</strong>",
-                 "<strong>Vira modafinil no fígado</strong> — carrega o efeito e a hepatotoxicidade da conversão, com menos previsibilidade que o próprio modafinil, que é de prescrição"],
+                 "<strong>Vira modafinil no fígado</strong> — carrega o efeito e a hepatotoxicidade da conversão, com menos previsibilidade que o próprio modafinil, que é de prescrição. <strong>Está nominalmente na S6.A da WADA</strong>, por nome próprio e não por ser pró-fármaco"],
                 ["PRL-8-53", "Composto de 1978", "<strong>1</strong>", "<strong>1</strong>",
                  "Existe um único artigo, e é o mesmo estudo de 1978 que a internet cita há décadas. Nunca foi replicado"],
             ])),
@@ -170,6 +170,15 @@ NOOT = {
             "<strong>A nicotina fora do cigarro é o caso limite.</strong> Adesivo e goma são de venda livre no "
             "Brasil e a dose dos ensaios está publicada acima, porque é a mesma da bula. O que não muda é que ela "
             "cria dependência física.",
+            "<strong>Oito itens desta página estão na lista da WADA, conferida na fonte oficial em 4 de setembro "
+            "de 2026.</strong> Todos na seção <strong>S6.A, estimulantes não especificados, proibidos apenas em "
+            "competição</strong>, e citados lá por nome próprio: <strong>Modafinil</strong>, "
+            "<strong>Adrafinil</strong>, <strong>Bromantan</strong>, <strong>Fonturacetam [4-phenylpiracetam "
+            "(carphedon)]</strong>, <strong>Hydrafinil (fluorenol)</strong>, <strong>Fladrafinil</strong>, "
+            "<strong>Flmodafinil</strong> e <strong>Lisdexamfetamine</strong>. Quem faz antidoping deve notar que "
+            "o fenilpiracetam aparece lá sob o nome <em>fonturacetam</em> — procurar pelo nome de fórum não "
+            "encontra. O <a href=\"proprio_meldonium.html\">meldonium</a> é mais restrito e fica em outra seção: "
+            "S4.4.3, proibido <strong>em todos os momentos</strong>.",
             "<strong>Vinpocetina e bromantano não são tarja aqui</strong>, mas nenhum dos dois tem registro na "
             "ANVISA. Circulam por importação, sem controle de lote e sem bula em português.",
         ]),
@@ -193,7 +202,7 @@ NOOT = {
          "https://pubmed.ncbi.nlm.nih.gov/?term=tianeptine+AND+(poison+center+OR+abuse)"),
         ("Vinpocetina, avaliação de toxicidade no desenvolvimento em gastruloides 3D de camundongo e humanos, maio de 2026.",
          "https://pubmed.ncbi.nlm.nih.gov/42167926/"),
-        ("Lista de substâncias proibidas da Agência Mundial Antidopagem, que inclui bromantano e modafinil.",
+        ("Agência Mundial Antidopagem, Lista de Proibições de 2026, em vigor desde 1º de janeiro de 2026. Seção S6.A conferida nome a nome na fonte oficial em 4 de setembro de 2026: modafinil, adrafinil, bromantan, fonturacetam (4-phenylpiracetam/carphedon), hydrafinil (fluorenol), fladrafinil, flmodafinil e lisdexamfetamine. Meldonium em S4.4.3, proibido em todos os momentos.",
          "https://www.wada-ama.org/en/prohibited-list"),
     ],
 ),
