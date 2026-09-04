@@ -235,24 +235,29 @@ AVISO = """<div class="aviso" role="note">
 
 
 def rodape(prefixo=""):
+    # Os rotulos das colunas eram <h4> logo depois de um <h2> do corpo, o que
+    # pulava o nivel h3 e quebrava a hierarquia de cabecalhos em TODA pagina.
+    # Viraram <p>: rotulo de coluna de rodape nao e secao do documento, e por
+    # isso nao pertence ao sumario de cabecalhos. A lista de navegacao ganhou
+    # <nav aria-label>, que e o que da nome acessivel a ela sem usar heading.
     return f"""</div>
 <footer class="rodape">
   <div class="rodape-in">
     <div>
-      <h4>Protocolos</h4>
+      <p class="rodape-titulo">Protocolos</p>
       <p>Referência em português sobre peptídeos, nootrópicos, SARMs e correlatos: dose, ciclo, status regulatório e o limite da evidência de cada um. Material educacional e experimental — não substitui avaliação médica.</p>
       <p style="margin-top:14px">Compilado em {HOJE}.</p>
     </div>
-    <div>
-      <h4>Navegar</h4>
+    <nav aria-label="Navegar">
+      <p class="rodape-titulo">Navegar</p>
       <ul>
         <li><a href="{prefixo}index.html">Todos os compostos</a></li>
         <li><a href="{prefixo}seguranca.html">Segurança e limites</a></li>
         <li><a href="{prefixo}sobre.html">Sobre, fonte e método</a></li>
       </ul>
-    </div>
+    </nav>
     <div>
-      <h4>Aviso</h4>
+      <p class="rodape-titulo">Aviso</p>
       <ul>
         <li>Não é aconselhamento médico</li>
         <li>Sem registro na ANVISA</li>
