@@ -199,3 +199,6 @@ PROPRIOS.update(_KS)
 
 from proprios7 import NOOT as _NOOT
 PROPRIOS.update(_NOOT)
+
+from proprios8 import EFEITO as _EFEITO
+PROPRIOS.update(_EFEITO)

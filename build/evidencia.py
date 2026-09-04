@@ -39,6 +39,13 @@ listar dose ou dizer o que a dose vale —, só a segunda é difícil de achar e
       artigos e zero ensaios</strong>. Quatro contagens estavam infladas e foram refeitas</td>
 </tr>
 <tr>
+  <td><a href="p/proprio_efeito.html"><strong>Tamanho de efeito</strong></a></td>
+  <td>19</td>
+  <td>A outra metade da página acima: <strong>o que os ensaios acharam</strong>, não quantos existem. Onde há
+      efeito, ele fica entre <strong>SMD 0,2 e 0,4</strong>. <strong>Três compostos populares têm ensaio grande e
+      negativo</strong> — oxiracetam (n=500), cerebrolisina (n=1779) e piracetam</td>
+</tr>
+<tr>
   <td><a href="p/proprio_bioreguladores.html"><strong>Bioreguladores de Khavinson</strong></a></td>
   <td>11</td>
   <td><strong>Zero ensaios registrados</strong> no ClinicalTrials.gov. Oito dos onze não têm nenhum artigo de
