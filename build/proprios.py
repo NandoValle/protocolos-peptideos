@@ -202,3 +202,6 @@ PROPRIOS.update(_NOOT)
 
 from proprios8 import EFEITO as _EFEITO
 PROPRIOS.update(_EFEITO)
+
+from proprios9 import GLP1 as _GLP1
+PROPRIOS.update(_GLP1)

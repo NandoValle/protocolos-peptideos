@@ -225,6 +225,50 @@ COMPANHEIRA = {
     'protocol_semax': ('proprio_semax_evidencia', 'Semax'),
 }
 
+# paginas de GLP-1: a tarja preta da FDA entra antes de qualquer tabela de dose.
+# Auditoria em proprio_glp1_bula, contra as bulas lidas em 04/09/2026.
+TARJA_GLP1 = {
+    'protocol_semaglutide':            'semaglutida',
+    'protocol_tirzepatide':            'tirzepatida',
+    'protocol_retatrutide':            None,
+    'protocol_cagrilintide':           None,
+    'protocol_survodutide':            None,
+    'stacks_cagrisema':                'semaglutida',
+    'stacks_cagrilintide-tirzepatide': 'tirzepatida',
+    'stacks_cagrilintide-retatrutide': None,
+    'stacks_retatrutide-mots-c':       None,
+}
+
+TARJA_TEXTO = (
+    '<div class="aviso"><div class="aviso-icone">!</div><div>'
+    '<h2>Tarja preta da FDA, e uma contraindicação absoluta</h2>'
+    '<p><strong>A semaglutida e a tirzepatida carregam a advertência mais forte que a FDA aplica a um '
+    'medicamento.</strong> Em roedores, as duas causam tumores de células C da tireoide de forma dependente da '
+    'dose e da duração do tratamento, em exposições clinicamente relevantes. Não se sabe se causam em humanos — '
+    'a relevância humana desses tumores não foi determinada.</p>'
+    '<p><strong>São contraindicadas de forma absoluta</strong> em quem tem história <strong>pessoal ou '
+    'familiar</strong> de carcinoma medular de tireoide, ou neoplasia endócrina múltipla tipo 2 (NEM 2). '
+    'Também em quem já teve reação de hipersensibilidade grave à substância: há relato de anafilaxia e '
+    'angioedema com as duas.</p>'
+    '<p>Esta advertência não estava nesta página até 4 de setembro de 2026, e a falha era deste site, não da '
+    'fonte. A auditoria completa das tabelas de dose contra as bulas oficiais está em '
+    '<a href="proprio_glp1_bula.html">Os GLP-1 contra a bula</a>.</p>'
+    '</div></div>'
+)
+
+TARJA_TEXTO_INVEST = (
+    '<div class="aviso"><div class="aviso-icone">!</div><div>'
+    '<h2>Sem bula, sem dose aprovada</h2>'
+    '<p><strong>Este composto não tem registro na FDA</strong> — conferido na base de rótulos em 4 de setembro '
+    'de 2026. Isso não o torna mais seguro que a semaglutida ou a tirzepatida, que têm tarja preta: torna-o '
+    'menos conhecido. <strong>Não existe escada de titulação aprovada, não existe dose máxima definida e não '
+    'existe lista oficial de contraindicação</strong> para comparar com as tabelas desta página.</p>'
+    '<p>Os análogos aparentados que já têm bula carregam advertência de tumor de células C da tireoide e '
+    'contraindicação absoluta em carcinoma medular de tireoide e NEM 2. A auditoria completa está em '
+    '<a href="proprio_glp1_bula.html">Os GLP-1 contra a bula</a>.</p>'
+    '</div></div>'
+)
+
 
 def selo_aprovacao(v):
     return {
@@ -359,6 +403,9 @@ def gera_composto(item):
     p.append('</div>')
 
     p.append(AVISO)
+
+    if slug in TARJA_GLP1:
+        p.append(TARJA_TEXTO if TARJA_GLP1[slug] else TARJA_TEXTO_INVEST)
 
     if slug in COMPANHEIRA:
         destino, nome = COMPANHEIRA[slug]
