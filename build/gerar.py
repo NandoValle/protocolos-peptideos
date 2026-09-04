@@ -474,26 +474,37 @@ def gera_index(itens, stats):
         partes.append('  </div>')
         partes.append('</section>')
 
-    partes.append("""<div class="busca-caixa">
+    cats_validas = 'todos, ' + ', '.join(CATEGORIAS.keys())
+    partes.append(f"""<form class="busca-caixa" id="ferramenta-filtro" action="index.html" method="get"
+      toolname="filtrar_compostos"
+      tooldescription="Filtra a lista de compostos desta pagina por texto, por categoria e por registro na ANVISA. Nao altera nada: so muda quais cartoes ficam visiveis, e devolve a contagem do que sobrou. Os {{n}} compostos continuam listados e linkados na pagina mesmo sem usar o filtro.">
   <div class="busca-campo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
     <label for="busca" class="pular">Buscar composto</label>
-    <input type="search" id="busca" placeholder="Buscar por nome, classe ou sigla — KLOW, Semax, GLP-1, reparo…" autocomplete="off">
+    <input type="search" id="busca" name="q" placeholder="Buscar por nome, classe ou sigla — KLOW, Semax, GLP-1, reparo…" autocomplete="off"
+           toolparamdescription="Texto a procurar no nome, na classe ou na sigla do composto — por exemplo BPC-157, GLP-1, Semax ou reparo. Vazio nao filtra por texto.">
   </div>
+  <input type="hidden" id="par-cat" name="cat" value="todos"
+         toolparamdescription="Categoria do composto. Valores aceitos: {{cats}}. Use todos para nao filtrar por categoria.">
+  <input type="hidden" id="par-anv" name="anv" value="todos"
+         toolparamdescription="Registro na ANVISA. Valores aceitos: todos, sim, nao. sim devolve so os compostos com medicamento registrado no Brasil; nao devolve so os sem registro; todos nao filtra.">
+  <button type="submit" class="pular">Filtrar</button>
   <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria">
-    <button class="filtro" data-cat="todos" aria-pressed="true">Todos</button>""")
+    <button type="button" class="filtro" data-cat="todos" aria-pressed="true">Todos</button>""".replace('{n}', str(stats['n'])).replace('{cats}', cats_validas))
     for k, (nome, _) in CATEGORIAS.items():
-        partes.append(f'    <button class="filtro" data-cat="{k}" aria-pressed="false">{esc(nome)}</button>')
+        partes.append(f'    <button type="button" class="filtro" data-cat="{k}" aria-pressed="false">{esc(nome)}</button>')
     partes.append('  </div>')
     partes.append("""  <div class="filtros filtros-anvisa" id="filtros-anvisa" role="group" aria-label="Filtrar por registro no Brasil">
-    <button class="filtro filtro-anv" data-anv="todos" aria-pressed="true">Registro no Brasil: todos</button>
-    <button class="filtro filtro-anv" data-anv="sim" aria-pressed="false">Só o que existe aqui</button>
-    <button class="filtro filtro-anv" data-anv="nao" aria-pressed="false">Só o que não existe</button>
+    <button type="button" class="filtro filtro-anv" data-anv="todos" aria-pressed="true">Registro no Brasil: todos</button>
+    <button type="button" class="filtro filtro-anv" data-anv="sim" aria-pressed="false">Só o que existe aqui</button>
+    <button type="button" class="filtro filtro-anv" data-anv="nao" aria-pressed="false">Só o que não existe</button>
   </div>
-</div>""")
+</form>""")
     partes.append('<p class="nota-filtro">O selo de registro vem da <a href="evidencia.html">varredura do dado aberto '
                   f'da ANVISA</a> feita em {DATA_APURACAO}, e só aparece nos 44 compostos que foram medidos um a '
                   'um. Combinações e páginas de método não têm selo.</p>')
+    partes.append('<noscript><p class="nota-filtro"><strong>O filtro precisa de JavaScript.</strong> '
+                  'Sem ele nada se perde: os compostos continuam todos listados e linkados abaixo, por seção.</p></noscript>')
     partes.append('<p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>')
 
     for cat, (nome, desc) in CATEGORIAS.items():
@@ -806,61 +817,11 @@ def gera_sobre(stats):
     return '\n'.join(p)
 
 
-APP_JS = """(function () {
-  var busca = document.getElementById('busca');
-  var filtros = document.getElementById('filtros');
-  var filtrosAnv = document.getElementById('filtros-anvisa');
-  var vazio = document.getElementById('vazio');
-  if (!busca || !filtros) return;
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-busca]'));
-  var secoes = Array.prototype.slice.call(document.querySelectorAll('[data-secao]'));
-  var cat = 'todos';
-  var anv = 'todos';
-
-  function normaliza(s) {
-    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }
-
-  function aplicar() {
-    var termo = normaliza(busca.value.trim());
-    var achou = 0;
-    cards.forEach(function (c) {
-      var okCat = cat === 'todos' || c.dataset.cat === cat;
-      // 'nao' inclui o notificado: nenhum dos dois tem registro
-      var estado = c.dataset.anv || 'nd';
-      var okAnv = anv === 'todos'
-        || (anv === 'sim' && estado === 'sim')
-        || (anv === 'nao' && (estado === 'nao' || estado === 'nof'));
-      var okTermo = !termo || normaliza(c.dataset.busca).indexOf(termo) !== -1;
-      var mostra = okCat && okAnv && okTermo;
-      c.hidden = !mostra;
-      if (mostra) achou++;
-    });
-    secoes.forEach(function (s) {
-      var visiveis = s.querySelectorAll('.card:not([hidden])').length;
-      s.hidden = visiveis === 0;
-    });
-    if (vazio) vazio.hidden = achou !== 0;
-  }
-
-  function grupo(el, campo, aplicaValor) {
-    if (!el) return;
-    el.addEventListener('click', function (e) {
-      var b = e.target.closest('.filtro');
-      if (!b) return;
-      aplicaValor(b.dataset[campo]);
-      el.querySelectorAll('.filtro').forEach(function (x) {
-        x.setAttribute('aria-pressed', String(x === b));
-      });
-      aplicar();
-    });
-  }
-
-  busca.addEventListener('input', aplicar);
-  grupo(filtros, 'cat', function (v) { cat = v; });
-  grupo(filtrosAnv, 'anv', function (v) { anv = v; });
-})();
-"""
+# O JS do indice mora em build/app.js, arquivo de verdade: da para rodar
+# node --check nele, e nao ha escape de string Python no meio do caminho.
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "app.js"),
+          encoding="utf-8") as _f:
+    APP_JS = _f.read()
 
 
 # ------------------------------------------------------------------- main

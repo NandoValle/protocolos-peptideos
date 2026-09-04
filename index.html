@@ -77,32 +77,41 @@
     <a class="destaque-noot-item" href="p/proprio_efeito.html"><b>Tamanho de efeito</b><span>Quantos ensaios existem é uma pergunta; o que eles acharam é outra — 34 metanálises abertas</span></a>
   </div>
 </section>
-<div class="busca-caixa">
+<form class="busca-caixa" id="ferramenta-filtro" action="index.html" method="get"
+      toolname="filtrar_compostos"
+      tooldescription="Filtra a lista de compostos desta pagina por texto, por categoria e por registro na ANVISA. Nao altera nada: so muda quais cartoes ficam visiveis, e devolve a contagem do que sobrou. Os 75 compostos continuam listados e linkados na pagina mesmo sem usar o filtro.">
   <div class="busca-campo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
     <label for="busca" class="pular">Buscar composto</label>
-    <input type="search" id="busca" placeholder="Buscar por nome, classe ou sigla — KLOW, Semax, GLP-1, reparo…" autocomplete="off">
+    <input type="search" id="busca" name="q" placeholder="Buscar por nome, classe ou sigla — KLOW, Semax, GLP-1, reparo…" autocomplete="off"
+           toolparamdescription="Texto a procurar no nome, na classe ou na sigla do composto — por exemplo BPC-157, GLP-1, Semax ou reparo. Vazio nao filtra por texto.">
   </div>
+  <input type="hidden" id="par-cat" name="cat" value="todos"
+         toolparamdescription="Categoria do composto. Valores aceitos: todos, reparo, metabolico, gh, neuro, longevidade, hormonal, imune, combinacao, primaria, suplemento. Use todos para nao filtrar por categoria.">
+  <input type="hidden" id="par-anv" name="anv" value="todos"
+         toolparamdescription="Registro na ANVISA. Valores aceitos: todos, sim, nao. sim devolve so os compostos com medicamento registrado no Brasil; nao devolve so os sem registro; todos nao filtra.">
+  <button type="submit" class="pular">Filtrar</button>
   <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria">
-    <button class="filtro" data-cat="todos" aria-pressed="true">Todos</button>
-    <button class="filtro" data-cat="reparo" aria-pressed="false">Reparo e tecido</button>
-    <button class="filtro" data-cat="metabolico" aria-pressed="false">Metabólico e peso</button>
-    <button class="filtro" data-cat="gh" aria-pressed="false">Eixo do hormônio do crescimento</button>
-    <button class="filtro" data-cat="neuro" aria-pressed="false">Neuro e cognição</button>
-    <button class="filtro" data-cat="longevidade" aria-pressed="false">Longevidade e mitocôndria</button>
-    <button class="filtro" data-cat="hormonal" aria-pressed="false">Hormonal e sexual</button>
-    <button class="filtro" data-cat="imune" aria-pressed="false">Imune</button>
-    <button class="filtro" data-cat="combinacao" aria-pressed="false">Combinações</button>
-    <button class="filtro" data-cat="primaria" aria-pressed="false">Verificado em fonte primária</button>
-    <button class="filtro" data-cat="suplemento" aria-pressed="false">Suplementos e correlatos</button>
+    <button type="button" class="filtro" data-cat="todos" aria-pressed="true">Todos</button>
+    <button type="button" class="filtro" data-cat="reparo" aria-pressed="false">Reparo e tecido</button>
+    <button type="button" class="filtro" data-cat="metabolico" aria-pressed="false">Metabólico e peso</button>
+    <button type="button" class="filtro" data-cat="gh" aria-pressed="false">Eixo do hormônio do crescimento</button>
+    <button type="button" class="filtro" data-cat="neuro" aria-pressed="false">Neuro e cognição</button>
+    <button type="button" class="filtro" data-cat="longevidade" aria-pressed="false">Longevidade e mitocôndria</button>
+    <button type="button" class="filtro" data-cat="hormonal" aria-pressed="false">Hormonal e sexual</button>
+    <button type="button" class="filtro" data-cat="imune" aria-pressed="false">Imune</button>
+    <button type="button" class="filtro" data-cat="combinacao" aria-pressed="false">Combinações</button>
+    <button type="button" class="filtro" data-cat="primaria" aria-pressed="false">Verificado em fonte primária</button>
+    <button type="button" class="filtro" data-cat="suplemento" aria-pressed="false">Suplementos e correlatos</button>
   </div>
   <div class="filtros filtros-anvisa" id="filtros-anvisa" role="group" aria-label="Filtrar por registro no Brasil">
-    <button class="filtro filtro-anv" data-anv="todos" aria-pressed="true">Registro no Brasil: todos</button>
-    <button class="filtro filtro-anv" data-anv="sim" aria-pressed="false">Só o que existe aqui</button>
-    <button class="filtro filtro-anv" data-anv="nao" aria-pressed="false">Só o que não existe</button>
+    <button type="button" class="filtro filtro-anv" data-anv="todos" aria-pressed="true">Registro no Brasil: todos</button>
+    <button type="button" class="filtro filtro-anv" data-anv="sim" aria-pressed="false">Só o que existe aqui</button>
+    <button type="button" class="filtro filtro-anv" data-anv="nao" aria-pressed="false">Só o que não existe</button>
   </div>
-</div>
+</form>
 <p class="nota-filtro">O selo de registro vem da <a href="evidencia.html">varredura do dado aberto da ANVISA</a> feita em 4 de setembro de 2026, e só aparece nos 44 compostos que foram medidos um a um. Combinações e páginas de método não têm selo.</p>
+<noscript><p class="nota-filtro"><strong>O filtro precisa de JavaScript.</strong> Sem ele nada se perde: os compostos continuam todos listados e linkados abaixo, por seção.</p></noscript>
 <p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>
 <section class="secao" data-secao="reparo">
   <div class="secao-cabeca"><h2>Reparo e tecido</h2><p class="secao-desc">Compostos estudados em cicatrização, tendão, pele e inflamação local.</p></div>
