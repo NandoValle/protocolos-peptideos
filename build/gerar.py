@@ -353,7 +353,7 @@ def gera_index(itens, stats):
     partes.append(f"""<section class="hero">
   <span class="hero-sobre">Referência experimental</span>
   <h1>Protocolos de peptídeos, <em>em português</em> e com o limite da evidência à mostra.</h1>
-  <p class="hero-sub">{stats['n']} compostos e combinações, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade — porque a diferença entre as duas coisas é o assunto todo.</p>
+  <p class="hero-sub">{stats['n']} compostos e combinações — de peptídeos a <a href="p/proprio_nootropicos.html">nootrópicos</a>, SARMs e o que existe registrado no Brasil —, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade, porque a diferença entre as duas coisas é o assunto todo. Em {stats['primarias']} delas os números não vieram de fonte secundária: foram conferidos no PubMed, no dado aberto da ANVISA e na bula.</p>
   <div class="hero-numeros">
     <div class="numero"><b>{stats['n']}</b><span>compostos</span></div>
     <div class="numero"><b>{stats['tabelas']}</b><span>tabelas de dose</span></div>
@@ -828,6 +828,9 @@ def main():
         'tabelas': n_tab_ok,
         'tabelas_total': n_tab_total,
         'nao_aprovados': sum(1 for i in itens if i['meta']['aprovado'] == 'nao'),
+        # contado, nao cravado: o subtitulo do hero cita este numero, e paginas
+        # de fonte primaria entram no site a toda hora.
+        'primarias': sum(1 for i in itens if i['meta']['categoria'] == 'primaria'),
     }
 
     os.makedirs(os.path.join(RAIZ, 'p'), exist_ok=True)

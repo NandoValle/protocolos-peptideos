@@ -478,3 +478,17 @@ tbody td:first-child { color: var(--texto); font-weight: 500; white-space: nowra
 .destaque-noot-item span{display:block;color:var(--texto-suave);font-size:13.5px;line-height:1.5}
 @media (prefers-reduced-motion:reduce){.destaque-noot-item{transition:none}
   .destaque-noot-item:hover,.destaque-noot-item:focus-visible{transform:none}}
+
+/* Link dentro do subtitulo do hero. Sublinhado porque a cor sozinha nao
+   basta: cobre (#E8A972) contra o cinza do paragrafo (#A8B0BC) da 1.08 de
+   contraste, e a WCAG pede 3 quando a cor e a unica pista. O resto do site
+   tem o mesmo problema em .nota-filtro a e afins -- nao mexi neles aqui. */
+.hero-sub a{
+  color:var(--cobre-claro);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+  transition:text-decoration-thickness .15s ease;
+}
+.hero-sub a:hover,.hero-sub a:focus-visible{text-decoration-thickness:2px}
+@media (prefers-reduced-motion:reduce){.hero-sub a{transition:none}}
