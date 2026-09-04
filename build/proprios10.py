@@ -110,6 +110,9 @@ ANV = {
             "registro, e só.",
         ]),
     ],
+    nota_refs=('Cada número desta página veio do dado aberto oficial da ANVISA, baixado em 4 de setembro '
+              'de 2026, contando apenas registros com situação Ativo. <strong>Esta página não usa o PubMed</strong> — '
+              'a pergunta dela é regulatória, não de evidência.'),
     referencias=[
         ("Dados abertos da ANVISA, arquivo DADOS_ABERTOS_MEDICAMENTOS.csv, baixado em 4 de setembro de 2026 com 43.489 registros. É a fonte de toda a contagem desta página.",
          "https://dados.anvisa.gov.br/dados/"),

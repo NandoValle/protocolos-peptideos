@@ -239,6 +239,8 @@ GLP1 = {
             "vindo da fonte secundária.",
         ]),
     ],
+    nota_refs=('Cada afirmação desta página foi conferida contra a bula oficial — FDA e ANVISA — em 4 de '
+              'setembro de 2026. <strong>Esta página não usa o PubMed</strong>: o gabarito aqui é regulatório.'),
     referencias=[
         ("Bula do Wegovy (injeção e comprimido), Novo Nordisk, publicada em 30 de junho de 2026. Fonte das Tabelas 1 e 2 de titulação e da tarja preta.",
          "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ee06186f-2aa3-4990-a760-757579d8f77b"),

@@ -171,6 +171,9 @@ EFEITO = {
             "cinzenta e bases regionais ficaram de fora.",
         ]),
     ],
+    nota_refs=('Cada tamanho de efeito foi transportado do resumo estruturado do próprio estudo, lido no '
+              'PubMed em 4 de setembro de 2026. Segundo o PubMed, os trabalhos abaixo são o que existe. '
+              'A seção S6.A foi conferida na fonte oficial da WADA na mesma data.'),
     referencias=[
         ("Xu C et al. The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis. Front Nutr. 2024;11:1424972.", "https://doi.org/10.3389/fnut.2024.1424972"),
         ("Prokopidis K et al. Effects of creatine supplementation on memory in healthy individuals: a systematic review and meta-analysis of randomized controlled trials. Nutr Rev. 2023;81(4):416-427.", "https://doi.org/10.1093/nutrit/nuac064"),

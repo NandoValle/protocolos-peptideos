@@ -520,9 +520,14 @@ def gera_composto(item):
                 p.append('  </tbody></table></div></div>')
 
         p.append('<h2 id="refs">Referências</h2>')
-        p.append('<div class="nota"><strong>Esta página não veio da fonte secundária.</strong> Cada número foi '
-                 'levantado no PubMed e no ClinicalTrials.gov em 4 de setembro de 2026, e a consulta usada está '
-                 'declarada acima. Segundo o PubMed, os trabalhos abaixo são o que existe.</div>')
+        # A frase das referencias nao pode afirmar PubMed para toda pagina: a de
+        # ANVISA nao usa PubMed, e afirmar isso ali e falso. Default generico,
+        # com override por pagina via 'nota_refs'.
+        nota_refs = proprio.get('nota_refs',
+            'Cada número foi levantado por mim nas fontes listadas abaixo, em 4 de setembro de 2026, '
+            'e a consulta usada está declarada acima.')
+        p.append('<div class="nota"><strong>Esta página não veio da fonte secundária.</strong> '
+                 f'{nota_refs}</div>')
         p.append('<ol style="color:var(--texto-suave);font-size:14.5px;line-height:1.6">')
         for txt, url in proprio['referencias']:
             p.append(f'  <li style="margin-bottom:10px"><a href="{url}" rel="noopener" target="_blank">{esc(txt)}</a></li>')
