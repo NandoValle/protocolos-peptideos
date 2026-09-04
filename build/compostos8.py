@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 """Metadado da varredura de registro na ANVISA."""
 
+from datas import DATA_APURACAO as _DT
+
 EXTRA7 = {
 "proprio_anvisa": dict(
     nome="O que existe no Brasil", categoria="primaria", aprovado="nao",
     tagline="40 dos 44 compostos deste site não têm nenhum medicamento registrado na ANVISA",
-    resumo="Varredura do dado aberto oficial da ANVISA — 43.489 registros de medicamento, baixado em 4 de "
-           "setembro de 2026 — atrás de cada composto do site, por princípio ativo e por nome de produto. "
+    resumo=f"Varredura do dado aberto oficial da ANVISA — 43.489 registros de medicamento, baixado em {_DT}"
+           " — atrás de cada composto do site, por princípio ativo e por nome de produto. "
            "Quatro existem: semaglutida, tirzepatida, ocitocina e azul de metileno. Os outros quarenta não têm "
            "bula brasileira, dose aprovada nem lote fiscalizado. O resultado agora aparece em cada página de "
            "composto, numa linha própria. O achado lateral mais inesperado: já existem genéricos e similares de "

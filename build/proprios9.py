@@ -8,6 +8,8 @@ Bulas lidas em 04/09/2026 pela API da openFDA e pelo DailyMed (NLM):
   Zepbound  vigencia 28/08/2026
 """
 
+from datas import DATA_APURACAO as _DT
+
 GLP1 = {
 "proprio_glp1_bula": dict(
     secoes=[
@@ -18,8 +20,8 @@ GLP1 = {
             "reinterpretados. Isso garante que eu copiei certo. <strong>Não garante que a fonte estava certa</strong>, "
             "e essa distinção nunca tinha sido testada em página nenhuma.",
             "Os GLP-1 são o único grupo do site onde dá para testar, porque são os únicos com <strong>bula "
-            "aprovada por agência</strong>. Peguei as bulas oficiais na base da FDA e do DailyMed em 4 de setembro "
-            "de 2026 e comparei degrau por degrau. O resultado tem duas metades bem diferentes.",
+            f"aprovada por agência</strong>. Peguei as bulas oficiais na base da FDA e do DailyMed em {_DT}"
+            " e comparei degrau por degrau. O resultado tem duas metades bem diferentes.",
         ]),
         dict(h="Primeira metade: os números batem", tipo="p", corpo=[
             "Esta é a parte boa, e é a maior. <strong>Nenhuma escada de titulação do site está errada em valor de "
@@ -239,8 +241,8 @@ GLP1 = {
             "vindo da fonte secundária.",
         ]),
     ],
-    nota_refs=('Cada afirmação desta página foi conferida contra a bula oficial — FDA e ANVISA — em 4 de '
-              'setembro de 2026. <strong>Esta página não usa o PubMed</strong>: o gabarito aqui é regulatório.'),
+    nota_refs=(f'Cada afirmação desta página foi conferida contra a bula oficial — FDA e ANVISA — em {_DT}'
+              '. <strong>Esta página não usa o PubMed</strong>: o gabarito aqui é regulatório.'),
     referencias=[
         ("Bula do Wegovy (injeção e comprimido), Novo Nordisk, publicada em 30 de junho de 2026. Fonte das Tabelas 1 e 2 de titulação e da tarja preta.",
          "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ee06186f-2aa3-4990-a760-757579d8f77b"),

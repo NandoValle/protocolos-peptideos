@@ -172,8 +172,8 @@ NOOT = {
             "<strong>A nicotina fora do cigarro é o caso limite.</strong> Adesivo e goma são de venda livre no "
             "Brasil e a dose dos ensaios está publicada acima, porque é a mesma da bula. O que não muda é que ela "
             "cria dependência física.",
-            "<strong>Oito itens desta página estão na lista da WADA, conferida na fonte oficial em 4 de setembro "
-            "de 2026.</strong> Todos na seção <strong>S6.A, estimulantes não especificados, proibidos apenas em "
+            f"<strong>Oito itens desta página estão na lista da WADA, conferida na fonte oficial em {_DT}"
+            ".</strong> Todos na seção <strong>S6.A, estimulantes não especificados, proibidos apenas em "
             "competição</strong>, e citados lá por nome próprio: <strong>Modafinil</strong>, "
             "<strong>Adrafinil</strong>, <strong>Bromantan</strong>, <strong>Fonturacetam [4-phenylpiracetam "
             "(carphedon)]</strong>, <strong>Hydrafinil (fluorenol)</strong>, <strong>Fladrafinil</strong>, "

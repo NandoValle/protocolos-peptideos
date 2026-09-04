@@ -288,8 +288,8 @@ TARJA_TIRZ = (
 TARJA_TEXTO_INVEST = (
     '<div class="aviso"><div class="aviso-icone">!</div><div>'
     '<h2>Sem bula, sem dose aprovada</h2>'
-    '<p><strong>Este composto não tem registro na FDA</strong> — conferido na base de rótulos em 4 de setembro '
-    'de 2026. Isso não o torna mais seguro que a semaglutida ou a tirzepatida, que têm tarja preta: torna-o '
+    f'<p><strong>Este composto não tem registro na FDA</strong> — conferido na base de rótulos em {DATA_APURACAO}'
+    '. Isso não o torna mais seguro que a semaglutida ou a tirzepatida, que têm tarja preta: torna-o '
     'menos conhecido. <strong>Não existe escada de titulação aprovada, não existe dose máxima definida e não '
     'existe lista oficial de contraindicação</strong> para comparar com as tabelas desta página.</p>'
     '<p>Os análogos aparentados que já têm bula carregam advertência de tumor de células C da tireoide — e a '
@@ -836,4 +836,15 @@ def main():
 
 
 if __name__ == '__main__':
+    # A trava roda ANTES de gerar. Data e fato historico: se alguem cravou uma
+    # a mao ou foi buscar no relogio, o site nao e publicado ate arrumar.
+    from trava_datas import checar as _checar_datas
+    _faltas = _checar_datas()
+    if _faltas:
+        print('TRAVA DE DATAS: %d violacao(oes). Nada foi gerado.\n' % len(_faltas),
+              file=sys.stderr)
+        for _f in _faltas:
+            print('  ' + _f, file=sys.stderr)
+        print('\nLeia o cabecalho de build/datas.py.', file=sys.stderr)
+        sys.exit(1)
     main()

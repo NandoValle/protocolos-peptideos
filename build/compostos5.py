@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 """Metadado da pagina de nootropicos."""
 
+from datas import DATA_APURACAO as _DT
+
 EXTRA4 = {
 "proprio_nootropicos": dict(
     nome="Nootrópicos", categoria="primaria", aprovado="parcial",
     tagline="32 com evidência humana, 12 sem ensaio nenhum — e quatro contagens que estavam infladas",
-    resumo="Quarenta e quatro nootrópicos que não apareciam neste site, levantados um a um no PubMed em 4 de "
-           "setembro de 2026. Trinta e dois têm ensaio randomizado ou metanálise; doze não têm nada, e continuam "
+    resumo=f"Quarenta e quatro nootrópicos que não apareciam neste site, levantados um a um no PubMed em {_DT}"
+           ". Trinta e dois têm ensaio randomizado ou metanálise; doze não têm nada, e continuam "
            "sendo vendidos. O modafinil lidera com 425 ensaios, o açafrão vem com 173, e o noopept — dos mais "
            "citados em fórum — tem 115 artigos e zero ensaios. Ao contrário do resto do site, a faixa de dose aqui "
            "não veio de rótulo: foi extraída dos resumos dos próprios ensaios.",
