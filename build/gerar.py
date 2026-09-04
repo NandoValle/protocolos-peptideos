@@ -8,7 +8,7 @@ Grava: ./index.html, ./p/*.html, ./seguranca.html, ./sobre.html
 Regra: uma tabela so e publicada se passar no portao de traducao.
 Tabela que nao passa e descartada e contabilizada no relatorio.
 """
-import json, glob, os, re, sys, html
+import json, glob, os, re, subprocess, sys, html
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dicionario as D
@@ -144,13 +144,47 @@ def traduz_tabela(t):
 
 
 # ----------------------------------------------------------------- blocos
-def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False):
+BASE = 'https://protocolos-peptideos.github.io'
+
+
+def data_do_commit(rel):
+    """Data do ultimo commit que tocou o arquivo, no formato AAAA-MM-DD.
+
+    E de onde sai o <lastmod> do sitemap. NAO vem do relogio: vem do git, que
+    e o registro historico de quando o arquivo mudou de verdade. Por isso ela
+    e estavel entre rebuilds -- reconstruir o site sem editar nada nao move a
+    data, que e exatamente o que a trava de datas protege.
+
+    Arquivo ainda nao commitado nao tem data: devolve None, e o sitemap sai
+    sem lastmod naquela URL. Melhor URL sem data do que data inventada.
+    """
+    try:
+        r = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', rel],
+                           cwd=RAIZ, capture_output=True, text=True, timeout=20)
+    except Exception:
+        return None
+    if r.returncode != 0:
+        return None
+    d = r.stdout.strip()
+    return d if re.fullmatch(r'\d{4}-\d{2}-\d{2}', d) else None
+
+
+def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
+              caminho=None):
     # O site inteiro nasceu noindex. Em 04/09/2026 as paginas de evidencia
     # verificada passaram a ser indexaveis, a pedido: sao as corretivas -- as
     # que dizem o que falhou, o que foi suspenso e quem pagou o estudo. As
     # paginas de protocolo, que trazem dose vinda de fonte secundaria
     # comercial, seguem fora de busca.
     robots = "index, follow" if indexavel else "noindex, nofollow"
+
+    # Canonical em TODA pagina, inclusive nas noindex: as duas diretivas
+    # respondem perguntas diferentes. noindex diz "nao me indexe"; canonical
+    # diz "se voce chegar aqui por outro endereco, este e o endereco certo".
+    # Sem ela, o mesmo conteudo servido em github.io e num espelho qualquer
+    # vira duas paginas para o robo.
+    canon = (f'\n<link rel="canonical" href="{BASE}{caminho}">'
+             if caminho else '')
 
     def cls(n):
         return ' aria-current="page"' if atual == n else ''
@@ -165,7 +199,7 @@ def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False):
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descricao)}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="website">{canon}
 <link rel="stylesheet" href="{prefixo}assets/estilo.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23D08A4A'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' font-weight='700' fill='%2316100A'>P</text></svg>">
 </head>
@@ -354,7 +388,7 @@ def gera_index(itens, stats):
     partes = [cabecalho(
         "Protocolos — peptídeos, nootrópicos e correlatos",
         "Referência em português sobre peptídeos, nootrópicos, SARMs e correlatos: dose, ciclo, status regulatório e o limite da evidência de cada um. Material experimental, não é recomendação médica.",
-        "", "inicio")]
+        "", "inicio", caminho="/index.html")]
 
     partes.append('<main id="principal" class="env-largo">')
     partes.append(f"""<section class="hero">
@@ -477,7 +511,8 @@ def gera_composto(item):
         titulo = f"{m['nome']} — protocolo, dose e ciclo"
 
     p = [cabecalho(titulo, m['tagline'], "../",
-                   indexavel=(m['categoria'] == 'primaria'))]
+                   indexavel=(m['categoria'] == 'primaria'),
+                   caminho="/p/%s.html" % slug)]
     p.append('<div class="pagina">')
 
     proprio = PROPRIOS.get(slug)
@@ -614,7 +649,7 @@ def gera_composto(item):
 def gera_seguranca():
     p = [cabecalho("Segurança e limites — Protocolos",
                    "O que esta referência é, o que não é, e os riscos que não aparecem nas tabelas de dose.",
-                   "", "seguranca")]
+                   "", "seguranca", caminho="/seguranca.html")]
     p.append('<main id="principal" class="env-largo" style="max-width:800px;padding-top:52px;padding-bottom:80px">')
     p.append('<h1 style="font-family:var(--display);font-size:clamp(32px,4.6vw,44px);font-weight:600;letter-spacing:-.026em;margin:0 0 22px">Segurança e limites</h1>')
     p.append(AVISO)
@@ -667,7 +702,7 @@ def gera_evidencia():
                    f"As {n_prim} páginas em que cada número foi levantado por mim na fonte primária "
                    "— PubMed, ClinicalTrials.gov, dado aberto da ANVISA, bula e lista da WADA — "
                    "com a consulta declarada em cada uma.",
-                   "", "evidencia", indexavel=True)]
+                   "", "evidencia", indexavel=True, caminho="/evidencia.html")]
     p.append('<main id="principal" class="env-largo" style="max-width:860px;padding-top:52px;padding-bottom:80px">')
     p.append('<h1 style="font-family:var(--display);font-size:clamp(32px,4.6vw,44px);font-weight:600;'
              'letter-spacing:-.026em;margin:0 0 14px">Verificado em fonte primária</h1>')
@@ -684,7 +719,7 @@ def gera_evidencia():
 def gera_sobre(stats):
     p = [cabecalho("Sobre, fonte e método — Protocolos",
                    "De onde vieram os dados, como foram traduzidos e o que ficou de fora.",
-                   "", "sobre")]
+                   "", "sobre", caminho="/sobre.html")]
     p.append('<main id="principal" class="env-largo" style="max-width:800px;padding-top:52px;padding-bottom:80px">')
     p.append('<h1 style="font-family:var(--display);font-size:clamp(32px,4.6vw,44px);font-weight:600;letter-spacing:-.026em;margin:0 0 22px">Sobre, fonte e método</h1>')
     p.append('<div class="conteudo" style="padding:0">')
@@ -869,16 +904,23 @@ def main():
     # nao tem por onde alcancar as paginas indexaveis. O sitemap lista APENAS
     # o que e indexavel -- as paginas de protocolo seguem fora de busca, e o
     # sitemap nao as anuncia.
-    base = 'https://protocolos-peptideos.github.io'
+    base = BASE
     urls = ['/evidencia.html'] + [
         '/p/%s.html' % i['slug'] for i in itens
         if i['meta']['categoria'] == 'primaria']
-    # sem <lastmod>: a data teria de vir do relogio, e data de relogio neste
-    # projeto e proibida. Ver build/datas.py.
+    # <lastmod> vem da data do ultimo commit de cada arquivo -- fato
+    # historico lido do git, nunca do relogio. Ver data_do_commit().
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sem_data = []
     for u in urls:
-        sitemap.append('  <url><loc>%s%s</loc></url>' % (base, u))
+        d = data_do_commit(u.lstrip('/'))
+        if d:
+            sitemap.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>'
+                           % (base, u, d))
+        else:
+            sem_data.append(u)
+            sitemap.append('  <url><loc>%s%s</loc></url>' % (base, u))
     sitemap.append('</urlset>')
     NL = chr(10)
     grava('sitemap.xml', NL.join(sitemap) + NL)
@@ -893,6 +935,7 @@ def main():
         'Sitemap: ' + base + '/sitemap.xml',
         '']))
     stats['indexaveis'] = len(urls)
+    stats['sem_lastmod'] = sem_data
 
     print('compostos      :', stats['n'])
     print('tabelas core   :', n_tab_total)
