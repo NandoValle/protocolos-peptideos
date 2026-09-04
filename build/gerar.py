@@ -239,21 +239,43 @@ TARJA_GLP1 = {
     'stacks_retatrutide-mots-c':       None,
 }
 
-TARJA_TEXTO = (
-    '<div class="aviso"><div class="aviso-icone">!</div><div>'
-    '<h2>Tarja preta da FDA, e uma contraindicação absoluta</h2>'
-    '<p><strong>A semaglutida e a tirzepatida carregam a advertência mais forte que a FDA aplica a um '
-    'medicamento.</strong> Em roedores, as duas causam tumores de células C da tireoide de forma dependente da '
-    'dose e da duração do tratamento, em exposições clinicamente relevantes. Não se sabe se causam em humanos — '
-    'a relevância humana desses tumores não foi determinada.</p>'
-    '<p><strong>São contraindicadas de forma absoluta</strong> em quem tem história <strong>pessoal ou '
-    'familiar</strong> de carcinoma medular de tireoide, ou neoplasia endócrina múltipla tipo 2 (NEM 2). '
-    'Também em quem já teve reação de hipersensibilidade grave à substância: há relato de anafilaxia e '
-    'angioedema com as duas.</p>'
+_RODAPE_TARJA = (
     '<p>Esta advertência não estava nesta página até 4 de setembro de 2026, e a falha era deste site, não da '
-    'fonte. A auditoria completa das tabelas de dose contra as bulas oficiais está em '
+    'fonte. A auditoria das tabelas de dose contra as bulas da FDA e da ANVISA está em '
     '<a href="proprio_glp1_bula.html">Os GLP-1 contra a bula</a>.</p>'
     '</div></div>'
+)
+
+# a semaglutida e a tirzepatida NAO tem o mesmo tratamento regulatorio no Brasil:
+# a bula da ANVISA contraindica a tirzepatida e apenas recomenda cautela na semaglutida.
+TARJA_SEMA = (
+    '<div class="aviso"><div class="aviso-icone">!</div><div>'
+    '<h2>Tarja preta nos EUA, cautela no Brasil — e as duas bulas discordam</h2>'
+    '<p><strong>A semaglutida carrega a advertência mais forte que a FDA aplica a um medicamento.</strong> Em '
+    'roedores ela causa tumores de células C da tireoide de forma dependente da dose e da duração do tratamento, '
+    'em exposições clinicamente relevantes. Não se sabe se causa em humanos.</p>'
+    '<p><strong>Nos Estados Unidos isso é contraindicação absoluta</strong> em quem tem história pessoal ou '
+    'familiar de carcinoma medular de tireoide (CMT) ou neoplasia endócrina múltipla tipo 2 (NEM 2). '
+    '<strong>No Brasil, não é.</strong> As bulas de Ozempic, Wegovy e Rybelsus contraindicam apenas '
+    'hipersensibilidade; sobre o CMT, mandam <strong>usar com cautela</strong> e classificam a relevância humana '
+    'como considerada baixa. Quem decide, aqui, é o prescritor — não a bula.</p>'
+    '<p><strong>Há relato de anafilaxia e angioedema</strong> com semaglutida, e isso é contraindicação nos dois '
+    'países.</p>'
+    + _RODAPE_TARJA
+)
+
+TARJA_TIRZ = (
+    '<div class="aviso"><div class="aviso-icone">!</div><div>'
+    '<h2>Contraindicação absoluta, no Brasil e nos Estados Unidos</h2>'
+    '<p><strong>A tirzepatida carrega tarja preta da FDA</strong> por tumores de células C da tireoide em ratos, '
+    'dependentes da dose e da duração do tratamento, em exposições clinicamente relevantes. Não se sabe se causa '
+    'em humanos.</p>'
+    '<p><strong>É contraindicada</strong> em quem tem história <strong>pessoal ou familiar</strong> de carcinoma '
+    'medular de tireoide (CMT) ou neoplasia endócrina múltipla tipo 2 (NEM 2). Diferente da semaglutida, '
+    '<strong>a bula brasileira do MOUNJARO traz essa contraindicação na seção 4</strong>, com o mesmo alcance da '
+    'americana. Também é contraindicada em quem já teve hipersensibilidade grave: há relato de anafilaxia e '
+    'angioedema.</p>'
+    + _RODAPE_TARJA
 )
 
 TARJA_TEXTO_INVEST = (
@@ -263,8 +285,9 @@ TARJA_TEXTO_INVEST = (
     'de 2026. Isso não o torna mais seguro que a semaglutida ou a tirzepatida, que têm tarja preta: torna-o '
     'menos conhecido. <strong>Não existe escada de titulação aprovada, não existe dose máxima definida e não '
     'existe lista oficial de contraindicação</strong> para comparar com as tabelas desta página.</p>'
-    '<p>Os análogos aparentados que já têm bula carregam advertência de tumor de células C da tireoide e '
-    'contraindicação absoluta em carcinoma medular de tireoide e NEM 2. A auditoria completa está em '
+    '<p>Os análogos aparentados que já têm bula carregam advertência de tumor de células C da tireoide — e a '
+    'tirzepatida é contraindicada em carcinoma medular de tireoide e NEM 2 nas bulas dos dois países, enquanto '
+    'a semaglutida só é nos Estados Unidos. A auditoria completa está em '
     '<a href="proprio_glp1_bula.html">Os GLP-1 contra a bula</a>.</p>'
     '</div></div>'
 )
@@ -405,7 +428,10 @@ def gera_composto(item):
     p.append(AVISO)
 
     if slug in TARJA_GLP1:
-        p.append(TARJA_TEXTO if TARJA_GLP1[slug] else TARJA_TEXTO_INVEST)
+        _mol = TARJA_GLP1[slug]
+        p.append(TARJA_SEMA if _mol == 'semaglutida'
+                 else TARJA_TIRZ if _mol == 'tirzepatida'
+                 else TARJA_TEXTO_INVEST)
 
     if slug in COMPANHEIRA:
         destino, nome = COMPANHEIRA[slug]
