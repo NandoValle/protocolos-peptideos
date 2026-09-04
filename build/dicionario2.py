@@ -656,3 +656,6 @@ FRASES.update(_SINAL)
 
 from dicionario7 import CURTAS as _CURTAS
 FRASES.update(_CURTAS)
+
+from dicionario8 import CICLOS as _CICLOS
+FRASES.update(_CICLOS)

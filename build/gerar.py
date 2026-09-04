@@ -513,8 +513,35 @@ APP_JS = """(function () {
 
 
 # ------------------------------------------------------------------- main
+# paginas de duracao de ciclo: nao sao compostos proprios, entram na pagina do pai
+CICLO_PAI = {
+    'peptide-cycles_5-amino-1mq':                  'protocol_5-amino-1mq',
+    'peptide-cycles_aod-9604-cycle-length':        'protocol_aod-9604',
+    'peptide-cycles_cartalax-cycle':               'protocol_cartalax',
+    'peptide-cycles_ipamorelin':                   'protocol_ipamorelin',
+    'peptide-cycles_klow-peptide-cycle-length':    'stacks_klow-stack',
+    'peptide-cycles_kpv-cycle-length':             'protocol_kpv',
+    'peptide-cycles_nad-plus':                     'protocol_nad-plus',
+    'peptide-cycles_retatrutide':                  'protocol_retatrutide',
+    'peptide-cycles_selank':                       'protocol_selank',
+    'peptide-cycles_wolverine-stack-cycle-length': 'stacks_wolverine-stack',
+}
+
+
+def carrega_ciclos():
+    """Tabelas das paginas de ciclo, agrupadas pelo composto pai."""
+    extra = {}
+    for caminho in sorted(glob.glob(os.path.join(RAIZ, 'build', 'src', 'peptide-cycles_*.json'))):
+        d = json.load(open(caminho, encoding='utf-8'))
+        pai = CICLO_PAI.get(d['slug'])
+        if pai:
+            extra.setdefault(pai, []).extend(d['tables'])
+    return extra
+
+
 def main():
     itens, n_tab_total, n_tab_ok = [], 0, 0
+    ciclos = carrega_ciclos()
 
     for caminho in sorted(glob.glob(os.path.join(RAIZ, 'build', 'src', '*.json'))):
         d = json.load(open(caminho, encoding='utf-8'))
@@ -522,7 +549,7 @@ def main():
         if slug not in COMPOSTOS:
             continue
         tabelas = []
-        for t in d['tables']:
+        for t in d['tables'] + ciclos.get(slug, []):
             if not CORE.search(t['cap']):
                 continue
             n_tab_total += 1

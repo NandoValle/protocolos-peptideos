@@ -244,4 +244,5 @@ def legenda(txt):
     s = txt.strip()
     for pat, rep in LEGENDAS:
         s = re.sub(pat, rep, s)
+    s = s.replace('vs..', 'vs.').replace('vs. .', 'vs.')
     return _LEG_FIXAS.get(s, s)
