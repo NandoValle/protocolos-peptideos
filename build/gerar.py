@@ -916,4 +916,21 @@ if __name__ == '__main__':
             print('  ' + _f, file=sys.stderr)
         print('\nLeia o cabecalho de build/datas.py.', file=sys.stderr)
         sys.exit(1)
+
+    # Segunda trava: contagem publicada tem que vir com a consulta que a
+    # produziu. Numero certo que o leitor nao consegue repetir e autoridade,
+    # nao evidencia.
+    from proprios import PROPRIOS as _PROP
+    from trava_consultas import confere as _checar_consultas
+    _faltas, _pend = _checar_consultas(_PROP)
+    if _pend:
+        print('trava de consultas: %d pendencia(s) herdada(s) -- ver DIVIDA em '
+              'build/trava_consultas.py' % len(_pend), file=sys.stderr)
+    if _faltas:
+        print('TRAVA DE CONSULTAS: %d violacao(oes). Nada foi gerado.\n' % len(_faltas),
+              file=sys.stderr)
+        for _f in _faltas:
+            print('  ' + _f, file=sys.stderr)
+        print('\nLeia o cabecalho de build/trava_consultas.py.', file=sys.stderr)
+        sys.exit(1)
     main()

@@ -42,3 +42,17 @@ if ! "$PY" "$TRAVA"; then
     echo "o que esta fazendo." >&2
     exit 1
 fi
+
+# Segunda trava: contagem publicada vem com a consulta que a produziu.
+TRAVA2="$RAIZ/build/trava_consultas.py"
+
+if [ -f "$TRAVA2" ]; then
+    if ! "$PY" "$TRAVA2"; then
+        echo "" >&2
+        echo "COMMIT BLOQUEADO pela trava de consultas." >&2
+        echo "Contagem publicada tem que trazer a consulta que a produziu:" >&2
+        echo "numero que o leitor nao consegue repetir e autoridade, nao" >&2
+        echo "evidencia. Arrume as linhas acima, ou use --no-verify." >&2
+        exit 1
+    fi
+fi

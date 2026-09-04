@@ -60,7 +60,8 @@ build/fatos.py        faixa de referência rápida por composto (autoral)
 build/dicionario*.py  dicionário EN→PT-BR das células de tabela
 build/datas.py        as duas datas do site, num lugar só
 build/trava_datas.py  trava que impede data cravada ou tirada do relógio
-hooks/pre-commit      roda a trava antes de deixar commitar
+build/trava_consultas.py  trava que exige a consulta ao lado da contagem
+hooks/pre-commit      roda as duas travas antes de deixar commitar
 ```
 
 ## As duas datas, e por que existe uma trava para elas
@@ -76,6 +77,24 @@ A trava roda no início do `gerar.py`, que aborta sem escrever nada, e no hook d
 ```bash
 git config core.hooksPath hooks
 ```
+
+## A segunda trava: contagem publicada tem que reproduzir
+
+Em 04/09/2026, uma auditoria reexecutou as consultas que as próprias páginas declaravam. Uma não reproduziu: estava publicada como `… AND (Clinical Trial[Publication Type] ...)`, com reticências no lugar do termo inicial. Quem copiasse receberia **1.059.391** em vez de **35**, porque o PubMed ignora a elipse. O número da página estava certo; o que estava quebrado era a possibilidade de conferir.
+
+`build/trava_consultas.py` transforma isso em garantia, checando o conteúdo carregado e não o código. Três regras:
+
+1. **Consulta declarada não pode ser abreviada** — nada de elipse, "idem", "mesma consulta". Ou escreve inteira, ou não é consulta.
+2. **Tabela que publica contagem de PubMed ou ClinicalTrials.gov precisa declarar a consulta** — coluna `Consulta` na tabela, ou a busca literal em `<code>` no texto da seção.
+3. **Apelido de filtro precisa da expressão literal** — uma coluna chamada "ECR/meta" não reproduz busca nenhuma; a expressão completa tem que aparecer em `<code>` na página.
+
+A trava **não** acusa número que é conteúdo de terceiro. "A meta-análise reuniu 21 estudos" é fato reportado, não levantamento do site, e não tem consulta para declarar. Uma primeira versão acusava 12 ocorrências, das quais 9 eram desse tipo — e trava que acusa o legítimo ensina a ser ignorada. Por isso a regra só olha tabela.
+
+### A dívida que ela herdou
+
+Quatro tabelas anteriores à trava publicam contagem sem a consulta, e a consulta **não é reconstituível por quem lê**. Medido: rodando o nome simples do composto, reproduzi 3 de 15 linhas na página do leste europeu e 1 de 7 na de SARMs; tentando com os sinônimos que a própria célula mostra, 3 de 15 e 2 de 7. O caso do meldonium mostra o mecanismo — a página publica 357, o termo `Meldonium` sozinho devolve 309, e a consulta que reproduz, `meldonium OR mildronate`, está declarada em *outra* página.
+
+Essas quatro estão listadas em `DIVIDA`, no topo do arquivo da trava. Elas são **reportadas a cada execução, sem bloquear**; tabela nova sem consulta continua bloqueando. Sair da dívida exige refazer o levantamento e publicar consulta e número juntos — decisão de conteúdo, não de código. Inventar a consulta para fechar o buraco seria publicar como método algo que não foi o método.
 
 ## Regenerar
 
