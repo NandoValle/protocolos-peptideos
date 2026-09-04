@@ -152,6 +152,16 @@ SARM = {
             "publicação pelo patrocinador ou de 18 meses após o fim do estudo.",
         ]),
 
+        dict(h="Uma nota sobre os números destes dois ensaios", tipo="p", corpo=[
+            "Os tamanhos de grupo citados acima para o POWER 1 e o POWER 2 são os da "
+            "<strong>população avaliável</strong> — quem chegou ao fim com dado de eficácia. O registro "
+            "no ClinicalTrials.gov traz os números de <strong>randomização</strong>, que são maiores: "
+            "321 no POWER 1 e <strong>330 no POWER 2</strong>, este com 165 em cada braço.",
+            "Registro a diferença porque ela é fonte comum de confusão ao comparar uma publicação com "
+            "o registro do mesmo ensaio — e porque foi conferir uma coisa contra a outra que revelou a "
+            "distinção aqui.",
+        ]),
+
         dict(h="Os números de eficácia que existem, e o tamanho deles", tipo="p", corpo=[
             "Fora dos POWER, três ensaios publicados sustentam quase tudo o que se afirma sobre SARM. Vale ver o "
             "que cada um mediu, em quem, e por quanto tempo.",
@@ -219,7 +229,7 @@ SARM = {
                  "anos. Latência mediana de <strong>58 dias</strong>. <strong>17 de 23 internados.</strong> Tempo "
                  "mediano até a bioquímica normalizar: <strong>175 dias</strong>. <strong>Um transplante "
                  "hepático.</strong> Nenhuma morte"],
-                ["<strong>Padrão da lesão</strong><br><small>Mohideen 2022 · revisão dedicada</small>",
+                ["<strong>Padrão da lesão</strong><br><small>Mohideen 2023 · revisão dedicada</small>",
                  "Colestase <em>branda</em>: icterícia de instalação insidiosa, <strong>hiperbilirrubinemia "
                  "marcada</strong> e elevação apenas leve de enzimas, com pouca lesão de ducto, inflamação ou "
                  "necrose. <strong>Não há tratamento estabelecido</strong> — a melhora costuma vir da suspensão"],
@@ -321,7 +331,7 @@ SARM = {
          "https://doi.org/10.1177/19417381231197389"),
         ("Nash E et al., 2024 — lesão hepática por SARMs, esteroides anabolizantes e suplementos de musculação na Austrália: 23 casos, um transplante. Aliment Pharmacol Ther 59(8):953-961.",
          "https://doi.org/10.1111/apt.17906"),
-        ("Mohideen H et al., 2022 — SARMs como toxina hepática emergente: padrão colestático da lesão. J Clin Transl Hepatol 11(1):188-196.",
+        ("Mohideen H et al., 2023 — SARMs como toxina hepática emergente: padrão colestático da lesão. J Clin Transl Hepatol 11(1):188-196.",
          "https://doi.org/10.14218/JCTH.2022.00207"),
         ("Basaria S et al., 2013 — segurança, farmacocinética e efeitos do LGD-4033 em homens jovens saudáveis, 21 dias. J Gerontol A Biol Sci Med Sci 68(1):87-95.",
          "https://doi.org/10.1093/gerona/gls078"),

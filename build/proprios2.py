@@ -34,7 +34,7 @@ MELDONIUM = {
             linhas=[
                 ["Base", "Consulta", "Resultado"],
                 ["PubMed", "<code>meldonium OR mildronate</code>", "357 artigos"],
-                ["PubMed", "<code>… AND (Clinical Trial[Publication Type] OR Randomized Controlled Trial[Publication Type])</code>", "35 artigos"],
+                ["PubMed", "<code>(meldonium OR mildronate) AND (Clinical Trial[Publication Type] OR Randomized Controlled Trial[Publication Type])</code>", "35 artigos"],
                 ["ClinicalTrials.gov", "intervenção contendo meldonium ou mildronate", "<strong>7 registros</strong>"],
             ])),
         dict(h="Os ensaios registrados", tipo="p", corpo=[
