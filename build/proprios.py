@@ -225,3 +225,6 @@ PROPRIOS.update(_RIM)
 
 from proprios15 import DOSE_RENAL as _DOSER
 PROPRIOS.update(_DOSER)
+
+from proprios16 import HEPATICA as _HEP
+PROPRIOS.update(_HEP)

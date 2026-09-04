@@ -213,7 +213,8 @@ dict(h="O que esta página não é", tipo="li", corpo=[
     "<strong>Não é orientação para ajustar dose por conta própria</strong>, nem para deixar de "
     "ajustar. É a transcrição do que consta em rótulo e a contagem do que não consta em lugar nenhum.",
     "<strong>Não cobre insuficiência hepática</strong>, que é o outro caminho de eliminação e tem "
-    "seção própria (8.7) nas mesmas bulas.",
+    "seção própria (8.7) nas mesmas bulas — essa está em "
+    "<a href=\"proprio_dose_hepatica.html\">fígado: ajuste de dose, e o que de fato machuca</a>.",
     "<strong>Não cobre interação com medicamentos nefrotóxicos.</strong> Anti-inflamatórios não "
     "esteroides, contraste iodado, alguns antibióticos e a combinação deles com desidratação são "
     "causas frequentes de lesão renal aguda, e nada disso foi levantado aqui.",
