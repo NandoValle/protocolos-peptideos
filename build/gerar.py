@@ -364,6 +364,26 @@ def gera_index(itens, stats):
 
     partes.append(AVISO)
 
+    # Destaque dos nootropicos. Sem a classe .card e sem data-busca de
+    # proposito: o app.js filtra `.card[data-busca]` dentro de [data-secao], e
+    # este bloco tem que ficar de fora da busca, sempre visivel.
+    _dest = [s for s in ('proprio_nootropicos', 'proprio_efeito') if s in COMPOSTOS]
+    if _dest:
+        partes.append('<section class="destaque-noot" aria-labelledby="destaque-noot-t">')
+        partes.append('  <h2 id="destaque-noot-t">Nootrópicos</h2>')
+        partes.append('  <p>O site nasceu de peptídeos, mas a parte mais consultada hoje é esta — e são '
+                      '<strong>duas perguntas diferentes</strong>, em duas páginas. Quantos ensaios existem não é '
+                      'a mesma coisa que o que eles acharam.</p>')
+        partes.append('  <div class="destaque-noot-itens">')
+        for slug in _dest:
+            m = COMPOSTOS[slug]
+            partes.append(
+                f'    <a class="destaque-noot-item" href="p/{slug}.html">'
+                f'<b>{esc(m["nome"])}</b>'
+                f'<span>{esc(m["tagline"])}</span></a>')
+        partes.append('  </div>')
+        partes.append('</section>')
+
     partes.append("""<div class="busca-caixa">
   <div class="busca-campo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
