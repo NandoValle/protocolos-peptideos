@@ -1,0 +1,44 @@
+#!/bin/sh
+# Hook de pre-commit: roda a trava de datas antes de deixar commitar.
+#
+# Por que existe: build/gerar.py ja chama a trava, mas so protege quem roda o
+# gerador. Neste repositorio ha sessoes paralelas que commitam com `git add -A`
+# sem passar pelo gerador -- e para essas o hook e a unica barreira.
+#
+# Fica versionado em hooks/ e nao em .git/hooks/, que o git nao versiona.
+# Para ligar num clone novo, de dentro do repositorio:
+#
+#     git config core.hooksPath hooks
+#
+# Para pular deliberadamente numa emergencia: git commit --no-verify
+#
+# Checa a arvore de trabalho, nao o indice. Com `git add -A` da no mesmo; se
+# voce estiver commitando so parte do que editou, a diferenca existe.
+
+set -e
+
+RAIZ=$(git rev-parse --show-toplevel)
+TRAVA="$RAIZ/build/trava_datas.py"
+
+[ -f "$TRAVA" ] || exit 0   # trava ausente nao trava commit
+
+# no Windows o interpretador pode ser python, python3 ou py
+PY=""
+for c in python python3 py; do
+    if command -v "$c" >/dev/null 2>&1; then PY="$c"; break; fi
+done
+
+if [ -z "$PY" ]; then
+    echo "pre-commit: nao achei o Python; trava de datas NAO rodou." >&2
+    echo "            commit liberado, mas confira com build/trava_datas.py" >&2
+    exit 0
+fi
+
+if ! "$PY" "$TRAVA"; then
+    echo "" >&2
+    echo "COMMIT BLOQUEADO pela trava de datas." >&2
+    echo "A data do site e fato historico: nao se escreve a mao nem se tira" >&2
+    echo "do relogio. Arrume as linhas acima, ou use --no-verify se souber" >&2
+    echo "o que esta fazendo." >&2
+    exit 1
+fi
