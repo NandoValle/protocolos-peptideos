@@ -1,0 +1,7 @@
+# As paginas de protocolo trazem dose vinda de fonte secundaria
+# comercial e ficam fora de busca pelo meta robots de cada uma.
+# O sitemap lista so as paginas de evidencia verificada.
+User-agent: *
+Allow: /
+
+Sitemap: https://protocolos-peptideos.github.io/sitemap.xml

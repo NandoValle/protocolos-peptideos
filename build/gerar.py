@@ -144,7 +144,14 @@ def traduz_tabela(t):
 
 
 # ----------------------------------------------------------------- blocos
-def cabecalho(titulo, descricao, prefixo="", atual=""):
+def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False):
+    # O site inteiro nasceu noindex. Em 04/09/2026 as paginas de evidencia
+    # verificada passaram a ser indexaveis, a pedido: sao as corretivas -- as
+    # que dizem o que falhou, o que foi suspenso e quem pagou o estudo. As
+    # paginas de protocolo, que trazem dose vinda de fonte secundaria
+    # comercial, seguem fora de busca.
+    robots = "index, follow" if indexavel else "noindex, nofollow"
+
     def cls(n):
         return ' aria-current="page"' if atual == n else ''
     return f"""<!DOCTYPE html>
@@ -154,7 +161,7 @@ def cabecalho(titulo, descricao, prefixo="", atual=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(titulo)}</title>
 <meta name="description" content="{esc(descricao)}">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="{robots}">
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descricao)}">
@@ -469,7 +476,8 @@ def gera_composto(item):
     else:
         titulo = f"{m['nome']} — protocolo, dose e ciclo"
 
-    p = [cabecalho(titulo, m['tagline'], "../")]
+    p = [cabecalho(titulo, m['tagline'], "../",
+                   indexavel=(m['categoria'] == 'primaria'))]
     p.append('<div class="pagina">')
 
     proprio = PROPRIOS.get(slug)
@@ -651,9 +659,15 @@ def gera_seguranca():
 
 
 def gera_evidencia():
+    # Contado, nao cravado: a descricao ja esteve em "sete paginas" quando
+    # eram sete, e envelheceu mentindo enquanto o corpo da pagina seguia
+    # atualizado. Paginas de fonte primaria entram aqui a toda hora.
+    n_prim = sum(1 for m in COMPOSTOS.values() if m['categoria'] == 'primaria')
     p = [cabecalho("Verificado em fonte primária — Protocolos",
-                   "As sete páginas montadas direto do PubMed e do ClinicalTrials.gov, com a consulta declarada. 105 compostos.",
-                   "", "evidencia")]
+                   f"As {n_prim} páginas em que cada número foi levantado por mim na fonte primária "
+                   "— PubMed, ClinicalTrials.gov, dado aberto da ANVISA, bula e lista da WADA — "
+                   "com a consulta declarada em cada uma.",
+                   "", "evidencia", indexavel=True)]
     p.append('<main id="principal" class="env-largo" style="max-width:860px;padding-top:52px;padding-bottom:80px">')
     p.append('<h1 style="font-family:var(--display);font-size:clamp(32px,4.6vw,44px);font-weight:600;'
              'letter-spacing:-.026em;margin:0 0 14px">Verificado em fonte primária</h1>')
@@ -849,6 +863,36 @@ def main():
     grava(os.path.join('assets', 'app.js'), APP_JS)
     for i in itens:
         grava(os.path.join('p', i['slug'] + '.html'), gera_composto(i))
+
+    # robots.txt e sitemap. Sem eles o noindex removido das paginas de
+    # evidencia seria inerte: o robo chega na home, que e noindex+nofollow, e
+    # nao tem por onde alcancar as paginas indexaveis. O sitemap lista APENAS
+    # o que e indexavel -- as paginas de protocolo seguem fora de busca, e o
+    # sitemap nao as anuncia.
+    base = 'https://protocolos-peptideos.github.io'
+    urls = ['/evidencia.html'] + [
+        '/p/%s.html' % i['slug'] for i in itens
+        if i['meta']['categoria'] == 'primaria']
+    # sem <lastmod>: a data teria de vir do relogio, e data de relogio neste
+    # projeto e proibida. Ver build/datas.py.
+    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in urls:
+        sitemap.append('  <url><loc>%s%s</loc></url>' % (base, u))
+    sitemap.append('</urlset>')
+    NL = chr(10)
+    grava('sitemap.xml', NL.join(sitemap) + NL)
+
+    grava('robots.txt', NL.join([
+        '# As paginas de protocolo trazem dose vinda de fonte secundaria',
+        '# comercial e ficam fora de busca pelo meta robots de cada uma.',
+        '# O sitemap lista so as paginas de evidencia verificada.',
+        'User-agent: *',
+        'Allow: /',
+        '',
+        'Sitemap: ' + base + '/sitemap.xml',
+        '']))
+    stats['indexaveis'] = len(urls)
 
     print('compostos      :', stats['n'])
     print('tabelas core   :', n_tab_total)
