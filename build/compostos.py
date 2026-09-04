@@ -331,3 +331,6 @@ COMPOSTOS = {
 from compostos2 import EXTRA_CATEGORIAS as _XC, EXTRA_COMPOSTOS as _XCOMP
 CATEGORIAS.update(_XC)
 COMPOSTOS.update(_XCOMP)
+
+from compostos3 import EXTRA2 as _X2
+COMPOSTOS.update(_X2)

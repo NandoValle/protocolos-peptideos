@@ -190,3 +190,6 @@ from proprios3 import SUPLEMENTOS as _SUP3
 from proprios4 import SUPS as _SUP4
 PROPRIOS.update(_SUP3)
 PROPRIOS.update(_SUP4)
+
+from proprios5 import LESTE as _LESTE
+PROPRIOS.update(_LESTE)
