@@ -168,7 +168,7 @@ def cabecalho(titulo, descricao, prefixo="", atual=""):
   <div class="cabecalho-in">
     <a class="marca" href="{prefixo}index.html">
       <span class="marca-icone" aria-hidden="true">P</span>
-      <span>Protocolos de Peptídeos</span>
+      <span>Protocolos</span>
     </a>
     <nav class="nav" aria-label="Principal">
       <a href="{prefixo}index.html"{cls('inicio')}>Compostos</a>
@@ -198,8 +198,8 @@ def rodape(prefixo=""):
 <footer class="rodape">
   <div class="rodape-in">
     <div>
-      <h4>Protocolos de Peptídeos</h4>
-      <p>Referência em português sobre protocolos de peptídeos e compostos correlatos. Material educacional e experimental — não substitui avaliação médica.</p>
+      <h4>Protocolos</h4>
+      <p>Referência em português sobre peptídeos, nootrópicos, SARMs e correlatos: dose, ciclo, status regulatório e o limite da evidência de cada um. Material educacional e experimental — não substitui avaliação médica.</p>
       <p style="margin-top:14px">Compilado em {HOJE}.</p>
     </div>
     <div>
@@ -345,14 +345,14 @@ def selo_aprovacao(v):
 # ------------------------------------------------------------- página índice
 def gera_index(itens, stats):
     partes = [cabecalho(
-        "Protocolos de Peptídeos — referência em português",
-        "Referência traduzida de protocolos de peptídeos: dose, reconstituição, ciclo e limites de evidência. Material experimental, não é recomendação médica.",
+        "Protocolos — peptídeos, nootrópicos e correlatos",
+        "Referência em português sobre peptídeos, nootrópicos, SARMs e correlatos: dose, ciclo, status regulatório e o limite da evidência de cada um. Material experimental, não é recomendação médica.",
         "", "inicio")]
 
     partes.append('<main id="principal" class="env-largo">')
     partes.append(f"""<section class="hero">
   <span class="hero-sobre">Referência experimental</span>
-  <h1>Protocolos de peptídeos, <em>em português</em> e com o limite da evidência à mostra.</h1>
+  <h1>Peptídeos, nootrópicos e correlatos — <em>em português</em>, com o limite da evidência à mostra.</h1>
   <p class="hero-sub">{stats['n']} compostos e combinações — de peptídeos a <a href="p/proprio_nootropicos.html">nootrópicos</a>, SARMs e o que existe registrado no Brasil —, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade, porque a diferença entre as duas coisas é o assunto todo. Em {stats['primarias']} delas os números não vieram de fonte secundária: foram conferidos no PubMed, no dado aberto da ANVISA e na bula.</p>
   <div class="hero-numeros">
     <div class="numero"><b>{stats['n']}</b><span>compostos</span></div>
@@ -602,7 +602,7 @@ def gera_composto(item):
 
 # ------------------------------------------------------------ páginas fixas
 def gera_seguranca():
-    p = [cabecalho("Segurança e limites — Protocolos de Peptídeos",
+    p = [cabecalho("Segurança e limites — Protocolos",
                    "O que esta referência é, o que não é, e os riscos que não aparecem nas tabelas de dose.",
                    "", "seguranca")]
     p.append('<main id="principal" class="env-largo" style="max-width:800px;padding-top:52px;padding-bottom:80px">')
@@ -649,7 +649,7 @@ def gera_seguranca():
 
 
 def gera_evidencia():
-    p = [cabecalho("Verificado em fonte primária — Protocolos de Peptídeos",
+    p = [cabecalho("Verificado em fonte primária — Protocolos",
                    "As sete páginas montadas direto do PubMed e do ClinicalTrials.gov, com a consulta declarada. 105 compostos.",
                    "", "evidencia")]
     p.append('<main id="principal" class="env-largo" style="max-width:860px;padding-top:52px;padding-bottom:80px">')
@@ -666,7 +666,7 @@ def gera_evidencia():
 
 
 def gera_sobre(stats):
-    p = [cabecalho("Sobre, fonte e método — Protocolos de Peptídeos",
+    p = [cabecalho("Sobre, fonte e método — Protocolos",
                    "De onde vieram os dados, como foram traduzidos e o que ficou de fora.",
                    "", "sobre")]
     p.append('<main id="principal" class="env-largo" style="max-width:800px;padding-top:52px;padding-bottom:80px">')

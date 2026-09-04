@@ -1,8 +1,12 @@
-# Protocolos de Peptídeos
+# Protocolos — peptídeos, nootrópicos e correlatos
 
-Referência em português sobre protocolos de peptídeos e compostos correlatos: dose, titulação, reconstituição, estrutura de ciclo e status regulatório, com o limite da evidência marcado em cada página.
+Referência em português sobre peptídeos, nootrópicos, SARMs e compostos correlatos: dose, titulação, reconstituição, estrutura de ciclo e status regulatório, com o limite da evidência marcado em cada página.
 
-**55 compostos e combinações · 304 tabelas de dose · 58 páginas estáticas.**
+O repositório e a URL guardam o nome antigo, `protocolos-peptideos` — renomear quebraria todo link já publicado. O site cobre mais que peptídeos desde setembro de 2026.
+
+**70 compostos e combinações · 362 tabelas de dose · 73 páginas estáticas.**
+
+Contagens da última execução do gerador, em 4 de setembro de 2026. Ele as imprime a cada rodada — se divergirem daqui, o gerador é que está certo.
 
 ### ▶ [protocolos-peptideos.github.io](https://protocolos-peptideos.github.io/)
 
@@ -34,7 +38,8 @@ Todo conteúdo comercial da fonte foi removido: links de fornecedor, cupons, se�
 
 ### O que ficou de fora
 
-- **Fontes primárias.** Nenhum artigo do PubMed, registro de ensaio clínico ou bula foi aberto para conferir os números. A checagem foi contra a fonte secundária, e só. É a limitação principal deste material.
+- **Fontes primárias, nas páginas importadas.** Nas páginas de protocolo vindas da fonte secundária, nenhum artigo do PubMed, registro de ensaio ou bula foi aberto: a checagem foi contra a fonte, e só. Continua sendo a limitação principal delas.
+- **A exceção são as páginas de evidência verificada**, hoje 13, onde cada número foi levantado no PubMed, no ClinicalTrials.gov, no dado aberto da ANVISA, na bula ou na lista da WADA, com a consulta declarada na própria página.
 - **Calculadoras interativas**, para não dar aparência de precisão a uma conta que depende de conferir o frasco na mão.
 - **Fornecedores e preços**, deliberadamente.
 
@@ -43,7 +48,7 @@ Todo conteúdo comercial da fonte foi removido: links de fornecedor, cupons, se�
 ## Estrutura
 
 ```
-index.html            grade dos 55 compostos, com busca e filtro por categoria
+index.html            grade dos compostos, com busca e filtro por categoria
 seguranca.html        riscos que não aparecem na tabela de dose
 sobre.html            fonte, método e limites
 p/<slug>.html         uma página por composto
