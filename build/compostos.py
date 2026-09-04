@@ -320,4 +320,10 @@ COMPOSTOS = {
     resumo="Vilon, Vesugen, Livagen, Cortagen, Pancragen, Prostamax, Testagen, Chonluten, Bronchogen, Crystagen e Ovagen: peptídeos de dois a quatro aminoácidos da escola russa de bioregulação. Estão numa página só, e não em onze, porque o levantamento no PubMed e no ClinicalTrials.gov não sustenta onze. Oito dos onze não têm nenhum estudo clínico, e nenhum tem ensaio registrado.",
     alerta="Nenhum dos onze tem ensaio registrado no ClinicalTrials.gov. Oito não têm sequer um artigo de ensaio clínico no PubMed. Sete não têm nem a sequência química indexada.",
 ),
+"proprio_meldonium": dict(
+    nome="Meldonium (mildronato)", categoria="primaria", aprovado="parcial",
+    tagline="357 artigos, 7 ensaios registrados — e uma janela de detecção de meses",
+    resumo="Cardioprotetor desenvolvido no Instituto Letão de Síntese Orgânica, em Riga, e registrado na Letônia e na Rússia. É o composto mais bem documentado de todo o bloco do leste europeu desta referência: 357 artigos, 35 ensaios clínicos e 7 registros no ClinicalTrials.gov. Inibe a biossíntese de L-carnitina — e não o contrário — deslocando o metabolismo cardíaco da gordura para a glicose. Está na lista de proibidos da WADA desde 1º de janeiro de 2016.",
+    alerta="A janela de detecção urinária medida chega a 117 dias após seis dias de uso, e a vários meses após três semanas. Quem faz exame antidoping deve tratá-lo como indisponível, não como algo a suspender com antecedência.",
+),
 }

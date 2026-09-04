@@ -182,3 +182,6 @@ PROPRIOS = {
     ],
 ),
 }
+
+from proprios2 import MELDONIUM as _MELD
+PROPRIOS.update(_MELD)
