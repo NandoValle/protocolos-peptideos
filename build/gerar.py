@@ -146,6 +146,8 @@ def traduz_tabela(t):
 # ----------------------------------------------------------------- blocos
 BASE = 'https://protocolos-peptideos.github.io'
 
+_CACHE_DATA = {}   # caminho -> data de commit, para nao chamar git 79 vezes
+
 
 def data_do_commit(rel):
     """Data do ultimo commit que tocou o arquivo, no formato AAAA-MM-DD.
@@ -158,15 +160,54 @@ def data_do_commit(rel):
     Arquivo ainda nao commitado nao tem data: devolve None, e o sitemap sai
     sem lastmod naquela URL. Melhor URL sem data do que data inventada.
     """
+    if rel in _CACHE_DATA:
+        return _CACHE_DATA[rel]
     try:
         r = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', rel],
                            cwd=RAIZ, capture_output=True, text=True, timeout=20)
     except Exception:
+        _CACHE_DATA[rel] = None
         return None
     if r.returncode != 0:
+        _CACHE_DATA[rel] = None
         return None
     d = r.stdout.strip()
-    return d if re.fullmatch(r'\d{4}-\d{2}-\d{2}', d) else None
+    d = d if re.fullmatch(r'\d{4}-\d{2}-\d{2}', d) else None
+    _CACHE_DATA[rel] = d
+    return d
+
+
+def json_ld(titulo, descricao, caminho):
+    """Bloco JSON-LD da pagina. So repete o que ja esta visivel nela.
+
+    NAO traz autoria: o site fica sem autor declarado por decisao de
+    04/09/2026. Sem `author`, sem `publisher`, sem `Person`. O unico nome
+    aqui e o do proprio site, que ja esta no <title> e no cabecalho.
+
+    `dateModified` sai da mesma data de commit que alimenta o <lastmod> do
+    sitemap -- fato historico lido do git, nunca do relogio. Sem data no git,
+    o campo simplesmente nao entra: schema incompleto e melhor que data
+    inventada.
+    """
+    dados = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": titulo,
+        "description": descricao,
+        "url": BASE + caminho,
+        "inLanguage": "pt-BR",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Protocolos",
+            "url": BASE,
+        },
+    }
+    d = data_do_commit(caminho.lstrip('/'))
+    if d:
+        dados["dateModified"] = d
+    # `</` dentro de <script> fecharia a tag antes da hora
+    txt = json.dumps(dados, ensure_ascii=False, indent=2).replace('</', '<\\/')
+    return '\n<script type="application/ld+json">\n%s\n</script>' % txt
 
 
 def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
@@ -185,6 +226,7 @@ def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
     # vira duas paginas para o robo.
     canon = (f'\n<link rel="canonical" href="{BASE}{caminho}">'
              if caminho else '')
+    ld = json_ld(titulo, descricao, caminho) if caminho else ''
 
     def cls(n):
         return ' aria-current="page"' if atual == n else ''
@@ -199,7 +241,7 @@ def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descricao)}">
-<meta property="og:type" content="website">{canon}
+<meta property="og:type" content="website">{canon}{ld}
 <link rel="stylesheet" href="{prefixo}assets/estilo.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23D08A4A'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' font-weight='700' fill='%2316100A'>P</text></svg>">
 </head>
