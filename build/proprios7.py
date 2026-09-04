@@ -76,7 +76,7 @@ NOOT = {
                 ["Huperzina A", "200–400 mcg 2×/dia", "Alzheimer, memória", "<strong>23</strong>",
                  "<strong>O ensaio multicêntrico de 210 pessoas falhou no desfecho primário com 200 mcg 2×/dia.</strong> É inibidor de acetilcolinesterase de verdade — não combinar com donepezila e afins"],
                 ["Oxiracetam", "800 mg 2×/dia; até 2.400 mg/dia", "Demência vascular, memória", "<strong>22</strong>",
-                 "O racetam com mais ensaios depois do piracetam. Sem registro na ANVISA, como todos desta família"],
+                 "O racetam com mais ensaios depois do piracetam. Sem registro na ANVISA — mas, ao contrário do que esta página dizia antes, <strong>o piracetam tem</strong>: NOOTROPIL, registro ativo com vencimento em agosto de 2036. É o único da família que existe legalmente no Brasil"],
                 ["Eleuthero (<em>Eleutherococcus senticosus</em>)", "300–1.200 mg/dia do extrato", "Fadiga, desempenho, adaptógeno", "<strong>19</strong>",
                  "Não é ginseng, apesar do apelido \"ginseng siberiano\". Boa parte dos ensaios usa fórmula combinada, não o extrato isolado"],
                 ["DMAE / deanol", "1.000 mg/dia (deanol); 100–200 mg (meclofenoxato)", "Humor, atenção", "<strong>16</strong>",
