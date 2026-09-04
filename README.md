@@ -2,7 +2,7 @@
 
 Referência em português sobre protocolos de peptídeos e compostos correlatos: dose, titulação, reconstituição, estrutura de ciclo e status regulatório, com o limite da evidência marcado em cada página.
 
-**55 compostos e combinações · 266 tabelas de dose · 58 páginas estáticas.**
+**55 compostos e combinações · 304 tabelas de dose · 58 páginas estáticas.**
 
 ### ▶ [protocolos-peptideos.github.io](https://protocolos-peptideos.github.io/)
 
