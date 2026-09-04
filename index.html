@@ -34,12 +34,12 @@
 <section class="hero">
   <span class="hero-sobre">Referência experimental</span>
   <h1>Protocolos de peptídeos, <em>em português</em> e com o limite da evidência à mostra.</h1>
-  <p class="hero-sub">58 compostos e combinações, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade — porque a diferença entre as duas coisas é o assunto todo.</p>
+  <p class="hero-sub">61 compostos e combinações, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade — porque a diferença entre as duas coisas é o assunto todo.</p>
   <div class="hero-numeros">
-    <div class="numero"><b>58</b><span>compostos</span></div>
-    <div class="numero"><b>312</b><span>tabelas de dose</span></div>
-    <div class="numero"><b>43</b><span>sem aprovação</span></div>
-    <div class="numero"><b>9</b><span>categorias</span></div>
+    <div class="numero"><b>61</b><span>compostos</span></div>
+    <div class="numero"><b>322</b><span>tabelas de dose</span></div>
+    <div class="numero"><b>44</b><span>sem aprovação</span></div>
+    <div class="numero"><b>10</b><span>categorias</span></div>
   </div>
 </section>
 <div class="aviso" role="note">
@@ -68,6 +68,7 @@
     <button class="filtro" data-cat="imune" aria-pressed="false">Imune</button>
     <button class="filtro" data-cat="combinacao" aria-pressed="false">Combinações</button>
     <button class="filtro" data-cat="primaria" aria-pressed="false">Verificado em fonte primária</button>
+    <button class="filtro" data-cat="suplemento" aria-pressed="false">Suplementos e correlatos</button>
   </div>
 </div>
 <p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>
@@ -394,6 +395,11 @@
       <p>Onze peptídeos, cinco estudos clínicos, zero ensaios registrados</p>
       <div class="card-rodape"><span class="selo selo-cat">Verificado em fonte primária</span><span>2 tabela(s)</span></div>
     </a>
+    <a class="card" href="p/proprio_tarja.html" data-cat="primaria" data-busca="itens de tarja da lista 13 medicamentos que apareciam misturados com suplemento verificado em fonte primária proprio_tarja">
+      <div class="card-topo"><h3>Itens de tarja da lista</h3><span class="selo selo-parcial">Aprovação parcial</span></div>
+      <p>13 medicamentos que apareciam misturados com suplemento</p>
+      <div class="card-rodape"><span class="selo selo-cat">Verificado em fonte primária</span><span>2 tabela(s)</span></div>
+    </a>
     <a class="card" href="p/proprio_meldonium.html" data-cat="primaria" data-busca="meldonium (mildronato) 357 artigos, 7 ensaios registrados — e uma janela de detecção de meses verificado em fonte primária proprio_meldonium">
       <div class="card-topo"><h3>Meldonium (mildronato)</h3><span class="selo selo-parcial">Aprovação parcial</span></div>
       <p>357 artigos, 7 ensaios registrados — e uma janela de detecção de meses</p>
@@ -403,6 +409,21 @@
       <div class="card-topo"><h3>Thymalin</h3><span class="selo selo-parcial">Aprovação parcial</span></div>
       <p>Extrato tímico russo — 293 artigos, 13 ensaios, zero registros</p>
       <div class="card-rodape"><span class="selo selo-cat">Verificado em fonte primária</span><span>2 tabela(s)</span></div>
+    </a>
+  </div>
+</section>
+<section class="secao" data-secao="suplemento">
+  <div class="secao-cabeca"><h2>Suplementos e correlatos</h2><p class="secao-desc">Itens de venda livre, com a faixa de dose usada em estudos. Separados dos que exigem receita.</p></div>
+  <div class="grade">
+    <a class="card" href="p/proprio_fitoterapicos.html" data-cat="suplemento" data-busca="fitoterápicos e nootrópicos 17 itens onde o marketing costuma correr à frente do dado suplementos e correlatos proprio_fitoterapicos">
+      <div class="card-topo"><h3>Fitoterápicos e nootrópicos</h3><span class="selo selo-nao">Não aprovado</span></div>
+      <p>17 itens onde o marketing costuma correr à frente do dado</p>
+      <div class="card-rodape"><span class="selo selo-cat">Suplementos e correlatos</span><span>3 tabela(s)</span></div>
+    </a>
+    <a class="card" href="p/proprio_suplementos.html" data-cat="suplemento" data-busca="suplementos de venda livre 45 itens com dose, do que tem evidência boa ao que só tem marketing suplementos e correlatos proprio_suplementos">
+      <div class="card-topo"><h3>Suplementos de venda livre</h3><span class="selo selo-parcial">Aprovação parcial</span></div>
+      <p>45 itens com dose, do que tem evidência boa ao que só tem marketing</p>
+      <div class="card-rodape"><span class="selo selo-cat">Suplementos e correlatos</span><span>5 tabela(s)</span></div>
     </a>
   </div>
 </section>

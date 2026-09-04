@@ -327,3 +327,7 @@ COMPOSTOS = {
     alerta="A janela de detecção urinária medida chega a 117 dias após seis dias de uso, e a vários meses após três semanas. Quem faz exame antidoping deve tratá-lo como indisponível, não como algo a suspender com antecedência.",
 ),
 }
+
+from compostos2 import EXTRA_CATEGORIAS as _XC, EXTRA_COMPOSTOS as _XCOMP
+CATEGORIAS.update(_XC)
+COMPOSTOS.update(_XCOMP)
