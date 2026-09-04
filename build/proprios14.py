@@ -83,51 +83,87 @@ dict(h="O que \"aprovação acelerada\" quer dizer, na prática", tipo="p", corp
     "Na nefropatia por IgA o substituto é a proteinúria. O desfecho real é a <strong>taxa de filtração "
     "glomerular estimada (TFGe)</strong> — quanto o rim ainda filtra, e com que velocidade isso cai. "
     "Ninguém morre de proteinúria; morre-se de rim que parou.",
-    "Não estou inventando essa ressalva: ela está escrita pela própria FDA, no anúncio de cada "
-    "aprovação. Sobre o Voyxact, a agência registra que <em>não foi estabelecido se o medicamento "
-    "retarda o declínio da função renal a longo prazo</em>, e que a manutenção do registro depende do "
-    "ensaio confirmatório. Sobre o Trutakna, a mesma frase, com as mesmas palavras.",
-]),
-
-# ---------------------------------------------------- 3. quem ja provou de fato
-dict(h="Quem já saiu do substituto — e quem ainda não saiu", tipo="p", corpo=[
-    "Esta é a tabela que separa manchete de resultado. Três dos seis já converteram a aprovação "
-    "acelerada em aprovação plena, apresentando efeito sobre a função renal. Três ainda não.",
+    "Não é interpretação minha: <strong>está escrito na bula de cada um</strong>. Fui buscar o texto "
+    f"vigente de todos os seis no endpoint de rótulos da FDA, em {_DT}, e a divisão aparece sozinha.",
 ], tabela=dict(
-    cap="Situação de cada um quanto ao desfecho real",
+    cap="O que a indicação de cada bula diz hoje",
     linhas=[
-        ["Medicamento", "Situação hoje", "O que mostrou sobre função renal", "Ensaio confirmatório"],
-        ["Fabhalta (iptacopana)",
-         "<strong>Aprovação tradicional em 17 de julho de 2026</strong>",
-         "APPLAUSE-IgAN, 2 anos: queda anualizada de TFGe de <strong>−3,0</strong> mL/min/1,73 m²/ano "
-         "contra <strong>−5,7</strong> no placebo — 48% menos declínio",
-         "NCT04578834, concluído em 19/09/2025"],
-        ["Filspari (sparsentana)",
-         "<strong>Aprovação plena para IgAN em setembro de 2024</strong>",
-         "PROTECT, 2 anos: preservação de função renal superior à da irbesartana — único fase 3 "
-         "cabeça a cabeça feito na doença",
-         "NCT03762850, conclusão primária em 07/08/2023"],
-        ["Tarpeyo (budesonida DR)",
-         "<strong>Aprovação plena em 20 de dezembro de 2023</strong>",
-         "NefIgArd: benefício de cerca de <strong>5 mL/min/1,73 m²</strong> na média ponderada no "
-         "tempo da TFGe em 2 anos, contra placebo",
-         "NefIgArd, concluído"],
-        ["Trutakna (atacicepte)",
-         "Acelerada — proteinúria apenas",
-         "Redução média de 46% na proteinúria contra placebo em 9 meses. Efeito sobre função renal "
-         "<strong>não estabelecido</strong>",
-         "ORIGIN 3 — NCT04716231, conclusão primária em 15/05/2025"],
-        ["Voyxact (sibeprenlimabe)",
-         "Acelerada — proteinúria apenas",
-         "Redução de 50% na proteinúria contra aumento de 2% no placebo, em 9 meses. Função renal "
-         "<strong>não estabelecida</strong>",
-         "VISIONARY — NCT05248646, conclusão primária em 13/05/2026"],
+        ["Produto", "Indicação vigente", "A bula declara aprovação acelerada?"],
         ["Vanrafia (atrasentana)",
-         "Acelerada — proteinúria apenas",
-         "Redução percentual de proteína na urina em 36 semanas, em 270 pacientes analisados. Função "
-         "renal <strong>não estabelecida</strong>",
-         "ALIGN — NCT04573478, conclusão primária prevista para <strong>14/04/2028</strong>"],
+         "<em>reduzir proteinúria</em> em adultos com IgAN primária em risco de progressão rápida, "
+         "geralmente com relação proteína/creatinina urinária ≥ 1,5 g/g",
+         "<strong>Sim.</strong> \"Esta indicação é aprovada sob aprovação acelerada com base em redução "
+         "de proteinúria. <em>Não foi estabelecido se o VANRAFIA retarda o declínio da função renal</em>\""],
+        ["Voyxact (sibeprenlimabe)",
+         "<em>reduzir proteinúria</em> em adultos com IgAN primária em risco de progressão",
+         "<strong>Sim.</strong> Mesma fórmula: \"não foi estabelecido se retarda o declínio da função "
+         "renal a longo prazo\""],
+        ["Trutakna (atacicepte)",
+         "<em>reduzir proteinúria</em> em adultos com IgAN primária em risco de progressão",
+         "<strong>Sim.</strong> Mesma fórmula, com a mesma ressalva"],
+        ["Tarpeyo (budesonida DR)",
+         "<strong><em>reduzir a perda de função renal</em></strong> em adultos com IgAN primária em "
+         "risco de progressão",
+         "<strong>Não.</strong> A frase de aprovação acelerada não aparece mais"],
+        ["Filspari (sparsentana)",
+         "<strong><em>retardar o declínio da função renal</em></strong> em adultos com IgAN primária; "
+         "e reduzir proteinúria na GESF sem síndrome nefrótica, de 8 anos em diante",
+         "<strong>Não</strong>, em nenhuma das duas indicações"],
+        ["Fabhalta (iptacopana)",
+         "<strong><em>retardar o declínio da função renal</em></strong> em adultos com IgAN primária em "
+         "risco de progressão (além de HPN e glomerulopatia por C3)",
+         "<strong>Não.</strong>"],
     ])),
+
+dict(h="Quem já saiu do substituto — com os números publicados", tipo="p", corpo=[
+    "Três dos seis converteram a aprovação acelerada em plena, e os ensaios que sustentam isso estão "
+    "publicados. Abaixo estão os números como saíram no artigo revisado por pares, não como saíram no "
+    "comunicado da fabricante — a diferença entre as duas coisas apareceu na conferência e está "
+    "registrada no fim desta página.",
+], tabela=dict(
+    cap="O que cada ensaio confirmatório mostrou sobre função renal",
+    linhas=[
+        ["Medicamento", "Ensaio", "Efeito sobre a TFGe", "Desfecho duro de falência renal"],
+        ["Fabhalta (iptacopana)",
+         "APPLAUSE-IgAN, NCT04578834 — <em>New England Journal of Medicine</em>, 2026. 477 pacientes "
+         "na análise final",
+         "Queda anualizada de <strong>−3,10</strong> contra <strong>−6,12</strong> mL/min/1,73 m²/ano "
+         "no placebo em 24 meses (diferença 3,02; IC 95% 2,02 a 4,01; P&lt;0,001)",
+         "<strong>21,4% contra 33,5%</strong> no placebo (razão de risco 0,57; IC 95% 0,40 a 0,81; "
+         "P=0,003). É o único dos três com redução significativa em desfecho duro. "
+         "<strong>Infecções graves em 6,7% contra 2,1%</strong>; nenhuma morte"],
+        ["Tarpeyo (budesonida DR)",
+         "NefIgArd, NCT03643965 — <em>The Lancet</em>, 2023. 364 pacientes, 9 meses de tratamento e 15 "
+         "de observação",
+         "Média ponderada no tempo da TFGe em 2 anos: benefício de <strong>5,05</strong> mL/min/1,73 m² "
+         "(IC 95% 3,24 a 7,38; p&lt;0,0001) — <strong>−2,47</strong> com Nefecon contra "
+         "<strong>−7,52</strong> com placebo",
+         "Não foi desfecho do estudo. Efeitos adversos mais frequentes: edema periférico (17% contra "
+         "4%), hipertensão (12% contra 3%), cãibras e acne"],
+        ["Filspari (sparsentana)",
+         "PROTECT, NCT03762850 — <em>The Lancet</em>, 2023. 406 pacientes, comparação direta com "
+         "irbesartana em 110 semanas",
+         "Inclinação crônica da TFGe (semanas 6 a 110): <strong>−2,7</strong> contra "
+         "<strong>−3,8</strong> mL/min/1,73 m²/ano (diferença 1,1; IC 95% 0,1 a 2,1; "
+         "<strong>p=0,037</strong>). Já a inclinação total, do primeiro dia à semana 110, deu diferença "
+         "de 1,0 com IC de −0,03 a 1,94 e <strong>p=0,058 — não significativo</strong>",
+         "Composto de falência renal em <strong>9% contra 13%</strong> (risco relativo 0,7; IC 95% 0,4 "
+         "a 1,2). O intervalo cruza o 1: <strong>não significativo</strong>"],
+    ])),
+
+dict(h="A leitura honesta dessa tabela", tipo="li", corpo=[
+    "<strong>Só um dos três reduziu falência renal de forma significativa.</strong> O iptacopana "
+    "levou o desfecho composto de 33,5% para 21,4%. Isso é o que uma conversão de desfecho substituto "
+    "em desfecho real deveria sempre parecer — e não é o que os outros dois mostraram.",
+    "<strong>No PROTECT, o resultado depende de qual inclinação se olha.</strong> A crônica deu "
+    "significativa por pouco (p=0,037); a total não deu (p=0,058). São dois recortes do mesmo dado, e "
+    "a bula vigente ficou com a leitura favorável. Registro os dois.",
+    "<strong>Preservar TFGe não é o mesmo que evitar falência renal.</strong> O NefIgArd nem mediu "
+    "isso, e no PROTECT a diferença não foi significativa. Uma inclinação melhor é um bom sinal, não "
+    "uma promessa cumprida.",
+    "<strong>E o preço aparece.</strong> No braço do iptacopana houve o triplo de infecções graves "
+    "(6,7% contra 2,1%). Nenhum desses medicamentos é de graça.",
+]),
 
 dict(h="Três coisas que essa tabela ensina, e que valem para o site inteiro", tipo="li", corpo=[
     "<strong>O substituto pode se confirmar — e se confirmou três vezes.</strong> Quem trata "
@@ -234,12 +270,18 @@ dict(h="Fora da glomerulopatia: o que mudou na doença renal crônica comum", ti
 ]),
 
 dict(h="E o que falhou — que importa tanto quanto o que deu certo", tipo="p", corpo=[
-    "O ensaio <strong>ZEUS</strong>, fase 3 com <strong>ziltivekimabe</strong> — anticorpo anti-IL-6 "
-    "— em mais de 6.300 pessoas com aterosclerose, doença renal crônica e inflamação, "
-    "<strong>não reduziu eventos cardiovasculares maiores</strong>: razão de risco de "
-    "<strong>0,99</strong> (IC 95% 0,88–1,11). O medicamento fez exatamente o que se esperava na "
-    "biologia — baixou a IL-6 livre e a PCR ultrassensível — e isso não se traduziu em desfecho. "
-    "Mortalidade total inalterada, e infecções graves mais frequentes no grupo tratado.",
+    "O ensaio <strong>ZEUS</strong> testou o <strong>ziltivekimabe</strong> — anticorpo anti-IL-6 — "
+    "em <strong>6.376 participantes</strong> com aterosclerose, doença renal crônica e PCR "
+    "ultrassensível igual ou acima de 2 mg/L. O desenho e as características de base estão "
+    "publicados no <em>JAMA Cardiology</em>; o desfecho primário era MACE de três pontos.",
+    "O resultado divulgado é que <strong>não houve redução de eventos cardiovasculares "
+    "maiores</strong>: razão de risco de <strong>0,99</strong> (IC 95% 0,88 a 1,11), com "
+    "mortalidade total inalterada e mais infecções graves no grupo tratado — apesar de o "
+    "medicamento ter baixado a IL-6 livre e a PCR como se esperava.",
+    "⚠️ <strong>Ressalva de fonte:</strong> ao conferir, não localizei o artigo principal do ZEUS "
+    "indexado no PubMed. Esses números vêm de apresentação em congresso e de comunicado da "
+    "fabricante, reproduzidos por imprensa especializada — não de publicação revisada por pares. "
+    "O que está publicado é o desenho do ensaio.",
     "É o mesmo erro desta página, invertido: um marcador se moveu na direção certa e o paciente não "
     "foi junto. Vale registrar aqui porque a hipótese anti-inflamatória é exatamente o tipo de "
     "raciocínio mecanicista que sustenta metade das alegações de peptídeo — <em>reduz inflamação, "
@@ -254,9 +296,13 @@ dict(h="Falência renal: o que é notícia e o que é tratamento", tipo="p", cor
     "pessoa viva, e a primeira transição bem-sucedida de xenotransplante para transplante humano — "
     "a ideia de usar o órgão animal como <em>ponte</em> até o órgão humano aparecer. Publicado no "
     "<em>The Lancet</em> em setembro de 2026.",
-    "O mesmo artigo relata o que a manchete não carrega: houve rejeição mediada por células T no "
+    "O relato diz também o que a manchete não carrega: houve rejeição mediada por células T no "
     "período inicial, que respondeu ao tratamento, e lesão microvascular progressiva com inflamação "
     "depois que a imunossupressão foi reduzida durante uma infecção.",
+    "⚠️ <strong>Ressalva de fonte:</strong> este é o único bloco desta página que não consegui "
+    "conferir no original. O artigo do <em>Lancet</em> não abriu para mim, e o caso não está "
+    "indexado no PubMed sob os termos que busquei. O que está acima veio da divulgação do Mass "
+    "General Brigham sobre o próprio artigo, com o DOI declarado.",
     "O programa clínico regulado é o <strong>EXPAND</strong> (NCT06878560), da United Therapeutics, "
     "com um rim suíno de dez edições gênicas, em pacientes com doença renal terminal sem perspectiva "
     "de rim humano em cinco anos. O primeiro xenotransplante do protocolo foi feito no NYU Langone "
@@ -265,6 +311,24 @@ dict(h="Falência renal: o que é notícia e o que é tratamento", tipo="p", cor
 ]),
 
 # ------------------------------------------------------------------ 8. limites
+dict(h="O que foi conferido nesta página, e o que mudou na conferência", tipo="p", corpo=[
+    "Esta página foi publicada e depois auditada contra as fontes primárias. Registro o que mudou, "
+    "porque um site que cobra rastreabilidade dos outros não pode corrigir em silêncio.",
+    "<strong>O que estava errado:</strong> os números do APPLAUSE-IgAN vinham do comunicado da "
+    "fabricante e diziam queda de −3,0 contra −5,7 mL/min/1,73 m²/ano. O artigo do "
+    "<em>New England Journal of Medicine</em> traz −3,10 contra <strong>−6,12</strong>. E o "
+    "comunicado não carregava o achado maior, que é a redução do desfecho duro de falência renal.",
+    "<strong>O que estava vago demais:</strong> sobre o PROTECT eu havia escrito \"preservação de "
+    "função renal superior à da irbesartana\", sem números. Com os números, aparece que uma das duas "
+    "inclinações não atingiu significância e que o desfecho de falência renal também não.",
+    "<strong>O que ficou mais forte:</strong> a divisão entre os seis não depende mais de datas de "
+    "comunicado. A bula vigente de cada um declara, ou não declara, a aprovação acelerada — e é essa "
+    "a prova que a página usa agora.",
+    "<strong>O que continua sem verificação em fonte primária:</strong> as datas de primeira "
+    "aprovação do Tarpeyo, do Filspari e do Fabhalta, que vieram de busca e não da FDA; o resultado "
+    "do ZEUS; e o caso de xenotransplante. Os três estão sinalizados onde aparecem.",
+]),
+
 dict(h="O que esta página não autoriza", tipo="li", corpo=[
     "<strong>Nada aqui é aplicável por conta própria.</strong> Todos os seis medicamentos são de "
     "prescrição, vários com programa de acompanhamento obrigatório por hepatotoxicidade ou "
@@ -295,8 +359,14 @@ dict(h="O que esta página não autoriza", tipo="li", corpo=[
          "https://travere.com/news/travere-therapeutics-announces-full-fda-approval-of-filspari-sparsentan-the-only-non-immunosuppressive-treatment-that-significantly-slows-kidney-function-decline-in-iga-nephropathy/"),
         ("ClinicalTrials.gov. PROTECT — sparsentana em nefropatia por IgA (NCT03762850)",
          "https://clinicaltrials.gov/study/NCT03762850"),
-        ("ClinicalTrials.gov. APPLAUSE-IgAN — iptacopana (NCT04578834)",
-         "https://clinicaltrials.gov/study/NCT04578834"),
+        ("PubMed \u2014 Barratt J, Eren N, Kashihara N, et al. Iptacopan in IgA Nephropathy \u2014 Final 24-Month Data. N Engl J Med. 2026;395(5):465-477. PMID 41910396 \u00b7 doi:10.1056/NEJMoa2600743 \u2014 o APPLAUSE-IgAN publicado (NCT04578834)",
+         "https://doi.org/10.1056/NEJMoa2600743"),
+        ("PubMed \u2014 Lafayette R, Kristensen J, Stone A, et al. Efficacy and safety of a targeted-release formulation of budesonide in patients with primary IgA nephropathy (NefIgArd): 2-year results from a randomised phase 3 trial. Lancet. 2023;402(10405):859-870. PMID 37591292 \u00b7 doi:10.1016/S0140-6736(23)01554-4",
+         "https://doi.org/10.1016/S0140-6736(23)01554-4"),
+        ("PubMed \u2014 Rovin BH, Barratt J, Heerspink HJL, et al. Efficacy and safety of sparsentan versus irbesartan in patients with IgA nephropathy (PROTECT): 2-year results from a randomised, active-controlled, phase 3 trial. Lancet. 2023;402(10417):2077-2090. PMID 37931634 \u00b7 doi:10.1016/S0140-6736(23)02302-4",
+         "https://doi.org/10.1016/S0140-6736(23)02302-4"),
+        ("PubMed \u2014 Ridker PM, Baeres FMM, Hveplund A, et al. Rationale, Design, and Baseline Clinical Characteristics of the Ziltivekimab Cardiovascular Outcomes Trial (ZEUS). JAMA Cardiol. 2026;11(1):89-97. PMID 41369941 \u00b7 doi:10.1001/jamacardio.2025.4491 \u2014 o desenho do ensaio, com os 6.376 participantes",
+         "https://doi.org/10.1001/jamacardio.2025.4491"),
         ("ClinicalTrials.gov. ALIGN — atrasentana, conclusão primária prevista para 14/04/2028 (NCT04573478)",
          "https://clinicaltrials.gov/study/NCT04573478"),
         ("ClinicalTrials.gov. VISIONARY — sibeprenlimabe (NCT05248646)",

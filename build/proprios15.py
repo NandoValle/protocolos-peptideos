@@ -146,10 +146,17 @@ dict(h="Antes de ajustar qualquer coisa: o número que você tem é confiável?"
     "conta tem armadilhas que atingem em cheio o público deste site.",
     "A equação em vigor é a <strong>CKD-EPI 2021</strong>, publicada por Inker e colaboradores no "
     "<em>New England Journal of Medicine</em>. A novidade dela é o que foi retirado: o fator de "
-    "correção por raça, que superestimava a filtração — em pessoas negras de forma mais acentuada — e "
-    "com isso adiava diagnóstico e encaminhamento. A força-tarefa da National Kidney Foundation com a "
-    "American Society of Nephrology recomendou que todos os laboratórios adotassem a versão sem raça "
-    "e que o uso de <strong>cistatina C</strong> fosse ampliado.",
+    "correção por raça.",
+    "A força-tarefa conjunta da National Kidney Foundation com a American Society of Nephrology "
+    "publicou as recomendações no <em>American Journal of Kidney Diseases</em> em 2021, e são três. "
+    "A primeira é <strong>implementação imediata da equação de creatinina refeita sem a variável de "
+    "raça em todos os laboratórios</strong> dos Estados Unidos — porque ela não inclui raça no cálculo "
+    "nem no laudo, incluiu diversidade no desenvolvimento, está disponível a qualquer laboratório e "
+    "tem desempenho aceitável, <em>com consequências que não afetam desproporcionalmente nenhum "
+    "grupo</em>. A segunda é esforço nacional para uso rotineiro de <strong>cistatina C</strong>, "
+    "sobretudo para confirmar a TFGe em quem tem ou está em risco de doença renal crônica, porque "
+    "<strong>combinar os dois marcadores é mais acurado que qualquer um deles sozinho</strong>. A "
+    "terceira é pesquisa com novos marcadores de filtração.",
 ]),
 
 dict(h="A armadilha que atinge quem treina", tipo="p", corpo=[
@@ -179,10 +186,10 @@ dict(h="A saída: cistatina C", tipo="p", corpo=[
     "permanece inalterada, o que garante avaliação mais precisa. Ela é indicada quando massa muscular "
     "alterada, variação de dieta ou outras condições comprometem a estimativa baseada em creatinina — "
     "e o recomendado, nesses casos, é a equação combinada CKD-EPI com os dois marcadores.",
-    "O mesmo artigo mostra por que isso não é preciosismo acadêmico: na dosagem de vancomicina, 50% "
-    "dos pacientes do grupo com abordagem dupla atingiram nível terapêutico contra 28% no controle, e "
-    "chegaram à concentração-alvo 25% mais rápido. Estimativa melhor da filtração muda a dose que a "
-    "pessoa recebe.",
+    "E há um critério prático publicado pela própria National Kidney Foundation, que serve de gatilho "
+    "para pedir o exame: <strong>cistatina C como teste confirmatório quando a TFGe por creatinina "
+    "fica entre 45 e 59 mL/min/1,73 m² com albuminúria abaixo de 30 mg/g</strong> — a faixa "
+    "exatamente ambígua, em que o laudo não diz se há doença.",
     "Também vale o inverso: quem perdeu massa muscular — internação prolongada, caquexia, amputação, "
     "lesão medular — tem creatinina baixa por falta de músculo, e a conta devolve uma função renal "
     "<em>melhor</em> do que a real. Nesse caso o erro é mais perigoso, porque tranquiliza.",
@@ -238,7 +245,9 @@ dict(h="O que esta página não é", tipo="li", corpo=[
          "https://doi.org/10.1186/s12882-025-04558-6"),
         ("Inker LA et al. New Creatinine- and Cystatin C–Based Equations to Estimate GFR without Race. N Engl J Med. 2021 — a equação CKD-EPI 2021",
          "https://www.nejm.org/doi/full/10.1056/NEJMoa2102953"),
-        ("National Kidney Foundation. Recommendations for Implementing the CKD-EPI 2021 Race-Free eGFR Calculation: Guidelines for Clinical Laboratories",
+        ("PubMed \u2014 Delgado C, Baweja M, Crews DC, et al. A Unifying Approach for GFR Estimation: Recommendations of the NKF-ASN Task Force on Reassessing the Inclusion of Race in Diagnosing Kidney Disease. Am J Kidney Dis. 2021;79(2):268-288. PMID 34563581 \u00b7 doi:10.1053/j.ajkd.2021.08.003 \u2014 as tres recomendacoes da forca-tarefa",
+         "https://doi.org/10.1053/j.ajkd.2021.08.003"),
+        ("National Kidney Foundation. Recommendations for Implementing the CKD-EPI 2021 Race-Free eGFR Calculation: Guidelines for Clinical Laboratories \u2014 o criterio de pedir cistatina C entre 45 e 59 mL/min/1,73 m\u00b2",
          "https://www.kidney.org/recommendations-implementing-ckd-epi-2021-race-free-egfr-calculation-guidelines-clinical"),
         ("Cleveland Clinic Journal of Medicine, setembro de 2025;92(9):546. What is the role of cystatin C in estimating glomerular filtration rate and guiding medication dosing?",
          "https://www.ccjm.org/content/92/9/546"),
