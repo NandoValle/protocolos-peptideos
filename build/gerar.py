@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dicionario as D
 from compostos import COMPOSTOS, CATEGORIAS
 from fatos import FATOS
+from proprios import PROPRIOS
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOJE = "3 de setembro de 2026"
@@ -309,18 +310,29 @@ def gera_composto(item):
     m = item['meta']
     cat_nome = CATEGORIAS[m['categoria']][0]
     cls, rot = selo_aprovacao(m['aprovado'])
-    titulo = f"{m['nome']} — protocolo, dose e ciclo"
+    # pagina autoral nao traz dose: o titulo nao pode prometer uma
+    if slug in PROPRIOS:
+        titulo = f"{m['nome']} — o que a evidência mostra"
+    else:
+        titulo = f"{m['nome']} — protocolo, dose e ciclo"
 
     p = [cabecalho(titulo, m['tagline'], "../")]
     p.append('<div class="pagina">')
 
+    proprio = PROPRIOS.get(slug)
+
     # trilha lateral
     itens_trilha = [('resumo', 'Resumo')]
-    if slug in FATOS:
-        itens_trilha.append(('rapido', 'Referência rápida'))
-    for k, t in enumerate(item['tabelas']):
-        itens_trilha.append((f'tab{k}', t['cap']))
-    itens_trilha += [('armazenamento', 'Armazenamento'), ('exames', 'Exames'), ('limites', 'Limites da evidência')]
+    if proprio:
+        for k, sec in enumerate(proprio['secoes']):
+            itens_trilha.append((f'sec{k}', sec['h']))
+        itens_trilha.append(('refs', 'Referências'))
+    else:
+        if slug in FATOS:
+            itens_trilha.append(('rapido', 'Referência rápida'))
+        for k, t in enumerate(item['tabelas']):
+            itens_trilha.append((f'tab{k}', t['cap']))
+        itens_trilha += [('armazenamento', 'Armazenamento'), ('exames', 'Exames'), ('limites', 'Limites da evidência')]
 
     p.append('<aside class="trilha" aria-label="Nesta página">')
     p.append('  <p class="trilha-titulo">Nesta página</p>\n  <ol>')
@@ -343,6 +355,40 @@ def gera_composto(item):
 
     p.append('<h2 id="resumo">Resumo</h2>')
     p.append(f'<p>{esc(m["resumo"])}</p>')
+
+    # ---- pagina autoral, montada de fonte primaria
+    if proprio:
+        for k, sec in enumerate(proprio['secoes']):
+            p.append(f'<h2 id="sec{k}">{esc(sec["h"])}</h2>')
+            if sec.get('tipo') == 'li':
+                p.append('<ul>')
+                for x in sec['corpo']:
+                    p.append(f'  <li>{x}</li>')
+                p.append('</ul>')
+            else:
+                for x in sec['corpo']:
+                    p.append(f'<p>{x}</p>')
+            tab = sec.get('tabela')
+            if tab:
+                p.append('<div class="tabela-env"><div class="tabela-rolagem"><table>')
+                p.append('  <thead><tr>' + ''.join(f'<th>{c}</th>' for c in tab['linhas'][0]) + '</tr></thead>')
+                p.append('  <tbody>')
+                for r in tab['linhas'][1:]:
+                    p.append('    <tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>')
+                p.append('  </tbody></table></div></div>')
+
+        p.append('<h2 id="refs">Referências</h2>')
+        p.append('<div class="nota"><strong>Esta página não veio da fonte secundária.</strong> Cada número foi '
+                 'levantado no PubMed e no ClinicalTrials.gov em 4 de setembro de 2026, e a consulta usada está '
+                 'declarada acima. Segundo o PubMed, os trabalhos abaixo são o que existe.</div>')
+        p.append('<ol style="color:var(--texto-suave);font-size:14.5px;line-height:1.6">')
+        for txt, url in proprio['referencias']:
+            p.append(f'  <li style="margin-bottom:10px"><a href="{url}" rel="noopener" target="_blank">{esc(txt)}</a></li>')
+        p.append('</ol>')
+        p.append('<p><a href="../index.html">&larr; Voltar para todos os compostos</a></p>')
+        p.append('</main>\n</div>')
+        p.append(rodape("../"))
+        return '\n'.join(p)
 
     if slug in FATOS:
         p.append('<h2 id="rapido">Referência rápida</h2>')
@@ -564,6 +610,14 @@ def main():
             tabelas.append({'cap': D.legenda(t['cap']), 'linhas': linhas})
         itens.append({'slug': slug, 'meta': COMPOSTOS[slug],
                       'tabelas': tabelas, 'n_tabelas': len(tabelas)})
+
+    # paginas autorais: nao tem JSON de origem, o conteudo esta em proprios.py
+    for slug, conteudo in PROPRIOS.items():
+        n = sum(1 for s in conteudo['secoes'] if s.get('tabela'))
+        n_tab_total += n
+        n_tab_ok += n
+        itens.append({'slug': slug, 'meta': COMPOSTOS[slug],
+                      'tabelas': [], 'n_tabelas': n})
 
     stats = {
         'n': len(itens),

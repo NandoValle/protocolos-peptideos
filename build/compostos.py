@@ -14,6 +14,7 @@ CATEGORIAS = {
     "hormonal": ("Hormonal e sexual", "Eixo reprodutivo, libido, pigmentação e vasodilatação."),
     "imune": ("Imune", "Modulação da resposta imune."),
     "combinacao": ("Combinações", "Protocolos que juntam dois ou mais compostos no mesmo ciclo."),
+    "primaria": ("Verificado em fonte primária", "Páginas montadas direto do PubMed e do ClinicalTrials.gov, não da fonte secundária. Trazem a contagem de evidência e a consulta usada."),
 }
 
 COMPOSTOS = {
@@ -305,5 +306,18 @@ COMPOSTOS = {
     nome="Wolverine", categoria="combinacao", aprovado="nao",
     tagline="BPC-157 + TB-500, a base de reparo",
     resumo="Apelido de comunidade para a dupla BPC-157 + TB-500 num protocolo focado em reparo tecidual. O nome vem do personagem de quadrinhos conhecido pela cicatrização rápida — e não é uma descrição do que o par faz. É a base mais simples: GLOW e KLOW são ela com acréscimos.",
+),
+
+"proprio_thymalin": dict(
+    nome="Thymalin", categoria="primaria", aprovado="parcial",
+    tagline="Extrato tímico russo — 293 artigos, 13 ensaios, zero registros",
+    resumo="Extrato polipeptídico de timo bovino desenvolvido na União Soviética nos anos 1970 pelo grupo de Vladimir Khavinson. Não é peptídeo único: é mistura, sem sequência definida e sem pureza conferível em laudo. É o composto mais estudado de toda a escola de bioreguladores curtos — e mesmo assim não tem um único ensaio registrado no ClinicalTrials.gov. Esta página traz o levantamento completo, com a consulta usada e a ressalva de cada estudo.",
+    alerta="O estudo mais citado sobre longevidade é assinado pelo próprio desenvolvedor do composto. Isso não invalida o trabalho, mas muda o peso que se dá a ele.",
+),
+"proprio_bioreguladores": dict(
+    nome="Bioreguladores curtos de Khavinson", categoria="primaria", aprovado="nao",
+    tagline="Onze peptídeos, cinco estudos clínicos, zero ensaios registrados",
+    resumo="Vilon, Vesugen, Livagen, Cortagen, Pancragen, Prostamax, Testagen, Chonluten, Bronchogen, Crystagen e Ovagen: peptídeos de dois a quatro aminoácidos da escola russa de bioregulação. Estão numa página só, e não em onze, porque o levantamento no PubMed e no ClinicalTrials.gov não sustenta onze. Oito dos onze não têm nenhum estudo clínico, e nenhum tem ensaio registrado.",
+    alerta="Nenhum dos onze tem ensaio registrado no ClinicalTrials.gov. Oito não têm sequer um artigo de ensaio clínico no PubMed. Sete não têm nem a sequência química indexada.",
 ),
 }
