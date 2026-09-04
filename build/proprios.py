@@ -213,3 +213,6 @@ PROPRIOS.update(_ANV)
 
 from proprios11 import SARM as _SARM
 PROPRIOS.update(_SARM)
+
+from proprios12 import CRISPR as _CRISPR
+PROPRIOS.update(_CRISPR)

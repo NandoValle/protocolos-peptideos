@@ -352,3 +352,6 @@ COMPOSTOS.update(_X7)
 
 from compostos9 import EXTRA8 as _X8
 COMPOSTOS.update(_X8)
+
+from compostos10 import EXTRA9 as _X9
+COMPOSTOS.update(_X9)
