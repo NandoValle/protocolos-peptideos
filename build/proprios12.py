@@ -322,6 +322,10 @@ CRISPR = {
             "Mas o número que realmente explica o acesso não é esse. Quando o NICE, na Inglaterra, projeta quantas "
             "pessoas serão tratadas, ele <strong>não cita custo</strong> como motivo da adesão baixa. Cita "
             "“a internação hospitalar longa necessária para o processo envolvido”.",
+            "Esta seção é um resumo. O levantamento inteiro — quem paga, sob que condições, o comparador "
+            "mais barato que ganha em 100% das simulações, o que o Brasil sabe e o que não sabe sobre a "
+            "própria população de pacientes — está em <a href=\"proprio_casgevy.html\">Casgevy — preço e "
+            "acesso</a>.",
         ], tabela=dict(
             cap="O funil de elegibilidade na Inglaterra, doença falciforme",
             linhas=[

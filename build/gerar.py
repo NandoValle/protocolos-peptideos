@@ -463,7 +463,9 @@ def gera_composto(item):
     cls, rot = selo_aprovacao(m['aprovado'])
     # pagina autoral nao traz dose: o titulo nao pode prometer uma
     if slug in PROPRIOS:
-        titulo = f"{m['nome']} — o que a evidência mostra"
+        # Pagina autoral pode sobrescrever o titulo: nem todas falam de
+        # evidencia clinica -- a de preco e acesso fala do que vem depois dela.
+        titulo = PROPRIOS[slug].get('titulo') or f"{m['nome']} — o que a evidência mostra"
     else:
         titulo = f"{m['nome']} — protocolo, dose e ciclo"
 

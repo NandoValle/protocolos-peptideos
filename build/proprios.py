@@ -216,3 +216,6 @@ PROPRIOS.update(_SARM)
 
 from proprios12 import CRISPR as _CRISPR
 PROPRIOS.update(_CRISPR)
+
+from proprios13 import CASGEVY as _CASG
+PROPRIOS.update(_CASG)
