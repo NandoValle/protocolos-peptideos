@@ -294,6 +294,19 @@ TARJA_TEXTO_INVEST = (
 )
 
 
+def selo_anvisa(slug):
+    """Selo do cartao do indice. So marca o que foi de fato medido."""
+    if slug not in ANVISA:
+        return '', 'nd'
+    reg, nof, _ = ANVISA[slug]
+    if reg:
+        return (f'<span class="selo selo-anv-sim" title="{reg} medicamento(s) com registro ativo '
+                f'na ANVISA">ANVISA</span>'), 'sim'
+    if nof:
+        return '<span class="selo selo-anv-nof" title="Só produto notificado, sem registro">notificado</span>', 'nof'
+    return '<span class="selo selo-anv-nao" title="Nenhum medicamento registrado no Brasil">sem registro</span>', 'nao'
+
+
 def linha_anvisa(slug):
     """Uma linha por composto: existe medicamento registrado no Brasil?"""
     if slug not in ANVISA:
@@ -355,7 +368,16 @@ def gera_index(itens, stats):
     <button class="filtro" data-cat="todos" aria-pressed="true">Todos</button>""")
     for k, (nome, _) in CATEGORIAS.items():
         partes.append(f'    <button class="filtro" data-cat="{k}" aria-pressed="false">{esc(nome)}</button>')
-    partes.append('  </div>\n</div>')
+    partes.append('  </div>')
+    partes.append("""  <div class="filtros filtros-anvisa" id="filtros-anvisa" role="group" aria-label="Filtrar por registro no Brasil">
+    <button class="filtro filtro-anv" data-anv="todos" aria-pressed="true">Registro no Brasil: todos</button>
+    <button class="filtro filtro-anv" data-anv="sim" aria-pressed="false">Só o que existe aqui</button>
+    <button class="filtro filtro-anv" data-anv="nao" aria-pressed="false">Só o que não existe</button>
+  </div>
+</div>""")
+    partes.append('<p class="nota-filtro">O selo de registro vem da <a href="evidencia.html">varredura do dado aberto '
+                  'da ANVISA</a> feita em 4 de setembro de 2026, e só aparece nos 44 compostos que foram medidos um a '
+                  'um. Combinações e páginas de método não têm selo.</p>')
     partes.append('<p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>')
 
     for cat, (nome, desc) in CATEGORIAS.items():
@@ -368,11 +390,15 @@ def gera_index(itens, stats):
         for i in sorted(grupo, key=lambda x: x['meta']['nome']):
             m = i['meta']
             cls, rot = selo_aprovacao(m['aprovado'])
-            busca = f"{m['nome']} {m['tagline']} {nome} {i['slug']}".lower()
-            partes.append(f"""    <a class="card" href="p/{i['slug']}.html" data-cat="{cat}" data-busca="{esc(busca)}">
+            selo_anv, estado_anv = selo_anvisa(i['slug'])
+            extra = {'sim': ' anvisa registro brasil registrado',
+                     'nao': ' sem registro anvisa importacao manipulado',
+                     'nof': ' notificado anvisa baixo risco'}.get(estado_anv, '')
+            busca = f"{m['nome']} {m['tagline']} {nome} {i['slug']}{extra}".lower()
+            partes.append(f"""    <a class="card" href="p/{i['slug']}.html" data-cat="{cat}" data-anv="{estado_anv}" data-busca="{esc(busca)}">
       <div class="card-topo"><h3>{esc(m['nome'])}</h3><span class="selo {cls}">{rot}</span></div>
       <p>{esc(m['tagline'])}</p>
-      <div class="card-rodape"><span class="selo selo-cat">{esc(nome)}</span><span>{i['n_tabelas']} tabela(s)</span></div>
+      <div class="card-rodape"><span class="selo selo-cat">{esc(nome)}</span>{selo_anv}<span>{i['n_tabelas']} tabela(s)</span></div>
     </a>""")
         partes.append('  </div>\n</section>')
 
@@ -651,14 +677,16 @@ def gera_sobre(stats):
 APP_JS = """(function () {
   var busca = document.getElementById('busca');
   var filtros = document.getElementById('filtros');
+  var filtrosAnv = document.getElementById('filtros-anvisa');
   var vazio = document.getElementById('vazio');
   if (!busca || !filtros) return;
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-busca]'));
   var secoes = Array.prototype.slice.call(document.querySelectorAll('[data-secao]'));
   var cat = 'todos';
+  var anv = 'todos';
 
   function normaliza(s) {
-    return s.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '');
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
   function aplicar() {
@@ -666,8 +694,13 @@ APP_JS = """(function () {
     var achou = 0;
     cards.forEach(function (c) {
       var okCat = cat === 'todos' || c.dataset.cat === cat;
+      // 'nao' inclui o notificado: nenhum dos dois tem registro
+      var estado = c.dataset.anv || 'nd';
+      var okAnv = anv === 'todos'
+        || (anv === 'sim' && estado === 'sim')
+        || (anv === 'nao' && (estado === 'nao' || estado === 'nof'));
       var okTermo = !termo || normaliza(c.dataset.busca).indexOf(termo) !== -1;
-      var mostra = okCat && okTermo;
+      var mostra = okCat && okAnv && okTermo;
       c.hidden = !mostra;
       if (mostra) achou++;
     });
@@ -678,17 +711,24 @@ APP_JS = """(function () {
     if (vazio) vazio.hidden = achou !== 0;
   }
 
-  busca.addEventListener('input', aplicar);
-  filtros.addEventListener('click', function (e) {
-    var b = e.target.closest('.filtro');
-    if (!b) return;
-    cat = b.dataset.cat;
-    filtros.querySelectorAll('.filtro').forEach(function (x) {
-      x.setAttribute('aria-pressed', String(x === b));
+  function grupo(el, campo, aplicaValor) {
+    if (!el) return;
+    el.addEventListener('click', function (e) {
+      var b = e.target.closest('.filtro');
+      if (!b) return;
+      aplicaValor(b.dataset[campo]);
+      el.querySelectorAll('.filtro').forEach(function (x) {
+        x.setAttribute('aria-pressed', String(x === b));
+      });
+      aplicar();
     });
-    aplicar();
-  });
-})();"""
+  }
+
+  busca.addEventListener('input', aplicar);
+  grupo(filtros, 'cat', function (v) { cat = v; });
+  grupo(filtrosAnv, 'anv', function (v) { anv = v; });
+})();
+"""
 
 
 # ------------------------------------------------------------------- main

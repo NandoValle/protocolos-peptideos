@@ -287,6 +287,18 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .selo-sim     { background: var(--ok-fundo);      color: #6BC5A2; border-color: var(--ok-borda); }
 .selo-cat     { background: var(--superficie-3);  color: var(--texto-suave); border-color: var(--linha-forte); }
 
+/* registro na ANVISA, medido em 04/09/2026 */
+.selo-anv-sim { background: var(--ok-fundo);      color: #6BC5A2; border-color: var(--ok-borda); }
+.selo-anv-nao { background: transparent;          color: var(--texto-fraco); border-color: var(--linha-forte); border-style: dashed; }
+.selo-anv-nof { background: var(--atencao-fundo); color: #E3C468; border-color: rgba(217,180,74,.26); }
+
+.filtros-anvisa { margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--linha); }
+.filtros-anvisa .filtro { font-size: 12.5px; padding: 6px 13px; }
+.nota-filtro {
+  margin: 14px 0 0; font-size: 12.5px; color: var(--texto-fraco); line-height: 1.55; max-width: 66ch;
+}
+.nota-filtro a { color: var(--cobre-claro); }
+
 /* --------------------------------------------------------------- artigo */
 .artigo-cabeca { margin-bottom: 34px; }
 .migalha { font-size: 13px; color: var(--texto-fraco); margin-bottom: 16px; }

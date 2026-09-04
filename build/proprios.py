@@ -208,3 +208,6 @@ PROPRIOS.update(_GLP1)
 
 from proprios10 import ANV as _ANV
 PROPRIOS.update(_ANV)
+
+from proprios11 import SARM as _SARM
+PROPRIOS.update(_SARM)
