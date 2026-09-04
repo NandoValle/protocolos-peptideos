@@ -151,9 +151,18 @@ EFEITO = {
             "<strong>Não refiz nenhum cálculo.</strong> Não converti SMD em Hedge's <em>g</em>, não recalculei "
             "intervalo de confiança e não agreguei estudos por conta própria. Onde as unidades diferem entre "
             "linhas, elas diferem porque os estudos as publicaram assim.",
-            "<strong>Não conferi a situação regulatória na ANVISA item a item</strong>, nem a lista da WADA. A "
-            "suspensão do oxiracetam na Coreia do Sul é afirmação dos autores do ensaio, não verificação "
-            "independente em fonte regulatória coreana.",
+            "<strong>Não conferi a situação regulatória na ANVISA item a item.</strong> A suspensão do oxiracetam "
+            "na Coreia do Sul é afirmação dos autores do ensaio, não verificação independente em fonte "
+            "regulatória coreana.",
+            "<strong>A lista da WADA, essa eu conferi</strong> — na fonte oficial, em 4 de setembro de 2026. "
+            "Vale a <em>Lista de Proibições de 2026</em>, em vigor desde 1º de janeiro. Da seção "
+            "<strong>S6.A, estimulantes não especificados, proibidos apenas em competição</strong>, constam "
+            "nominalmente: <strong>Modafinil</strong>, <strong>Adrafinil</strong>, <strong>Bromantan</strong>, "
+            "<strong>Fonturacetam [4-phenylpiracetam (carphedon)]</strong>, <strong>Hydrafinil (fluorenol)</strong>, "
+            "<strong>Fladrafinil</strong>, <strong>Flmodafinil</strong> e <strong>Lisdexamfetamine</strong>. O "
+            "<strong>meldonium</strong> está em outra seção e é mais restrito: S4.4.3, proibido <strong>em todos "
+            "os momentos</strong>, não só em competição — o que confirma o que a página de meldonium deste site já "
+            "dizia.",
             "<strong>Compostos sem metanálise não entraram.</strong> Noopept, Semax, Selank, juba-de-leão e os "
             "racetams menores não têm evidência agregada de onde tirar um tamanho de efeito — estão na "
             "<a href=\"proprio_nootropicos.html\">página de nootrópicos</a>, contados, que é o que dá para fazer "
@@ -188,6 +197,7 @@ EFEITO = {
         ("Zhang C et al. A Magtein, magnesium L-threonate, based formula improves brain cognitive functions in healthy Chinese adults. Nutrients. 2022;14(24):5235.", "https://doi.org/10.3390/nu14245235"),
         ("Lopresti AL, Smith SJ. The effects of magnesium L-threonate (Magtein) on cognitive performance and sleep quality in adults: a randomised, double-blind, placebo-controlled trial. Front Nutr. 2026;12:1729164.", "https://doi.org/10.3389/fnut.2025.1729164"),
         ("Todas as buscas e leituras foram feitas no PubMed em 4 de setembro de 2026.", "https://pubmed.ncbi.nlm.nih.gov/"),
+        ("Agência Mundial Antidopagem, Lista de Proibições de 2026, em vigor desde 1º de janeiro de 2026. Seção S6.A conferida nominalmente na fonte oficial em 4 de setembro de 2026.", "https://www.wada-ama.org/en/prohibited-list"),
     ],
 ),
 }
