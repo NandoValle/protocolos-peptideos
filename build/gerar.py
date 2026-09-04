@@ -16,6 +16,7 @@ from compostos import COMPOSTOS, CATEGORIAS
 from fatos import FATOS
 from proprios import PROPRIOS
 from evidencia import CORPO as CORPO_EVIDENCIA
+from anvisa import ANVISA
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOJE = "3 de setembro de 2026"
@@ -293,6 +294,27 @@ TARJA_TEXTO_INVEST = (
 )
 
 
+def linha_anvisa(slug):
+    """Uma linha por composto: existe medicamento registrado no Brasil?"""
+    if slug not in ANVISA:
+        return None
+    reg, nof, prod = ANVISA[slug]
+    if reg:
+        lista = ', '.join(prod[:6]) + ('...' if len(prod) >= 6 else '')
+        return (f'<div class="nota"><strong>No Brasil: {reg} medicamento(s) com registro ativo na ANVISA.</strong> '
+                f'{esc(lista)}. Levantado em 4 de setembro de 2026 no dado aberto da agência. '
+                f'A varredura dos {len(ANVISA)} compostos está em '
+                f'<a href="proprio_anvisa.html">O que existe no Brasil</a>.</div>')
+    if nof:
+        return (f'<div class="aviso-linha"><strong>No Brasil: nenhum registro, {nof} produto(s) apenas notificado(s).</strong> '
+                f'Notificação é a via de baixo risco e não passa pela mesma análise de um registro. '
+                f'Ver <a href="proprio_anvisa.html">O que existe no Brasil</a>.</div>')
+    return ('<div class="aviso-linha"><strong>No Brasil: nenhum medicamento registrado com este princípio ativo.</strong> '
+            'Conferido em 4 de setembro de 2026 no dado aberto da ANVISA, com 43.489 registros. '
+            'Não existe bula brasileira, dose aprovada nem lote fiscalizado — o que circula é importação ou manipulação. '
+            'A varredura completa está em <a href="proprio_anvisa.html">O que existe no Brasil</a>.</div>')
+
+
 def selo_aprovacao(v):
     return {
         "nao":     ('selo-nao', 'Não aprovado'),
@@ -426,6 +448,10 @@ def gera_composto(item):
     p.append('</div>')
 
     p.append(AVISO)
+
+    _anv = linha_anvisa(slug)
+    if _anv:
+        p.append(_anv)
 
     if slug in TARJA_GLP1:
         _mol = TARJA_GLP1[slug]

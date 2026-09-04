@@ -7,7 +7,7 @@ CORPO = """
 <p>A maior parte deste site é tradução organizada de uma fonte secundária comercial. Está declarado em cada
 página, e é a fraqueza estrutural do material: se a fonte errou, eu repito o erro.</p>
 
-<p>As <strong>doze páginas listadas abaixo</strong> são diferentes. Cada número nelas foi levantado por mim
+<p>As <strong>treze páginas listadas abaixo</strong> são diferentes. Cada número nelas foi levantado por mim
 diretamente no <strong>PubMed</strong> e no <strong>ClinicalTrials.gov</strong>, com a consulta usada declarada
 dentro da própria página, para que qualquer pessoa possa repetir e me contradizer. Cobrem
 <strong>158 compostos distintos</strong>.</p>
@@ -15,11 +15,17 @@ dentro da própria página, para que qualquer pessoa possa repetir e me contradi
 <p>Não é uma seção de destaque por vaidade de método. É porque, das duas coisas que um site destes pode fazer —
 listar dose ou dizer o que a dose vale —, só a segunda é difícil de achar em português.</p>
 
-<h2>As doze páginas</h2>
+<h2>As treze páginas</h2>
 
 <div class="tabela-env"><div class="tabela-rolagem"><table>
 <thead><tr><th>Página</th><th>Compostos</th><th>O achado central</th></tr></thead>
 <tbody>
+<tr>
+  <td><a href="p/proprio_anvisa.html"><strong>O que existe no Brasil</strong></a></td>
+  <td>44</td>
+  <td><strong>40 dos 44 compostos deste site não têm nenhum medicamento registrado na ANVISA.</strong> Varredura
+      do dado aberto oficial, 43.489 registros. O resultado agora aparece em cada página de composto</td>
+</tr>
 <tr>
   <td><a href="p/proprio_glp1_bula.html"><strong>Os GLP-1 contra a bula</strong></a></td>
   <td>6</td>
@@ -100,9 +106,9 @@ listar dose ou dizer o que a dose vale —, só a segunda é difícil de achar e
 </tbody>
 </table></div></div>
 
-<p class="nota"><strong>A coluna não soma 158.</strong> A página de tamanho de efeito reanalisa 19
-compostos que já aparecem nas outras — creatina, bacopa, ginkgo, ômega-3, huperzina, citicolina e mais. Ela é
-um segundo corte dos mesmos compostos, não compostos novos, e por isso não entra na conta.</p>
+<p class="nota"><strong>A coluna não soma 158.</strong> Duas páginas são segundo corte dos mesmos compostos,
+não compostos novos: a de tamanho de efeito reanalisa 19 que já aparecem nas outras, e a de registro na ANVISA
+varre os 44 compostos de protocolo do site, que não são contados como material de fonte primária.</p>
 
 <h2>Três coisas que este levantamento ensinou</h2>
 

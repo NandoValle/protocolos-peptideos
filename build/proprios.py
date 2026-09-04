@@ -205,3 +205,6 @@ PROPRIOS.update(_EFEITO)
 
 from proprios9 import GLP1 as _GLP1
 PROPRIOS.update(_GLP1)
+
+from proprios10 import ANV as _ANV
+PROPRIOS.update(_ANV)
