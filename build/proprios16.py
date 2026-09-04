@@ -183,45 +183,106 @@ dict(h="Como ler essa tabela sem escolher a metade conveniente", tipo="li", corp
 dict(h="SARMs: o caso mais bem documentado, e ele é deste site", tipo="p", corpo=[
     "Este site já tem uma página de <a href=\"proprio_sarms.html\">SARMs</a>. O LiverTox — base de "
     "hepatotoxicidade do National Institute of Diabetes and Digestive and Kidney Diseases, ligado ao "
-    "NIH — mantém uma entrada inteira sobre eles, e o conteúdo é específico o bastante para não deixar "
-    "dúvida sobre o que se sabe.",
+    "NIH — mantém uma entrada inteira sobre eles. O que segue foi conferido no texto da própria "
+    "entrada, não em resumo dela.",
+    "O primeiro achado desmonta a leitura tranquilizadora dos ensaios clínicos. Neles, os SARMs foram "
+    "descritos como bem tolerados — mas nas doses maiores, as que mais aumentavam massa magra, houve "
+    "elevação de aminotransferases em <strong>5% a 21%</strong> dos participantes, com casos de ALT "
+    "isolada exigindo suspensão. Nenhum caso de icterícia apareceu nesses ensaios, e o LiverTox diz "
+    "por quê: <em>a duração da terapia era curta, os pacientes eram monitorados regularmente, e uma "
+    "pequena proporção interrompeu o tratamento por causa das elevações de ALT</em>.",
+    "A icterícia apareceu depois, fora dos ensaios — em pessoas usando SARM por conta própria para "
+    "musculação, sem supervisão médica.",
 ], tabela=dict(
-    cap="Lesão hepática por SARM, segundo o LiverTox",
+    cap="Lesão hepática por SARM, segundo o texto do LiverTox",
     linhas=[
         ["Item", "O que está documentado"],
-        ["Compostos implicados",
-         "<strong>Ligandrol (LGD-4033)</strong> — 5 casos · <strong>Testolona (RAD-140)</strong> — 5 "
-         "casos · <strong>Ostarina / enobosarme (MK-2866)</strong> — 2 casos"],
-        ["Padrão da lesão",
-         "Colestase canalicular com inflamação mínima — a chamada <em>colestase branda</em>, o mesmo "
-         "quadro da icterícia por esteroide anabolizante"],
         ["Tempo até aparecer",
-         "Tipicamente <strong>2 a 3 meses</strong> de uso, com relatos indo de semanas a um ano"],
-        ["Bilirrubina",
-         "Inicial de 4,0 a 8,0 mg/dL; pico relatado de até <strong>41,5 mg/dL</strong> — mais de vinte "
-         "vezes o limite superior normal"],
-        ["ALT (TGP)",
-         "Elevação inicial de 2 a 5 vezes o limite superior. Num dos casos, a ALT <em>caiu</em> de 177 "
-         "para 24 U/L <strong>enquanto a bilirrubina continuava piorando</strong>"],
+         "Latência <strong>tipicamente de 2 a 3 meses</strong>, com variação de algumas semanas a "
+         "<strong>um ano</strong>"],
+        ["Como começa",
+         "Fadiga, perda de apetite, perda de peso, dor abdominal e coceira, seguidos de urina escura e "
+         "icterícia"],
+        ["Exames no início",
+         "Bilirrubina total só moderadamente elevada (<strong>4,0 a 8,0 mg/dL</strong>), "
+         "aminotransferases de <strong>2 a 5 vezes</strong> o limite superior do normal, e fosfatase "
+         "alcalina e GGT <strong>minimamente elevadas ou normais</strong>"],
+        ["Como evolui",
+         "<strong>A bilirrubina sobe enquanto as aminotransferases caem</strong>, e a fosfatase "
+         "alcalina sobe pouco. O resultado do exame depende de quanto tempo de doença já passou "
+         "quando ele foi colhido"],
+        ["O que a biópsia mostra",
+         "Colestase canalicular moderada a grave, com inflamação leve ou mínima e sem perda de ductos "
+         "biliares — a chamada <em>colestase branda</em>, o mesmo quadro da icterícia por esteroide "
+         "anabolizante"],
+        ["Quando a bilirrubina passa de 30 mg/dL",
+         "Pode surgir <strong>disfunção renal com cilindros de bilirrubina</strong>, que às vezes "
+         "exige diálise temporária — autolimitada, resolve quando a bilirrubina cai"],
         ["Desfecho",
-         "Resolução completa nos casos relatados, sem transplante — mas com recuperação levando de "
-         "<strong>1 a 6 meses</strong>"],
+         "Prolongado, porém autolimitado. <strong>Alguns pacientes com icterícia prolongada e sintomas "
+         "incapacitantes chegaram a ser encaminhados para transplante de fígado</strong>, mas quase "
+         "todos melhoraram espontaneamente e o transplante foi evitado. Com seguimento longo, "
+         "espera-se resolução completa"],
         ["Classificação de causalidade",
          "<strong>Escore B</strong> do LiverTox: causa provável de lesão hepática clinicamente "
          "aparente, com icterícia"],
     ])),
 
-dict(h="Duas coisas nessa tabela que mudam a conduta", tipo="li", corpo=[
-    "<strong>A ALT pode melhorar enquanto a pessoa piora.</strong> Naquele caso, a transaminase caiu "
-    "para 24 U/L — valor normal — com a bilirrubina ainda subindo. Quem estivesse monitorando só "
-    "TGO e TGP teria concluído que estava tudo se resolvendo. Numa lesão colestática, o marcador que "
-    "conta é <strong>bilirrubina e fosfatase alcalina</strong>, não a transaminase.",
-    "<strong>A latência de 2 a 3 meses desmonta a lógica do ciclo.</strong> Quem faz oito semanas e "
-    "para pode ficar ictérico depois de ter parado — e não associar. E quem chega ao fim do primeiro "
-    "ciclo sem sintoma nenhum não recebeu prova de segurança: recebeu um intervalo de tempo que ainda "
-    "não terminou.",
-    "A FDA emitiu alerta público contra suplementos contendo SARMs em <strong>2017</strong>, citando "
-    "reações com risco de vida, entre elas a toxicidade hepática.",
+dict(h="A dose dos casos não é a dose dos ensaios", tipo="p", corpo=[
+    "O LiverTox publica uma tabela que raramente aparece em qualquer outro lugar: a dose usada nos "
+    "ensaios clínicos ao lado da dose usada pelas pessoas que tiveram lesão hepática.",
+], tabela=dict(
+    cap="Doses, segundo a tabela do LiverTox",
+    linhas=[
+        ["Nome genérico", "Também chamado de", "Faixa em ensaios clínicos",
+         "Faixa nos casos de lesão hepática"],
+        ["Ligandrol", "LGD-4033, VK-5211", "0,1 a 2,0 mg", "<strong>4 a 30 mg</strong>"],
+        ["Enobosarme", "MK-2866, S-22, GTx-024, Ostarina", "0,1 a 3,0 mg", "<strong>5 a 20 mg</strong>"],
+        ["Vosilasarme", "RAD-140, Testolona", "50 a 150 mg", "5 a 30 mg"],
+        ["Andarina", "GTx-007, S-4", "não reportada", "25 a 50 mg"],
+    ])),
+
+dict(h="O que essa tabela mostra, e o que eu não vou concluir dela", tipo="li", corpo=[
+    "<strong>No Ligandrol e no Enobosarme, quem se machucou usava muito mais do que o testado.</strong> "
+    "O Ligandrol foi estudado entre 0,1 e 2,0 mg; nos casos de lesão hepática a faixa foi de 4 a 30 mg "
+    "— o teto é quinze vezes a dose máxima de ensaio.",
+    "<strong>No Vosilasarme a relação aparece invertida</strong>, com faixa de ensaio maior que a dos "
+    "casos. Reproduzo a tabela como ela está publicada e não tento explicar a inversão: não sei se é "
+    "particularidade do composto, do desenho dos estudos ou da própria tabela.",
+    "<strong>Nada disso autoriza a leitura de que existe dose segura.</strong> A tabela mostra o que "
+    "as pessoas dos relatos tomaram, não um limiar abaixo do qual não há lesão.",
+]),
+
+dict(h="Dois achados que mudam a conduta", tipo="p", corpo=[
+    "O primeiro está no caso clínico detalhado que a própria entrada traz, com a tabela de exames "
+    "semana a semana. O homem parou o suplemento ao ficar sintomático. Quatro dias depois: bilirrubina "
+    "7,9 mg/dL e ALT 177 U/L. Nas semanas seguintes, com o suplemento já suspenso, a "
+    "<strong>ALT caiu para a faixa normal — 43, 47, 48 U/L, com limite de referência abaixo de "
+    "50</strong> — enquanto a <strong>bilirrubina subia para 27,9, depois 29,3, e chegava ao pico de "
+    "41,5 mg/dL</strong>.",
+    "Quem estivesse acompanhando só TGO e TGP teria visto exames normalizando no exato período em que "
+    "a pessoa piorava. Numa lesão colestática, o marcador que conta é a <strong>bilirrubina</strong> — "
+    "e não adianta esperar pela fosfatase alcalina, que o próprio LiverTox descreve como minimamente "
+    "elevada ou normal no início. Esse caso teve latência de cinco semanas e levou quatro meses para "
+    "os exames voltarem ao normal.",
+    "O segundo é a latência de 2 a 3 meses, que desmonta a lógica do ciclo. Quem faz oito semanas e "
+    "para pode ficar ictérico <em>depois</em> de ter parado — foi o que aconteceu nesse caso — e não "
+    "associar. E quem chega ao fim do primeiro ciclo sem sintoma nenhum não recebeu prova de "
+    "segurança: recebeu um intervalo de tempo que ainda não terminou.",
+]),
+
+dict(h="O que o LiverTox diz sobre a regulação disso", tipo="li", corpo=[
+    "<strong>Nenhum SARM é aprovado para uso humano pela FDA.</strong> A entrada lista pelo menos 16 "
+    "agentes diferentes, muitos com vários nomes químicos e comerciais.",
+    "<strong>A FDA publicou vários alertas clínicos</strong> sobre os perigos do uso de SARMs e sobre "
+    "a falta de segurança e eficácia comprovadas, e agiu contra produtores do mercado clandestino — "
+    "mas os produtos continuam disponíveis.",
+    "<strong>O rótulo costuma dizer que o produto é apenas para pesquisa.</strong> O LiverTox explica "
+    "a função dessa frase: é o que permite ao fabricante alegar que a venda não viola a exigência de "
+    "aprovação regulatória. Não é uma descrição do produto, é uma manobra.",
+    "<strong>O que está escrito no rótulo pode não ser confiável</strong>, segundo a própria entrada. "
+    "E os SARMs são <strong>banidos pela Agência Mundial Antidopagem</strong>, tendo sido detectados "
+    "em atletas de competição, que foram suspensos.",
 ]),
 
 # ------------------------------------------------------------ 7. na pratica
@@ -234,8 +295,10 @@ dict(h="O que fazer, na ordem", tipo="li", corpo=[
     "depois de <em>uma</em> sessão.",
     "<strong>Peça CK junto.</strong> É o que discrimina: CK alta com bilirrubina, GGT e fosfatase "
     "alcalina normais aponta para músculo.",
-    "<strong>Não monitore só transaminase.</strong> O padrão colestático — que é o dos SARMs e dos "
-    "anabolizantes — aparece em bilirrubina e fosfatase alcalina, e pode piorar com a ALT caindo.",
+    "<strong>Não monitore só transaminase.</strong> No padrão colestático — o dos SARMs e dos "
+    "anabolizantes — quem denuncia a piora é a <strong>bilirrubina</strong>, e ela pode subir com a "
+    "ALT caindo. A fosfatase alcalina começa minimamente elevada ou normal, então esperar por ela "
+    "atrasa o diagnóstico.",
     "<strong>Urina escura, fezes claras, coceira sem lesão de pele, olhos amarelados: parar e "
     "procurar atendimento no mesmo dia.</strong> Nessa ordem de sintomas, o exame vem depois da "
     "consulta, não antes.",
