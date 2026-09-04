@@ -193,3 +193,6 @@ PROPRIOS.update(_SUP4)
 
 from proprios5 import LESTE as _LESTE
 PROPRIOS.update(_LESTE)
+
+from proprios6 import KLOW_SEMAX as _KS
+PROPRIOS.update(_KS)

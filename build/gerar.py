@@ -218,6 +218,14 @@ def rodape(prefixo=""):
 </html>"""
 
 
+
+# paginas de protocolo que ganharam companheira de fonte primaria
+COMPANHEIRA = {
+    'stacks_klow-stack': ('proprio_klow_evidencia', 'KLOW'),
+    'protocol_semax': ('proprio_semax_evidencia', 'Semax'),
+}
+
+
 def selo_aprovacao(v):
     return {
         "nao":     ('selo-nao', 'Não aprovado'),
@@ -351,6 +359,13 @@ def gera_composto(item):
     p.append('</div>')
 
     p.append(AVISO)
+
+    if slug in COMPANHEIRA:
+        destino, nome = COMPANHEIRA[slug]
+        p.append(f'<div class="nota"><strong>Esta página vem da fonte secundária.</strong> '
+                 f'O que a evidência primária diz sobre o {esc(nome)} — contagem no PubMed, ensaios registrados '
+                 f'e as doses que os estudos publicados usaram — está em '
+                 f'<a href="{destino}.html">{esc(nome)} — a evidência</a>.</div>')
 
     if m.get('alerta'):
         p.append(f'<div class="aviso-linha"><strong>Atenção específica deste composto:</strong> {esc(m["alerta"])}</div>')
