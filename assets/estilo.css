@@ -52,7 +52,12 @@
   --mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* métrica */
-  --largura: 1180px;
+  /* Era 1180px. Medido em 04/09/2026: a coluna de artigo ficava com 848px
+     e a maior tabela do site pedia 1051px, rolando 203px escondidos. Com
+     1440 a coluna vai a 1108px e nenhuma tabela precisa rolar. Subir a
+     largura só é seguro porque o texto corrido tem medida própria (68ch):
+     sem ela, a prosa iria junto e a leitura pioraria. */
+  --largura: 1440px;
   --raio:    14px;
   --raio-sm: 9px;
 }
@@ -278,7 +283,18 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   text-decoration: none; border-color: var(--linha-forte);
   background: var(--superficie-2); transform: translateY(-2px);
 }
-.card-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
+/* O selo tem white-space: nowrap e 153px no pior caso ("APROVAÇÃO PARCIAL").
+   Num cartão estreito ele empurrava para fora da página -- 6px de overflow
+   medidos a 1280px de viewport com a grade em 4 colunas. Duas correções: o
+   título passa a poder encolher (min-width: 0 vence o min-content padrão do
+   item flex) e a linha pode quebrar, jogando o selo para baixo quando não
+   houver espaço. O selo em si não encolhe: selo cortado não informa nada. */
+.card-topo {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px 12px; margin-bottom: 9px;
+}
+.card-topo h3 { min-width: 0; }
+.card-topo .selo { flex: 0 0 auto; }
 .card h3 {
   font-family: var(--display); font-size: 19.5px; font-weight: 600;
   margin: 0; letter-spacing: -0.012em; line-height: 1.24; color: var(--texto);
