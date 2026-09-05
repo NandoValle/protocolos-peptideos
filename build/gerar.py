@@ -534,7 +534,11 @@ def gera_index(itens, stats):
                      'nao': ' sem registro anvisa importacao manipulado',
                      'nof': ' notificado anvisa baixo risco'}.get(estado_anv, '')
             busca = f"{m['nome']} {m['tagline']} {nome} {i['slug']}{extra}".lower()
-            partes.append(f"""    <a class="card" href="p/{i['slug']}.html" data-cat="{cat}" data-anv="{estado_anv}" data-busca="{esc(busca)}">
+            # A regua da procedencia aparece ja na lista, antes do clique: o
+            # cartao que leva a pagina aferida traz a mesma borda que a tabela
+            # de la vai trazer. E a mesma notacao, aprendida no hero.
+            proc_card = ' card-aferido' if cat == 'primaria' else ''
+            partes.append(f"""    <a class="card{proc_card}" href="p/{i['slug']}.html" data-cat="{cat}" data-anv="{estado_anv}" data-busca="{esc(busca)}">
       <div class="card-topo"><h3>{esc(m['nome'])}</h3><span class="selo {cls}">{rot}</span></div>
       <p>{esc(m['tagline'])}</p>
       <div class="card-rodape"><span class="selo selo-cat">{esc(nome)}</span>{selo_anv}<span>{i['n_tabelas']} tabela(s)</span></div>

@@ -609,3 +609,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .procedencia-resumo { grid-template-columns: 1fr; gap: 18px; }
   .proc-lado b { font-size: 32px; }
 }
+
+/* A régua no cartão do índice. É a mesma notação do hero e das tabelas,
+   aparecendo antes do clique: este cartão leva a uma página onde o número
+   foi aferido. O cartão sem régua leva a dose transportada — e a ausência
+   é a informação, como no resto do site.
+
+   Fica na borda esquerda, e não num selo a mais: o rodapé do cartão já
+   carrega categoria, registro na ANVISA e contagem de tabelas. Mais um selo
+   ali seria ruído, e a régua diz a mesma coisa sem ocupar linha. */
+.card-aferido {
+  border-left: 3px solid var(--aferido-rasa);
+  padding-left: 20px;   /* compensa os 2px a mais da borda */
+}
+.card-aferido:hover { border-left-color: var(--aferido); }
