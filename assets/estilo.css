@@ -382,7 +382,13 @@ thead th {
   text-align: left; padding: 12px 20px;
   font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.09em;
   color: var(--texto-fraco); font-weight: 700;
-  border-bottom: 1px solid var(--linha-forte); white-space: nowrap;
+  border-bottom: 1px solid var(--linha-forte);
+  /* Era nowrap. Um cabecalho como "Faixa usual em estudos" era forcado numa
+     linha so e passava a ditar a largura da coluna, espremendo a coluna de
+     prosa ao lado -- que e a que o leitor precisa ler. Medido numa tabela de
+     fitoterapicos: a coluna de texto ia de 184px para 193px e a tabela
+     deixava de precisar de rolagem. */
+  white-space: normal; hyphens: none;
 }
 tbody td {
   padding: 13px 20px; border-bottom: 1px solid var(--linha);
@@ -630,3 +636,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
    atrás dele. */
 .nota-fallback { margin-top: 10px; }
 .nota-fallback strong { color: var(--texto-suave); }
+
+/* =========================================================================
+   Medida de leitura e aviso de rolagem
+   ========================================================================= */
+
+/* A coluna de artigo tinha 848px e a prosa saia com 82 caracteres por linha —
+   medido, nao estimado. O confortavel fica entre 45 e 75. A coluna continua
+   com 848px, porque a tabela precisa deles; so o texto corrido passa a ter
+   medida propria. Tabela, lista de tabela e legenda ficam de fora. */
+.pagina p:not(.tabela-titulo):not(.nota-filtro),
+.pagina > div > ul li,
+.pagina .nota,
+.pagina .aviso-linha {
+  max-width: 68ch;
+}
+
+/* Sombra de rolagem, so em CSS: as camadas `local` andam com o conteudo e as
+   `scroll` ficam paradas, entao a sombra aparece exatamente no lado em que
+   ainda ha tabela escondida. Sem ela, a tabela que estoura parece quebrada:
+   o texto acaba no meio da palavra e nada diz que da para rolar. */
+.tabela-rolagem {
+  overflow-x: auto;
+  background:
+    linear-gradient(to right, var(--superficie) 30%, rgba(17, 20, 25, 0)) left center / 34px 100% no-repeat local,
+    linear-gradient(to left,  var(--superficie) 30%, rgba(17, 20, 25, 0)) right center / 34px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,   rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0)) left center / 16px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0)) right center / 16px 100% no-repeat scroll;
+}
