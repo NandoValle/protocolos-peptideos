@@ -450,7 +450,7 @@ def gera_index(itens, stats):
     partes.append(f"""<section class="hero">
   <span class="hero-sobre">Referência experimental</span>
   <h1>Peptídeos, nootrópicos e correlatos — <em>em português</em>, com o limite da evidência à mostra.</h1>
-  <p class="hero-sub">{stats['n']} compostos e combinações — de peptídeos a <a href="p/proprio_nootropicos.html">nootrópicos</a>, SARMs e o que existe registrado no Brasil —, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade, porque a diferença entre as duas coisas é o assunto todo. Em {stats['primarias']} delas os números não vieram de fonte secundária: foram conferidos no PubMed, no dado aberto da ANVISA e na bula.</p>
+  <p class="hero-sub">{stats['n']} compostos e combinações — de peptídeos a <a href="p/proprio_nootropicos.html">nootrópicos</a>, SARMs e o que existe registrado no Brasil —, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade, porque a diferença entre as duas coisas é o assunto todo. Em {stats['primarias']} delas os números não vieram de fonte secundária: foram conferidos no <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="noopener">PubMed</a>, no <a href="https://clinicaltrials.gov/" rel="noopener">ClinicalTrials.gov</a>, no <a href="https://dados.anvisa.gov.br/dados/" rel="noopener">dado aberto da ANVISA</a> e na bula — com a consulta declarada em cada página, para você repetir e me contradizer.</p>
   <div class="procedencia-resumo">
     <div class="proc-lado proc-aferida">
       <b>{stats['primarias']}</b>
@@ -515,8 +515,9 @@ def gera_index(itens, stats):
     partes.append('<p class="nota-filtro">O selo de registro vem da <a href="evidencia.html">varredura do dado aberto '
                   f'da ANVISA</a> feita em {DATA_APURACAO}, e só aparece nos 44 compostos que foram medidos um a '
                   'um. Combinações e páginas de método não têm selo.</p>')
-    partes.append('<noscript><p class="nota-filtro"><strong>O filtro precisa de JavaScript.</strong> '
-                  'Sem ele nada se perde: os compostos continuam todos listados e linkados abaixo, por seção.</p></noscript>')
+    partes.append(f'<p class="nota-filtro nota-fallback"><strong>O filtro é atalho, não porta.</strong> '
+                  f'Os {stats["n"]} compostos estão listados e linkados abaixo, agrupados por seção — '
+                  'dá para chegar em qualquer um rolando a página, sem buscar e sem JavaScript.</p>')
     partes.append('<p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>')
 
     for cat, (nome, desc) in CATEGORIAS.items():

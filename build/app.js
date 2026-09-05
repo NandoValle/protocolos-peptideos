@@ -101,11 +101,21 @@
   // ---------------------------------------------------------------- WebMCP
   // Deteccao de recurso: a API e experimental e pode simplesmente nao existir.
   // Sem ela, tudo acima continua funcionando igual.
-  var mc = (typeof document !== 'undefined') ? document.modelContext : null;
+  // Detecção de recurso na forma canônica. A anterior fazia a mesma checagem
+  // por outro caminho e um analisador estático não a reconhecia como tal —
+  // e um recurso experimental que ninguém consegue verificar de fora é meio
+  // caminho para alguém presumir que ele existe.
+  var temWebMCP = (typeof document !== 'undefined') && ('modelContext' in document);
+  if (!temWebMCP) return;
+  var mc = document.modelContext;
   if (!mc || typeof mc.registerTool !== 'function') return;
 
+  // Cancelamento por AbortSignal. throwIfAborted() é o idioma da própria API
+  // e diz o que faz; a versão manual anterior fazia o mesmo com mais linhas.
   function cancelado(sinal) {
-    if (sinal && sinal.aborted) {
+    if (!sinal) return;
+    if (typeof sinal.throwIfAborted === 'function') { sinal.throwIfAborted(); return; }
+    if (sinal.aborted) {
       throw new DOMException('Filtragem cancelada pelo chamador.', 'AbortError');
     }
   }

@@ -623,3 +623,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   padding-left: 20px;   /* compensa os 2px a mais da borda */
 }
 .card-aferido:hover { border-left-color: var(--aferido); }
+
+/* O caminho manual, dito em voz alta. Estava só num <noscript>, que não
+   aparece para quem tem JavaScript — ou seja, para quase todo mundo. Se o
+   filtro esconde cartões, a página tem que dizer que nada ficou trancado
+   atrás dele. */
+.nota-fallback { margin-top: 10px; }
+.nota-fallback strong { color: var(--texto-suave); }
