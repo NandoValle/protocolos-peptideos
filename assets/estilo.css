@@ -39,6 +39,13 @@
   --atencao:      #D9B44A;
   --atencao-fundo:rgba(217, 180, 74, 0.10);
 
+  /* Procedência. É a distinção que sustenta o site inteiro: número aferido
+     em fonte primária contra número transportado de fonte secundária.
+     O tom é frio e de baixa saturação de propósito — leitura de instrumento,
+     não destaque. Verde diria "aprovado", que é outra coisa. */
+  --aferido:      #B8C9DC;
+  --aferido-rasa: rgba(184, 201, 220, 0.55);
+
   /* tipografia */
   --display: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --corpo:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -51,6 +58,14 @@
 }
 
 * { box-sizing: border-box; }
+
+/* A Fraunces é variável no eixo óptico. Sem isto o navegador usa o mesmo
+   desenho em 12px e em 44px, e a fonte perde justamente o que ela tem. */
+h1, h2, h3, .display { font-optical-sizing: auto; }
+
+/* Um site feito de 389 tabelas de dose não pode ter algarismo proporcional:
+   as colunas de número deixam de alinhar. Tabular em tudo que é número. */
+table, .numero b, .selo, .fato-valor, code, .mono { font-variant-numeric: tabular-nums; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
@@ -376,7 +391,10 @@ tbody td {
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover td { background: rgba(255, 255, 255, 0.014); }
 tbody td:first-child { color: var(--texto); font-weight: 500; white-space: nowrap; }
-.num { font-family: var(--mono); font-size: 13.5px; font-variant-numeric: tabular-nums; color: var(--cobre-claro); }
+.num {
+  font-family: var(--mono); font-size: 13.5px;
+  font-variant-numeric: tabular-nums; color: var(--texto);
+}
 
 /* -------------------------------------------------------------- callouts */
 .nota {
@@ -493,3 +511,101 @@ tbody td:first-child { color: var(--texto); font-weight: 500; white-space: nowra
 }
 .hero-sub a:hover,.hero-sub a:focus-visible{text-decoration-thickness:2px}
 @media (prefers-reduced-motion:reduce){.hero-sub a{transition:none}}
+
+/* =========================================================================
+   PROCEDÊNCIA — a assinatura visual deste site
+   =========================================================================
+   O site publica duas classes de número, e até agora elas eram idênticas na
+   tela: o aferido, que eu conferi no PubMed, na bula ou no dado aberto da
+   ANVISA, e o transportado, que veio de uma fonte secundária comercial e só
+   foi traduzido. A diferença é o assunto inteiro do site — e estava dita
+   apenas em prosa, que ninguém lê antes de olhar a tabela.
+
+   Daqui em diante ela é legível de relance, sem uma palavra:
+
+     página aferida      régua sólida fria + número no display, tabular
+     página transportada régua pontilhada apagada + número em monoespaçada
+
+   A página transportada fica deliberadamente mais seca. Não é descuido: o
+   site não deve lisonjear igualmente o que não conferiu.
+   ========================================================================= */
+
+.tabela-env { position: relative; }
+
+/* A marca é de presença, não de contraste: a tabela aferida traz a régua na
+   borda; a transportada não traz nada. Presença contra ausência se lê mais
+   rápido que sólido contra pontilhado — e é a leitura correta, porque a
+   página transportada não tem nada a declarar sobre a própria procedência. */
+.proc-aferida .tabela-env {
+  border-left: 3px solid var(--aferido-rasa);
+}
+
+/* o número, que é onde a distinção importa de verdade */
+.proc-aferida tbody td strong {
+  font-family: var(--display); font-weight: 600;
+  font-size: 1.06em; letter-spacing: -0.005em;
+  color: var(--aferido);
+}
+
+/* cabeçalho da tabela: na aferida, a régua continua sob o thead */
+.proc-aferida thead th { border-bottom-color: var(--aferido-rasa); }
+
+/* nas páginas aferidas o corpo respira mais: são páginas para ler, não para
+   consultar de relance */
+.proc-aferida tbody td { padding: 15px 20px; }
+
+/* A dose transportada perdeu o cobre de propósito. Antes, as 1.405 doses
+   vindas da fonte secundária comercial eram o elemento mais destacado do
+   site — em cobre, a cor da marca. Ou seja: os números em que o autor menos
+   confia eram os que mais brilhavam. Agora o cobre é só marca e navegação,
+   e o realce fica com o número aferido, na página que o mereceu. */
+
+/* Um sublinhado embaixo do número foi tentado aqui e cortado: lia como link.
+   A face e o tom já bastam — a Fraunces no meio de uma tabela em Inter é
+   diferença suficiente, e não promete um clique que não existe. */
+
+/* Foco visível, que é piso e não enfeite. O contorno segue a procedência da
+   página, então o teclado também aprende a diferença. */
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--cobre-claro); outline-offset: 3px; border-radius: 2px;
+}
+.proc-aferida a:focus-visible { outline-color: var(--aferido); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* =========================================================================
+   O hero como tese
+   =========================================================================
+   Antes havia quatro fichas de número — compostos, tabelas, sem aprovação,
+   categorias. Contagem de inventário: diz o tamanho do site e nada sobre ele.
+   No lugar entra a única coisa que este site pode dizer e os outros não, que
+   é a divisão da própria casa entre o que foi conferido e o que foi só
+   copiado. E ela já vem com a régua que o leitor vai reencontrar em toda
+   tabela daqui para baixo — o hero ensina a notação antes de usá-la.
+   ========================================================================= */
+.procedencia-resumo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+  margin-top: 34px; max-width: 880px;
+}
+.proc-lado { padding: 18px 0 4px 18px; border-left: 3px solid var(--linha); }
+.procedencia-resumo .proc-aferida { border-left-color: var(--aferido-rasa); }
+.proc-lado b {
+  display: block; font-family: var(--display); font-size: 38px;
+  font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+.procedencia-resumo .proc-aferida b { color: var(--aferido); }
+.procedencia-resumo .proc-transportada b { font-family: var(--mono); font-size: 31px; color: var(--texto-suave); }
+.proc-lado span { display: block; font-size: 14px; line-height: 1.6; color: var(--texto-suave); }
+.proc-lado strong { color: var(--texto); font-weight: 600; }
+.procedencia-legenda {
+  margin: 22px 0 0; max-width: 620px;
+  font-size: 13.5px; line-height: 1.65; color: var(--texto-fraco);
+}
+@media (max-width: 720px) {
+  .procedencia-resumo { grid-template-columns: 1fr; gap: 18px; }
+  .proc-lado b { font-size: 32px; }
+}

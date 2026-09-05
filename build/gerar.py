@@ -211,7 +211,7 @@ def json_ld(titulo, descricao, caminho):
 
 
 def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
-              caminho=None):
+              caminho=None, procedencia=None):
     # O site inteiro nasceu noindex. Em 04/09/2026 as paginas de evidencia
     # verificada passaram a ser indexaveis, a pedido: sao as corretivas -- as
     # que dizem o que falhou, o que foi suspenso e quem pagou o estudo. As
@@ -227,6 +227,13 @@ def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
     canon = (f'\n<link rel="canonical" href="{BASE}{caminho}">'
              if caminho else '')
     ld = json_ld(titulo, descricao, caminho) if caminho else ''
+    # Procedencia vira classe no <body>. O site inteiro se sustenta na
+    # diferenca entre numero aferido em fonte primaria e numero transportado
+    # de fonte secundaria comercial -- e ate agora os dois eram identicos na
+    # tela. A classe e o que deixa o CSS dizer isso sem uma linha de texto.
+    classe_proc = ('proc-aferida' if procedencia == 'aferida'
+                   else 'proc-transportada' if procedencia == 'transportada'
+                   else '')
 
     def cls(n):
         return ' aria-current="page"' if atual == n else ''
@@ -245,7 +252,7 @@ def cabecalho(titulo, descricao, prefixo="", atual="", indexavel=False,
 <link rel="stylesheet" href="{prefixo}assets/estilo.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23D08A4A'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' font-weight='700' fill='%2316100A'>P</text></svg>">
 </head>
-<body>
+<body class="{classe_proc}">
 <a class="pular" href="#principal">Pular para o conteúdo</a>
 <header class="cabecalho">
   <div class="cabecalho-in">
@@ -444,12 +451,17 @@ def gera_index(itens, stats):
   <span class="hero-sobre">Referência experimental</span>
   <h1>Peptídeos, nootrópicos e correlatos — <em>em português</em>, com o limite da evidência à mostra.</h1>
   <p class="hero-sub">{stats['n']} compostos e combinações — de peptídeos a <a href="p/proprio_nootropicos.html">nootrópicos</a>, SARMs e o que existe registrado no Brasil —, com dose, reconstituição, estrutura de ciclo e status regulatório. Cada página separa o que um ensaio publicado testou do que é apenas prática relatada por comunidade, porque a diferença entre as duas coisas é o assunto todo. Em {stats['primarias']} delas os números não vieram de fonte secundária: foram conferidos no PubMed, no dado aberto da ANVISA e na bula.</p>
-  <div class="hero-numeros">
-    <div class="numero"><b>{stats['n']}</b><span>compostos</span></div>
-    <div class="numero"><b>{stats['tabelas']}</b><span>tabelas de dose</span></div>
-    <div class="numero"><b>{stats['nao_aprovados']}</b><span>sem aprovação</span></div>
-    <div class="numero"><b>{len(CATEGORIAS)}</b><span>categorias</span></div>
+  <div class="procedencia-resumo">
+    <div class="proc-lado proc-aferida">
+      <b>{stats['primarias']}</b>
+      <span>páginas com o número <strong>aferido</strong> por mim no PubMed, na bula, no ClinicalTrials.gov e no dado aberto da ANVISA — com a consulta declarada em cada uma</span>
+    </div>
+    <div class="proc-lado proc-transportada">
+      <b>{stats['n'] - stats['primarias']}</b>
+      <span>páginas com a dose <strong>transportada</strong> de uma fonte secundária comercial e traduzida, sem que eu tenha conferido o número na origem</span>
+    </div>
   </div>
+  <p class="procedencia-legenda">A diferença entre as duas está impressa em cada tabela deste site: onde o número foi aferido, a tabela traz uma régua na borda e o valor sai em outra letra. Onde não foi, não traz nada.</p>
 </section>""")
 
     partes.append(AVISO)
@@ -570,9 +582,11 @@ def gera_composto(item):
     else:
         titulo = f"{m['nome']} — protocolo, dose e ciclo"
 
+    _primaria = (m['categoria'] == 'primaria')
     p = [cabecalho(titulo, m['tagline'], "../",
-                   indexavel=(m['categoria'] == 'primaria'),
-                   caminho="/p/%s.html" % slug)]
+                   indexavel=_primaria,
+                   caminho="/p/%s.html" % slug,
+                   procedencia='aferida' if _primaria else 'transportada')]
     p.append('<div class="pagina">')
 
     proprio = PROPRIOS.get(slug)
@@ -763,7 +777,8 @@ def gera_evidencia():
                    f"As {n_prim} páginas em que cada número veio da fonte primária "
                    "— PubMed, ClinicalTrials.gov, ANVISA, bula e WADA — "
                    "com a consulta declarada em cada uma.",
-                   "", "evidencia", indexavel=True, caminho="/evidencia.html")]
+                   "", "evidencia", indexavel=True, caminho="/evidencia.html",
+                   procedencia='aferida')]
     p.append('<main id="principal" class="env-largo" style="max-width:860px;padding-top:52px;padding-bottom:80px">')
     p.append('<h1 style="font-family:var(--display);font-size:clamp(32px,4.6vw,44px);font-weight:600;'
              'letter-spacing:-.026em;margin:0 0 14px">Verificado em fonte primária</h1>')
