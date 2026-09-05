@@ -247,8 +247,17 @@ dict(h="O que essa tabela mostra, e o que eu não vou concluir dela", tipo="li",
     "O Ligandrol foi estudado entre 0,1 e 2,0 mg; nos casos de lesão hepática a faixa foi de 4 a 30 mg "
     "— o teto é quinze vezes a dose máxima de ensaio.",
     "<strong>No Vosilasarme a relação aparece invertida</strong>, com faixa de ensaio maior que a dos "
-    "casos. Reproduzo a tabela como ela está publicada e não tento explicar a inversão: não sei se é "
-    "particularidade do composto, do desenho dos estudos ou da própria tabela.",
+    "casos — e a explicação é o oposto de tranquilizadora. Nos outros SARMs existe ensaio em dose "
+    "baixa para servir de comparação. No RAD-140 não existe: <strong>a única dose clínica que o "
+    "composto tem é dose de oncologia</strong>. Ela vem do único ensaio humano já feito com ele, um "
+    "fase 1 <em>first-in-human</em> em 22 mulheres na pós-menopausa com câncer de mama metastático, "
+    "fortemente pré-tratadas, em 50 mg (6 pessoas), 100 mg (13) e 150 mg (3) por dia.",
+    "<strong>E o sinal hepático apareceu já ali.</strong> Nesse ensaio, sob supervisão, houve elevação "
+    "de AST em <strong>59,1%</strong> das participantes, de ALT em <strong>45,5%</strong> e de "
+    "bilirrubina total em <strong>27,3%</strong>; eventos de grau 3 ou 4 em <strong>16 das 22</strong> "
+    "(72,7%). Não é achado exclusivo do mercado paralelo: é o que se viu no primeiro contato "
+    "documentado do composto com o corpo humano. A página de <a href=\"proprio_sarms.html\">SARMs</a> "
+    "abre esse ensaio em detalhe.",
     "<strong>Nada disso autoriza a leitura de que existe dose segura.</strong> A tabela mostra o que "
     "as pessoas dos relatos tomaram, não um limiar abaixo do qual não há lesão.",
 ]),
@@ -339,6 +348,8 @@ dict(h="O que esta página não é", tipo="li", corpo=[
          "https://doi.org/10.1002/hep.27317"),
         ("LiverTox — Selective Androgen Receptor Modulators. National Institute of Diabetes and Digestive and Kidney Diseases, NCBI Bookshelf NBK619971",
          "https://www.ncbi.nlm.nih.gov/books/NBK619971/"),
+        ("PubMed — LoRusso P, Hamilton E, Ma C, et al. A First-in-Human Phase 1 Study of a Novel Selective Androgen Receptor Modulator (SARM), RAD140, in ER+/HER2- Metastatic Breast Cancer. Clin Breast Cancer. 2022;22(1):67-77. PMID 34565686 · doi:10.1016/j.clbc.2021.08.003 — o unico ensaio humano do RAD-140, e a origem da faixa de dose que o LiverTox cita",
+         "https://doi.org/10.1016/j.clbc.2021.08.003"),
         ("StatPearls — Use of the Child Pugh Score in Liver Disease. NCBI Bookshelf NBK542308",
          "https://www.ncbi.nlm.nih.gov/books/NBK542308/"),
         ("ANVISA — Bulário eletrônico, para o texto que vale no Brasil",
