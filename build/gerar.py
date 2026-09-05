@@ -109,7 +109,16 @@ def esc(s):
 # separador de milhar da fonte (EN) -> ponto do PT-BR.
 # "5,000 mcg" e cinco mil, nao cinco. So dispara com digito inicial 1-9,
 # para nunca tocar em decimal do tipo "0,075 mL".
-_MILHAR = re.compile(r'\b([1-9]\d{0,2}),(\d{3})\b')
+#
+# E nunca antes de "mL". Aqui a guarda e fisica, nao tipografica: esta regra
+# roda DEPOIS do dicionario, que ja converteu o decimal ingles para virgula.
+# Um "1,125 mL" correto tem a mesma forma de um milhar, e a regra o convertia
+# para "1.125 mL" -- que em portugues se le como mil cento e vinte e cinco
+# mililitros. Volume assim nao existe em tabela de reconstituicao: a maior
+# do site tem 3 mL. Conferido em 05/09/2026: zero milhares de mL na fonte
+# inglesa, e a unica ocorrencia de "X.YYY mL" no site publicado era esse erro,
+# na tabela da tirzepatida.
+_MILHAR = re.compile(r'\b([1-9]\d{0,2}),(\d{3})\b(?!\s*mL)')
 
 
 def normaliza_milhar(t):

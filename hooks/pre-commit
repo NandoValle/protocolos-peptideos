@@ -56,3 +56,20 @@ if [ -f "$TRAVA2" ]; then
         exit 1
     fi
 fi
+
+# Terceira trava: a aritmetica das tabelas de reconstituicao fecha sozinha.
+# volume = dose / concentracao. Um erro ali e erro de dose por fator de 2 ou
+# de 10 -- e foi assim que "1,125 mL" virou "1.125 mL" na tirzepatida, que em
+# portugues se le como mil cento e vinte e cinco mililitros.
+TRAVA3="$RAIZ/build/trava_reconstituicao.py"
+
+if [ -f "$TRAVA3" ]; then
+    if ! "$PY" "$TRAVA3"; then
+        echo "" >&2
+        echo "COMMIT BLOQUEADO pela trava de reconstituicao." >&2
+        echo "A tabela nao fecha com a propria conta: volume = dose /" >&2
+        echo "concentracao. Confira os numeros acima, ou use --no-verify se" >&2
+        echo "souber o que esta fazendo." >&2
+        exit 1
+    fi
+fi
