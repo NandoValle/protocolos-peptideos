@@ -511,13 +511,15 @@ def gera_index(itens, stats):
     <button type="button" class="filtro filtro-anv" data-anv="sim" aria-pressed="false">Só o que existe aqui</button>
     <button type="button" class="filtro filtro-anv" data-anv="nao" aria-pressed="false">Só o que não existe</button>
   </div>
-</form>""")
+  <p class="nota-filtro nota-fallback"><strong>O filtro é atalho, não porta.</strong>
+     Os {n} compostos estão listados e linkados abaixo, agrupados por seção — dá para
+     chegar em qualquer um rolando a página, sem buscar.</p>
+  <noscript><p class="nota-filtro nota-fallback">Sem JavaScript o filtro não roda, e nada
+     se perde: a lista abaixo já está completa.</p></noscript>
+</form>""".replace('{n}', str(stats['n'])))
     partes.append('<p class="nota-filtro">O selo de registro vem da <a href="evidencia.html">varredura do dado aberto '
                   f'da ANVISA</a> feita em {DATA_APURACAO}, e só aparece nos 44 compostos que foram medidos um a '
                   'um. Combinações e páginas de método não têm selo.</p>')
-    partes.append(f'<p class="nota-filtro nota-fallback"><strong>O filtro é atalho, não porta.</strong> '
-                  f'Os {stats["n"]} compostos estão listados e linkados abaixo, agrupados por seção — '
-                  'dá para chegar em qualquer um rolando a página, sem buscar e sem JavaScript.</p>')
     partes.append('<p id="vazio" hidden style="color:var(--texto-fraco);padding:40px 0">Nenhum composto corresponde à busca.</p>')
 
     for cat, (nome, desc) in CATEGORIAS.items():
