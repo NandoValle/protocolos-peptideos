@@ -98,6 +98,49 @@ SARM = {
             "<strong>Nenhum SARM foi aprovado por nenhuma agência, em lugar nenhum</strong>, para nenhuma indicação.",
         ]),
 
+        dict(h="O único ensaio humano do RAD140, por dentro", tipo="p", corpo=[
+            "Vale abrir esse ensaio, porque ele é a base humana inteira do composto mais vendido do mercado "
+            "paralelo — e porque o que há dentro dele quase nunca é citado.",
+            "É o <strong>NCT03088527</strong>, primeiro em humano, publicado por LoRusso e colegas em 2022. "
+            "Desenho de escalonamento de dose 3+3 em mulheres na pós-menopausa com câncer de mama metastático "
+            "RE+/HER2−, <strong>fortemente pré-tratadas</strong>. Os níveis de dose foram "
+            "<strong>50 mg (n=6), 100 mg (n=13) e 150 mg (n=3)</strong>, uma vez ao dia.",
+            "Guarde esses três números. <strong>Quando qualquer fonte cita uma “faixa de dose em ensaio clínico” "
+            "para o RAD140, é daqui que ela vem</strong> — não existe outra. E é faixa de oncologia, calibrada "
+            "contra câncer metastático, não contra hipertrofia.",
+        ], tabela=dict(
+            cap="Eventos adversos emergentes de tratamento, 22 pacientes",
+            linhas=[
+                ["Evento", "Frequência"],
+                ["AST elevada", "<strong>59,1%</strong>"],
+                ["ALT elevada", "<strong>45,5%</strong>"],
+                ["Bilirrubina total elevada", "<strong>27,3%</strong>"],
+                ["Vômito · desidratação · perda de apetite · perda de peso", "27,3% cada"],
+                ["<strong>Eventos de grau 3 ou 4</strong>",
+                 "<strong>16 de 22 (72,7%)</strong> — inclui elevação de AST/ALT e hipofosfatemia, 22,7% cada"],
+                ["Eventos relacionados ao tratamento",
+                 "17 de 22 (77,3%); 7 de grau 3; nenhum de grau 4"],
+            ])),
+
+        dict(h="Como ler esse ensaio", tipo="li", corpo=[
+            "<strong>A única dose clínica que existe para o RAD140 é dose de oncologia.</strong> Isso resolve uma "
+            "estranheza que aparece na literatura de hepatotoxicidade: a faixa “de ensaio” do RAD140 (50 a 150 mg) "
+            "é <em>maior</em> que a faixa relatada nos casos de lesão hepática (5 a 30 mg), ao contrário do que "
+            "acontece com ligandrol e enobosarm. Não é anomalia — é que, nos outros dois, existe ensaio em dose "
+            "baixa para comparar. No RAD140 não existe. A tabela que põe as duas faixas lado a lado está em "
+            "<a href=\"proprio_dose_hepatica.html\">ajuste de dose por função hepática</a>.",
+            "<strong>O fígado já aparecia ali.</strong> Sob supervisão médica, por pelo menos 28 dias, quase "
+            "metade das pacientes teve ALT elevada e quase três em cada cinco tiveram AST elevada. Não é achado "
+            "novo do mercado paralelo: é o que o primeiro contato do composto com o corpo humano mostrou.",
+            "<strong>“Perfil de segurança aceitável” é a conclusão dos autores, e está correta no contexto "
+            "delas.</strong> Aceitável comparado a câncer de mama metastático em paciente sem outra linha de "
+            "tratamento. Transportar essa frase para quem quer ganhar músculo troca o denominador inteiro do juízo.",
+            "⚠️ <strong>Uma divergência entre as fontes, que não resolvi.</strong> O ClinicalTrials.gov declara "
+            "<strong>20</strong> participantes; o artigo publicado diz <strong>22</strong> inscritas, sendo 21 com "
+            "receptor androgênico positivo. As duas fontes são legítimas e não batem. As frequências desta tabela "
+            "são as do artigo, sobre 22.",
+        ]),
+
         dict(h="Os dois únicos ensaios de fase 3 do campo", tipo="p", corpo=[
             "Os ensaios <strong>POWER 1</strong> e <strong>POWER 2</strong> testaram enobosarm contra placebo em "
             "perda muscular por câncer de pulmão, com <strong>651 pacientes somados</strong>. São o topo da pirâmide "
@@ -334,6 +377,8 @@ SARM = {
          "https://doi.org/10.1016/S1470-2045(13)70055-X"),
         ("Palmieri C et al., 2024 — atividade e segurança do enobosarm em câncer de mama avançado RA+/RE+/HER2−: fase 2. Lancet Oncol 25(3):317-325.",
          "https://doi.org/10.1016/S1470-2045(24)00004-4"),
+        ("LoRusso P et al., 2022 — estudo de fase 1, primeiro em humano, do RAD140 em cancer de mama metastatico RE+/HER2-. Fonte dos niveis de dose e das frequencias de eventos adversos desta pagina. Clin Breast Cancer 22(1):67-77.",
+         "https://doi.org/10.1016/j.clbc.2021.08.003"),
         ("Crawford J et al., 2016 — desenho e justificativa do programa de fase 3 do enobosarm (ensaios POWER). É a única publicação vinculada aos dois registros. Curr Oncol Rep 18(6):37.",
          "https://doi.org/10.1007/s11912-016-0522-0"),
         (f"ClinicalTrials.gov, registro NCT01355484 (POWER 1) — resultados dos desfechos coprimários, extraídos da API v2 em {_DT}.",
